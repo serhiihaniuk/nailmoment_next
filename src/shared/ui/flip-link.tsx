@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useInView, Variants } from "framer-motion";
+import { cn } from "../utils/cn";
 
 const DURATION = 0.65;
 const STAGGER = 0.025;
@@ -8,6 +9,7 @@ interface FlipTextProps {
   children: string;
   href: string;
   delay?: number;
+  secondaryText?: string;
 }
 
 const letterVariants: Variants = {
@@ -19,6 +21,12 @@ const letterVariants: Variants = {
   },
 };
 
+//  get random number between min and max
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 const hiddenLetterVariants: Variants = {
   initial: {
     y: "100%",
@@ -32,15 +40,34 @@ export const FlipText: React.FC<FlipTextProps> = ({
   children,
   href,
   delay = 0,
+  secondaryText,
 }) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
-  const isInView = useInView(ref, { once: false });
+
+  const [animationTrigger, setAnimationTrigger] = useState(false);
+
+  useEffect(() => {
+    let stop = false;
+
+    const toggleAnimation = () => {
+      setTimeout(() => {
+        setAnimationTrigger((t) => !t);
+        !stop && toggleAnimation();
+      }, getRandomInt(2000, 6000));
+    };
+
+    toggleAnimation();
+
+    return () => {
+      stop = true;
+    };
+  }, []);
 
   return (
     <motion.a
       ref={ref}
       initial="initial"
-      animate={isInView ? "visible" : "initial"}
+      animate={animationTrigger ? "visible" : "initial"}
       href={href}
       className="relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px]"
       style={{
@@ -63,7 +90,7 @@ export const FlipText: React.FC<FlipTextProps> = ({
           </motion.span>
         ))}
       </div>
-      <div className="absolute inset-0">
+      <div className={cn("absolute inset-0", secondaryText)}>
         {children.split("").map((letter, index) => (
           <motion.span
             variants={hiddenLetterVariants}

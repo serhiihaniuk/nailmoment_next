@@ -54,10 +54,10 @@ export default function Home() {
           <div className="relative">
             <div className="relative z-20">
               {" "}
-              <FlipText delay={0.5} href="#">
+              <FlipText secondaryText="text-pink-300" delay={0.5} href="#">
                 Nail
               </FlipText>
-              <FlipText delay={1.5} href="#">
+              <FlipText delay={1.5} href="#" secondaryText="text-emerald-300">
                 Moment
               </FlipText>
             </div>
