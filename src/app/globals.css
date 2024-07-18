@@ -28,3 +28,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.str {
+  color: black;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}

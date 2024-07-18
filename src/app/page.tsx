@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "@/entities/ui/card";
 import { FlipText } from "@/shared/ui/flip-link";
+import Marquee from "@/shared/ui/marquee";
 import { Section } from "@/shared/ui/section";
 import { AnimatedTitle } from "@/shared/ui/title";
 import { useScroll, useTransform } from "framer-motion";
@@ -20,8 +21,8 @@ export default function Home() {
     });
   }, [scrollYProgress]);
 
-  const sectionOneScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const sectionOneRotate = useTransform(scrollYProgress, [0, 0.5], [0, -5]);
+  const sectionOneScale = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
+  const sectionOneRotate = useTransform(scrollYProgress, [0, 0.5], [0, -2.5]);
 
   const sectionTwoRotate = useTransform(scrollYProgress, [0, 0.35], [10, 0]);
   const sectionTwoScale = useTransform(scrollYProgress, [0, 0.4], [0.3, 1]);
@@ -45,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relevant">
+    <main className="relevant max-w-full">
       <div ref={containerRef} className="relative h-[300dvh] z-20 bg-black">
         <Section
           className="bg-slate-blue sticky top-0 flex flex-col items-center justify-center p-5"
@@ -53,7 +54,6 @@ export default function Home() {
         >
           <div className="relative">
             <div className="relative z-20">
-              {" "}
               <FlipText secondaryText="text-pink-300" delay={0.5} href="#">
                 Nail
               </FlipText>
@@ -61,7 +61,15 @@ export default function Home() {
                 Moment
               </FlipText>
             </div>
-            <div className="absolute -right-[25%] bottom-0 flex items-center justify-center"></div>
+          </div>
+          <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
+            <Marquee>
+              {"  "}КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
+              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
+              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
+              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
+              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ {"  "}
+            </Marquee>
           </div>
         </Section>
         <Section
