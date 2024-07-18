@@ -1,7 +1,8 @@
 "use client";
 import { Card } from "@/entities/ui/card";
+import { RotatingBadgeWithText } from "@/shared/assets/badge";
+import { FlipText } from "@/shared/ui/flip-link";
 import { Section } from "@/shared/ui/section";
-import { AnimatedTitle } from "@/shared/ui/title";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 
@@ -50,10 +51,20 @@ export default function Home() {
           className="bg-slate-blue sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
-          <AnimatedTitle
-            className="text-[200px] leading-none font-extrabold w-80 uppercase text-white "
-            text="Nail Moment"
-          />
+          <div className="relative">
+            <div className="relative z-20">
+              {" "}
+              <FlipText delay={0.5} href="#">
+                Nail
+              </FlipText>
+              <FlipText delay={1.5} href="#">
+                Moment
+              </FlipText>
+            </div>
+            <div className="absolute -right-[25%] bottom-0 flex items-center justify-center">
+              <RotatingBadgeWithText />
+            </div>
+          </div>
         </Section>
         <Section
           className="bg-[#ffe699] flex justify-center items-center sticky top-0"

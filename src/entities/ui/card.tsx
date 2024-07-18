@@ -1,18 +1,40 @@
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, useInView, Variants } from "framer-motion";
 
-export const Card = () => {
+const cardVariants: Variants = {
+  hidden: { scale: 0.95 },
+  visible: { scale: 1 },
+};
+
+const priceVariants: Variants = {
+  hidden: { scale: 0.85, opacity: 0 },
+  visible: { scale: 1, opacity: 1 },
+};
+
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const buttonVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const Card: React.FC = () => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+
   return (
     <motion.div
-      whileHover="hover"
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
       transition={{
         duration: 1,
         ease: "backInOut",
       }}
-      variants={{
-        hover: {
-          scale: 1.05,
-        },
-      }}
+      variants={cardVariants}
       className="relative h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-indigo-500 p-8"
     >
       <div className="relative z-10 text-white">
@@ -20,15 +42,11 @@ export const Card = () => {
           Pro
         </span>
         <motion.span
-          initial={{ scale: 0.85 }}
-          variants={{
-            hover: {
-              scale: 1,
-            },
-          }}
+          variants={priceVariants}
           transition={{
             duration: 1,
             ease: "backInOut",
+            delay: 0.2,
           }}
           className="my-2 block origin-top-left font-mono text-6xl font-black leading-[1.2]"
         >
@@ -36,19 +54,53 @@ export const Card = () => {
           <br />
           Month
         </motion.span>
-        <p>
+        <motion.p
+          variants={textVariants}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            delay: 0.3,
+          }}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.
-        </p>
+        </motion.p>
       </div>
-      <button className="absolute bottom-4 left-4 right-4 z-20 rounded border-2 border-white bg-white py-2 text-center font-mono font-black uppercase text-neutral-800 backdrop-blur transition-colors hover:bg-white/30 hover:text-white">
+      <motion.button
+        variants={buttonVariants}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+          delay: 0.4,
+        }}
+        className="absolute bottom-4 left-4 right-4 z-20 rounded border-2 border-white bg-white py-2 text-center font-mono font-black uppercase text-neutral-800 backdrop-blur transition-colors hover:bg-white/30 hover:text-white"
+      >
         Get it now
-      </button>
-      <Background />
+      </motion.button>
+      <Background isInView={isInView} />
     </motion.div>
   );
 };
 
-const Background = () => {
+interface BackgroundProps {
+  isInView: boolean;
+}
+
+const backgroundVariants: Variants = {
+  hidden: { scale: 1 },
+  visible: { scale: 1.5 },
+};
+
+const circleVariants: Variants = {
+  hidden: { scaleY: 1, y: 0 },
+  visible: { scaleY: 0.5, y: -25 },
+};
+
+const ellipseVariants: Variants = {
+  hidden: { scaleY: 1, y: 0 },
+  visible: { scaleY: 2.25, y: -25 },
+};
+
+const Background: React.FC<BackgroundProps> = ({ isInView }) => {
   return (
     <motion.svg
       width="320"
@@ -57,23 +109,15 @@ const Background = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="absolute inset-0 z-0"
-      variants={{
-        hover: {
-          scale: 1.5,
-        },
-      }}
+      variants={backgroundVariants}
+      animate={isInView ? "visible" : "hidden"}
       transition={{
         duration: 1,
         ease: "backInOut",
       }}
     >
       <motion.circle
-        variants={{
-          hover: {
-            scaleY: 0.5,
-            y: -25,
-          },
-        }}
+        variants={circleVariants}
         transition={{
           duration: 1,
           ease: "backInOut",
@@ -85,12 +129,7 @@ const Background = () => {
         fill="#262626"
       />
       <motion.ellipse
-        variants={{
-          hover: {
-            scaleY: 2.25,
-            y: -25,
-          },
-        }}
+        variants={ellipseVariants}
         transition={{
           duration: 1,
           ease: "backInOut",
