@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { LenisScroll } from "@/shared/ui/lenis";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Rubik({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

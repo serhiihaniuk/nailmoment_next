@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "humane";
-  src: url("../shared/assets/Humane-Bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --black: #1c1c1c;
   --white: white;
@@ -21,10 +13,6 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #f3eee8;
-}
-
-h1 {
-  font-family: "humane";
 }
 
 @layer utilities {

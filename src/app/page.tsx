@@ -1,8 +1,8 @@
 "use client";
 import { Card } from "@/entities/ui/card";
-import { RotatingBadgeWithText } from "@/shared/assets/badge";
 import { FlipText } from "@/shared/ui/flip-link";
 import { Section } from "@/shared/ui/section";
+import { AnimatedTitle } from "@/shared/ui/title";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 
@@ -65,9 +65,10 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="bg-[#ffe699] flex justify-center items-center sticky top-0"
+          className="bg-[#ffe699] flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
+          <AnimatedTitle text="Квитки" />
           <Card />
         </Section>
         <Section

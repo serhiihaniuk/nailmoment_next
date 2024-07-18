@@ -42,9 +42,9 @@ export const FlipText: React.FC<FlipTextProps> = ({
       initial="initial"
       animate={isInView ? "visible" : "initial"}
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap font-black uppercase text-[75px]"
+      className="relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px]"
       style={{
-        lineHeight: 0.75,
+        lineHeight: 1.05,
       }}
     >
       <div>

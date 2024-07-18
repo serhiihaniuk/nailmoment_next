@@ -10,18 +10,9 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   text,
   className = "",
 }) => {
-  const words = text.split(" ");
-  const controls = useAnimation();
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      controls.start("visible");
-      setHasAnimated(true);
-    }
-  }, [isInView, controls, hasAnimated]);
+  const words = text.split(" ");
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,10 +49,10 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   return (
     <motion.h1
       ref={ref}
-      className={`inline-block ${className}`}
+      className={`inline-block text-3xl uppercase font-black ${className}`}
       variants={containerVariants}
       initial="hidden"
-      animate={controls}
+      animate={isInView ? "visible" : "hidden"}
     >
       {words.map((word, wordIndex) => (
         <motion.span
