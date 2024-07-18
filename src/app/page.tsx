@@ -61,9 +61,7 @@ export default function Home() {
                 Moment
               </FlipText>
             </div>
-            <div className="absolute -right-[25%] bottom-0 flex items-center justify-center">
-              <RotatingBadgeWithText />
-            </div>
+            <div className="absolute -right-[25%] bottom-0 flex items-center justify-center"></div>
           </div>
         </Section>
         <Section
