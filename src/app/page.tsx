@@ -115,7 +115,7 @@ export default function Home() {
             <Wave />
           </div>
         </Section>
-        <Section className="relative h-[80vh] gap-5 bg-black text-white flex flex-col justify-center items-center">
+        <Section className="relative h-[80vh] top-black gap-5 bg-black text-white flex flex-col justify-center items-center">
           <AnimatedTitle text="крутий квиток" />
           <Card vip />
         </Section>

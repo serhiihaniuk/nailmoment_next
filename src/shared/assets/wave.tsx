@@ -22,7 +22,7 @@ export const Wave = () => {
   );
 
   return (
-    <div ref={containerRef} className="w-full overflow-hidden">
+    <div ref={containerRef} className="w-full overflow-hidden bottom-black">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1728 280"
