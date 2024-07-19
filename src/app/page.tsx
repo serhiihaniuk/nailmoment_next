@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "@/entities/ui/card";
-import { Flower, Flower2 } from "@/shared/assets/flower";
+import { Flower, Flower2, Flower3 } from "@/shared/assets/flower";
+import { Wave } from "@/shared/assets/wave";
 import { FlipText } from "@/shared/ui/flip-link";
 import Marquee from "@/shared/ui/marquee";
 import { Section } from "@/shared/ui/section";
@@ -29,6 +30,10 @@ export default function Home() {
 
   const flower2Rotate = useTransform(scrollYProgress, [0, 0.8], [0, -100]);
   const flower2Y = useTransform(scrollYProgress, [0, 0.8], [0, -225]);
+
+  const flower3Rotate = useTransform(scrollYProgress, [0.2, 1], [0, -100]);
+  const flower3X = useTransform(scrollYProgress, [0.2, 1], [-225, 0]);
+  const flower3Scale = useTransform(scrollYProgress, [0.2, 1], [1.8, 1]);
 
   const sectionOneStyle = {
     scale: sectionOneScale,
@@ -90,17 +95,29 @@ export default function Home() {
         >
           <AnimatedTitle text="Квиток" />
           <Card />
+          <div className="absolute rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
+            <Wave />
+          </div>
         </Section>
         <Section
-          className="relative flex flex-col justify-center items-center bg-cyan-500"
+          className="relative flex overflow-hidden flex-col justify-center items-center bg-cyan-500"
           style={sectionThreeStyle}
         >
           <AnimatedTitle text="Квиток покруче" />
           <Card />
+          <motion.div
+            style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
+            className="absolute top-0 right-0 w-[200px] h-[200px] overflow-hidden z-20"
+          >
+            <Flower3 />
+          </motion.div>
+          <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
+            <Wave />
+          </div>
         </Section>
-        <Section className="relative bg-black text-white flex flex-col justify-center items-center">
+        <Section className="relative h-[80vh] gap-5 bg-black text-white flex flex-col justify-center items-center">
           <AnimatedTitle text="крутий квиток" />
-          <Card />
+          <Card vip />
         </Section>
       </div>
     </main>

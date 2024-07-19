@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useInView, Variants } from "framer-motion";
+import { Flower2, Flower3 } from "@/shared/assets/flower";
 
 const cardVariants: Variants = {
   hidden: { scale: 0.95 },
@@ -21,7 +22,7 @@ const buttonVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export const Card: React.FC = () => {
+export const Card = ({ vip = false }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, amount: 0.5 });
 
@@ -33,15 +34,27 @@ export const Card: React.FC = () => {
       transition={{
         duration: 1,
         ease: "backInOut",
-        delay: 0.5,
+        delay: 0.2,
       }}
       variants={cardVariants}
-      className="relative h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-indigo-500 p-8"
+      className="relative z-50 h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-indigo-500 p-8"
     >
       <div className="relative z-10 text-white">
         <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
-          Pro
+          pro
         </span>
+        <motion.span
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 10,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="absolute -top-5 right-0"
+        >
+          {vip && <Flower2 />}
+        </motion.span>
         <motion.span
           variants={priceVariants}
           transition={{
@@ -51,9 +64,7 @@ export const Card: React.FC = () => {
           }}
           className="my-2 block origin-top-left font-mono text-6xl font-black leading-[1.2]"
         >
-          $299/
-          <br />
-          Month
+          299zł.
         </motion.span>
         <motion.p
           variants={textVariants}
