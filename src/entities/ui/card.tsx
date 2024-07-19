@@ -33,6 +33,7 @@ export const Card: React.FC = () => {
       transition={{
         duration: 1,
         ease: "backInOut",
+        delay: 0.5,
       }}
       variants={cardVariants}
       className="relative h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-indigo-500 p-8"

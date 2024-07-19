@@ -69,7 +69,7 @@ export const FlipText: React.FC<FlipTextProps> = ({
       initial="initial"
       animate={animationTrigger ? "visible" : "initial"}
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px]"
+      className="relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px] md:text-[150px]"
       style={{
         lineHeight: 1.05,
       }}
@@ -106,6 +106,7 @@ export const FlipText: React.FC<FlipTextProps> = ({
           </motion.span>
         ))}
       </div>
+      <div className="w-0 h-0 absolute" />
     </motion.a>
   );
 };

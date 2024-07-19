@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, delay } from "framer-motion";
 
 interface AnimatedTitleProps {
   text: string;
@@ -42,6 +42,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
         type: "spring",
         damping: 32,
         stiffness: 200,
+        delay: 0.5,
       },
     },
   };
