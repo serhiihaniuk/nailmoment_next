@@ -12,7 +12,7 @@ export const Section: React.FC<SectionProps> = ({
   style,
 }) => {
   return (
-    <motion.div style={style} className={cn("h-[100dvh]", className)}>
+    <motion.div style={style} className={cn("h-[100lvh]", className)}>
       {children}
     </motion.div>
   );
