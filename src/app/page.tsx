@@ -107,7 +107,7 @@ export default function Home() {
           <Card />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
-            className="absolute top-0 right-0 w-[200px] h-[200px] overflow-hidden z-20"
+            className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
           >
             <Flower3 />
           </motion.div>
