@@ -40,7 +40,6 @@ body {
 @keyframes backgroundAnim {
   50% {
     background-position: 140% 50%;
-    transform: skew(-2deg);
   }
 }
 
