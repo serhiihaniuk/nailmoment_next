@@ -1,7 +1,7 @@
 "use client";
 import { Card, TicketType } from "@/entities/ui/card";
 import { Flower, Flower2, Flower3 } from "@/shared/assets/flower";
-import AnimatedSVG from "@/shared/assets/path";
+import { AnimatedPath } from "@/shared/assets/path";
 import { Wave } from "@/shared/assets/wave";
 import { FlipText } from "@/shared/ui/flip-link";
 import Marquee from "@/shared/ui/marquee";
@@ -103,12 +103,12 @@ export default function Home() {
           </div>
           <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
             <Marquee>
-              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
-              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
-              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
-              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
-              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
-              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ{" "}
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024{" "}
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ{" "}
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024{" "}
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ{" "}
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024{" "}
             </Marquee>
           </div>
         </Section>
@@ -122,7 +122,7 @@ export default function Home() {
             <Wave />
           </div>
           <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border border-red-200 overflow-hidden z-20">
-            <AnimatedSVG />
+            <AnimatedPath />
           </div>
         </Section>
         <Section

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-const AnimatedSVG = () => {
+export const AnimatedPath = () => {
   const ref = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -48,4 +48,4 @@ const AnimatedSVG = () => {
   );
 };
 
-export default AnimatedSVG;
+export default AnimatedPath;

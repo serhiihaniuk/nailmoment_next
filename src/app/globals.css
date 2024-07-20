@@ -68,4 +68,5 @@ body {
   top: 2px;
   height: 100%;
   filter: blur(0.5rem);
+  border-radius: 0.75rem;
 }
