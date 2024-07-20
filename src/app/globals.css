@@ -30,11 +30,43 @@ body {
 }
 
 .str {
-  color: var(--slate-blue);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  color: rgb(28 25 23);
 }
 
 .top-black {
-  box-shadow: 1px -7px 1px 4px #000;
+  box-shadow: 1px -7px 1px 4px #fff;
+}
+
+@keyframes backgroundAnim {
+  50% {
+    background-position: 140% 50%;
+    transform: skew(-2deg);
+  }
+}
+
+.btn {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
+  background-size: 400% 100%;
+  border: 1px solid #007cf0;
+  padding: 0;
+  margin: 0;
+  animation: backgroundAnim 18s ease-in-out infinite;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  background-size: inherit;
+  background-image: inherit;
+  animation: inherit;
+  left: 0;
+  right: 0;
+  top: 2px;
+  height: 100%;
+  filter: blur(0.5rem);
 }

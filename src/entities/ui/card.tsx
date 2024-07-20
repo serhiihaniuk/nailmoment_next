@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { Flower2, Flower3 } from "@/shared/assets/flower";
 
@@ -22,7 +22,17 @@ const buttonVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export const Card = ({ vip = false }) => {
+const bulletVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
+type CardProps = {
+  type: "regular" | "vip" | "premium";
+  bullets: string[];
+  price: number;
+};
+export const Card: FC<CardProps> = ({ type, bullets, price }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, amount: 0.5 });
 
@@ -37,12 +47,23 @@ export const Card = ({ vip = false }) => {
         delay: 0.2,
       }}
       variants={cardVariants}
-      className="relative z-50 h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-indigo-500 p-8"
+      className="relative z-50 min-h-[400px] w-96 shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
     >
       <div className="relative z-10 text-white">
-        <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
-          pro
-        </span>
+        {type === "vip" && (
+          <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
+            {type}
+          </span>
+        )}
+        {type === "premium" && (
+          <div className="relative z-20 w-28 h-8 rounded-[20px]">
+            <div className="inset-0 btn rounded-[18px]">
+              <span className="absolute inset-0 flex items-center text-base justify-center rounded-[18px] font-light text-white z-20 bg-black w-full h-full">
+                Premium
+              </span>
+            </div>
+          </div>
+        )}
         <motion.span
           animate={{ rotate: 360 }}
           transition={{
@@ -53,7 +74,7 @@ export const Card = ({ vip = false }) => {
           }}
           className="absolute -top-5 right-0"
         >
-          {vip && <Flower2 />}
+          {type === "premium" && <Flower2 />}
         </motion.span>
         <motion.span
           variants={priceVariants}
@@ -62,19 +83,33 @@ export const Card = ({ vip = false }) => {
             ease: "backInOut",
             delay: 0.2,
           }}
-          className="my-2 block origin-top-left font-mono text-6xl font-black leading-[1.2]"
+          className="my-2 block origin-top-left font-mono text-5xl font-black leading-[1.2]"
         >
-          299zł.
+          {price}zł.
         </motion.span>
         <motion.p
           variants={textVariants}
+          className="text-[16px] font-light mb-8 flex flex-col gap-1 capitalize"
           transition={{
             duration: 0.5,
             ease: "easeOut",
             delay: 0.3,
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.
+          {bullets.map((bullet, index) => (
+            <motion.span
+              key={index}
+              variants={bulletVariants}
+              className="bg-stone-700/40 rounded-xl px-4 py-1"
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 0.3 + index * 0.1,
+              }}
+            >
+              ✔ {bullet}
+            </motion.span>
+          ))}
         </motion.p>
       </div>
       <motion.button
@@ -84,9 +119,14 @@ export const Card = ({ vip = false }) => {
           ease: "easeOut",
           delay: 0.4,
         }}
-        className="absolute bottom-4 left-4 right-4 z-20 rounded border-2 border-white bg-white py-2 text-center font-mono font-black uppercase text-neutral-800 backdrop-blur transition-colors hover:bg-white/30 hover:text-white"
+        className="relative z-20 w-full h-14 rounded-xl"
       >
-        Get it now
+        <div className="inset-0 btn rounded-xl">
+          <span className="absolute inset-0 flex items-center justify-center uppercase rounded-xl text-white z-20 bg-black w-full h-full">
+            {" "}
+            Приєднатися{" "}
+          </span>
+        </div>
       </motion.button>
       <Background isInView={isInView} />
     </motion.div>

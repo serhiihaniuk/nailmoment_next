@@ -19,6 +19,15 @@ const config: Config = {
         "hot-pink": "var(--hot-pink)",
         "green-yellow": "var(--green-yellow)",
       },
+      animation: {
+        backgroundAnim: "backgroundAnim 8s ease-in-out infinite",
+      },
+      keyframes: {
+        backgroundAnim: {
+          "0%, 100%": { backgroundPosition: "0% 100%" },
+          "50%": { backgroundPosition: "100% 0%" },
+        },
+      },
     },
   },
   plugins: [],

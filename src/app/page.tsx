@@ -50,11 +50,28 @@ export default function Home() {
     scale: sectionThreeScale,
   };
 
+  const basicBenefints = [
+    "місце в залі в категорії фан",
+    "виступ спікерів",
+    "нетворкінг з учасниками",
+    "закритий телеграм канал з учасниками",
+    "сертифікат про участь",
+  ];
+
+  const vipBenefits = [...basicBenefints, "презентації від спікерів"];
+  const premiumBenefits = [
+    ...vipBenefits,
+    "кава брейк зі спікерами у Преміум - румі",
+    "нетворкінг зі спікерами",
+    "подарунок від спонсорів",
+    "окрема стійка реєстрації",
+  ];
+
   return (
     <main className="relevant max-w-full">
       <div ref={containerRef} className="relative h-[300dvh] z-20 bg-black">
         <Section
-          className="bg-slate-blue overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
+          className="bg-stone-900 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
           <motion.div
@@ -94,7 +111,7 @@ export default function Home() {
           style={sectionTwoStyle}
         >
           <AnimatedTitle text="Квиток" />
-          <Card />
+          <Card type="regular" bullets={basicBenefints} price={299} />
           <div className="absolute rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
@@ -103,8 +120,8 @@ export default function Home() {
           className="relative flex overflow-hidden flex-col justify-center items-center bg-cyan-500"
           style={sectionThreeStyle}
         >
-          <AnimatedTitle text="Квиток покруче" />
-          <Card />
+          <AnimatedTitle text="VIP квиток" />
+          <Card type="vip" bullets={vipBenefits} price={299} />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
             className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
@@ -115,9 +132,9 @@ export default function Home() {
             <Wave />
           </div>
         </Section>
-        <Section className="relative h-[80vh] top-black gap-5 bg-black text-white flex flex-col justify-center items-center">
-          <AnimatedTitle text="крутий квиток" />
-          <Card vip />
+        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-start items-center">
+          <AnimatedTitle text="PREMIUM квиток" />
+          <Card type="premium" bullets={premiumBenefits} price={299} />
         </Section>
       </div>
     </main>
