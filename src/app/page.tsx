@@ -119,7 +119,7 @@ export default function Home() {
           <AnimatedTitle className="text-4xl" text="Квиток" />
           <Card type="regular" bullets={basicBenefits} price={359} />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave fill="#064e3b" />
+            <Wave />
           </div>
           <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border border-red-200 overflow-hidden z-20">
             <AnimatedPath />
