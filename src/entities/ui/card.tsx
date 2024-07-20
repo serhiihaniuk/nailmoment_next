@@ -53,7 +53,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
     >
       <div className="relative z-10 text-white">
         {type === "vip" && (
-          <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
+          <span className="mb-3 text-emerald-300 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm uppercase font-bold">
             {type}
           </span>
         )}

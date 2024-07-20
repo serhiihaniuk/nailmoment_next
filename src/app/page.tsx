@@ -115,7 +115,7 @@ export default function Home() {
           className="bg-[#ffe699] gap-5 flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
-          <AnimatedTitle text="Квиток" />
+          <AnimatedTitle className="text-4xl" text="Квиток" />
           <Card type="regular" bullets={basicBenefits} price={299} />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
@@ -125,20 +125,31 @@ export default function Home() {
           className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-cyan-500"
           style={sectionThreeStyle}
         >
-          <AnimatedTitle text="VIP квиток" />
+          <AnimatedTitle className="text-4xl" text="VIP квиток" />
           <Card type="vip" bullets={vipBenefits} price={299} />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
             className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
           >
-            <Flower3 />
+            <Flower3 fill3="orange" />
+          </motion.div>
+          <motion.div
+            style={{ rotate: flower3Rotate, y: flower3X, scale: flower3Scale }}
+            className="absolute md:bottom-[25%] bottom-[10%] left-10 w-[200px] h-[200px] overflow-hidden z-20"
+          >
+            <Flower3
+              rotate={-360}
+              fill1="orange"
+              fill2="pink"
+              fill3="#c33d3d"
+            />
           </motion.div>
           <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
         </Section>
         <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-start items-center">
-          <AnimatedTitle text="PREMIUM квиток" />
+          <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
           <Card type="premium" bullets={premiumBenefits} price={299} />
         </Section>
         <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-black text-white flex flex-col justify-end items-center">
