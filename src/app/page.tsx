@@ -116,7 +116,7 @@ export default function Home() {
         >
           <AnimatedTitle text="Квиток" />
           <Card type="regular" bullets={basicBenefits} price={299} />
-          <div className="absolute rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
+          <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
         </Section>
@@ -139,6 +139,46 @@ export default function Home() {
         <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-start items-center">
           <AnimatedTitle text="PREMIUM квиток" />
           <Card type="premium" bullets={premiumBenefits} price={299} />
+        </Section>
+        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-end pt-10 items-center">
+          <div className="font-light max-w-96 flex gap-10 mx-auto">
+            <div className="text-sm relative">
+              <FlipText
+                className="text-[25px] md:text-[35px]"
+                secondaryText="text-pink-300"
+                delay={0.5}
+                href="#"
+              >
+                Nail
+              </FlipText>
+              <FlipText
+                className="text-[25px] md:text-[35px]"
+                delay={1.5}
+                href="#"
+                secondaryText="text-emerald-300"
+              >
+                Moment
+              </FlipText>
+            </div>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a target="_blank" href="https://t.me/+THVRcBRhyWc5OWY0">
+                  Напиши до нас в підтримку
+                </a>
+              </li>
+              <li>
+                <a href="/polityka">Polityka prywatności</a>
+              </li>
+              <li>
+                <a type="tel" href="/polityka">
+                  +48 555 5555
+                </a>
+              </li>
+              <li className="flex gap-2 items-center">
+                <a href="instagram.com/nailmoment">Instagram</a>
+              </li>
+            </ul>
+          </div>
         </Section>
       </div>
     </main>

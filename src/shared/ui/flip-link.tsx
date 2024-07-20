@@ -10,6 +10,7 @@ interface FlipTextProps {
   href: string;
   delay?: number;
   secondaryText?: string;
+  className?: string;
 }
 
 const letterVariants: Variants = {
@@ -41,6 +42,7 @@ export const FlipText: React.FC<FlipTextProps> = ({
   href,
   delay = 0,
   secondaryText,
+  className,
 }) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
 
@@ -69,7 +71,10 @@ export const FlipText: React.FC<FlipTextProps> = ({
       initial="initial"
       animate={animationTrigger ? "visible" : "initial"}
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px] md:text-[150px]"
+      className={cn(
+        "relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px] md:text-[100px]",
+        className
+      )}
       style={{
         lineHeight: 1.05,
       }}
