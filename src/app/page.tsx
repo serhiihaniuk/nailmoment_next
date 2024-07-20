@@ -51,26 +51,48 @@ export default function Home() {
     scale: sectionThreeScale,
   };
 
-  const basicBenefits: Array<{ value: string; type: TicketType }> = [
-    { value: "Місце в залі в категорії фан", type: "regular" },
-    { value: "Виступ спікерів", type: "regular" },
-    { value: "Нетворкінг з учасниками", type: "regular" },
-    { value: "Закритий телеграм канал з учасниками", type: "regular" },
-    { value: "Сертифікат про участь", type: "regular" },
+  interface Benefit {
+    value: string;
+    type: TicketType;
+  }
+
+  const createBenefit = (value: string, type: TicketType): Benefit => ({
+    value,
+    type,
+  });
+
+  const commonBenefits: Benefit[] = [
+    createBenefit("Виступ спікерів", "regular"),
+    createBenefit("Нетворкінг з учасниками", "regular"),
+    createBenefit("Закритий телеграм канал з учасниками", "regular"),
+    createBenefit("Сертифікат про участь", "regular"),
   ];
 
-  const vipBenefits: Array<{ value: string; type: TicketType }> = [
-    ...basicBenefits,
-    { value: "Презентації від спікерів", type: "vip" },
-  ];
+  const ticketBenefits = {
+    regular: [
+      createBenefit("Місце в залі в категорії фан", "regular"),
+      ...commonBenefits,
+    ],
+    vip: [
+      createBenefit("Місце в залі в категорії VIP", "vip"),
+      ...commonBenefits,
+      createBenefit("Презентації від спікерів", "vip"),
+    ],
+    premium: [
+      createBenefit("Місце в залі в категорії Преміум", "premium"),
+      ...commonBenefits,
+      createBenefit("Презентації від спікерів", "vip"),
+      createBenefit("Кава брейк зі спікерами у Преміум - румі", "premium"),
+      createBenefit("Нетворкінг зі спікерами", "premium"),
+      createBenefit("Подарунок від спонсорів", "premium"),
+      createBenefit("Окрема стійка реєстрації", "premium"),
+    ],
+  };
 
-  const premiumBenefits: Array<{ value: string; type: TicketType }> = [
-    ...vipBenefits,
-    { value: "Кава брейк зі спікерами у Преміум - румі", type: "premium" },
-    { value: "Нетворкінг зі спікерами", type: "premium" },
-    { value: "Подарунок від спонсорів", type: "premium" },
-    { value: "Окрема стійка реєстрації", type: "premium" },
-  ];
+  // Usage example:
+  const regularBenefits = ticketBenefits.regular;
+  const vipBenefits = ticketBenefits.vip;
+  const premiumBenefits = ticketBenefits.premium;
 
   return (
     <main className="relevant max-w-full">
@@ -117,7 +139,7 @@ export default function Home() {
           style={sectionTwoStyle}
         >
           <AnimatedTitle className="text-4xl" text="Квиток" />
-          <Card type="regular" bullets={basicBenefits} price={359} />
+          <Card type="regular" bullets={regularBenefits} price={359} />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
