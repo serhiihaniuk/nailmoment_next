@@ -91,7 +91,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
         </motion.span>
         <motion.p
           variants={textVariants}
-          className="text-[16px] font-light mb-8 flex flex-col gap-1 capitalize"
+          className="text-[16px] font-light mb-8 flex flex-col gap-1"
           transition={{
             duration: 0.5,
             ease: "easeOut",
