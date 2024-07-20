@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { Flower2, Flower3 } from "@/shared/assets/flower";
+import { cn } from "@/shared/utils/cn";
 
 const cardVariants: Variants = {
   hidden: { scale: 0.95 },
@@ -27,9 +28,10 @@ const bulletVariants: Variants = {
   visible: { opacity: 1, x: 0 },
 };
 
+export type TicketType = "regular" | "vip" | "premium";
 type CardProps = {
-  type: "regular" | "vip" | "premium";
-  bullets: string[];
+  type: TicketType;
+  bullets: { value: string; type: TicketType }[];
   price: number;
 };
 export const Card: FC<CardProps> = ({ type, bullets, price }) => {
@@ -47,7 +49,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
         delay: 0.2,
       }}
       variants={cardVariants}
-      className="relative z-50 min-h-[400px] w-96 shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
+      className="relative z-50 min-h-[400px] w-80 md:w-[375px] shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
     >
       <div className="relative z-10 text-white">
         {type === "vip" && (
@@ -100,14 +102,17 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
             <motion.span
               key={index}
               variants={bulletVariants}
-              className="bg-stone-700/40 rounded-xl px-4 py-1"
+              className={cn("flex gap-2 bg-stone-700/40 rounded-md px-4 py-1", {
+                "text-emerald-300 font-regular": bullet.type === "vip",
+                "text-pink-300 font-regular": bullet.type === "premium",
+              })}
               transition={{
                 duration: 0.5,
                 ease: "easeOut",
                 delay: 0.3 + index * 0.1,
               }}
             >
-              ✔ {bullet}
+              <span>✔</span> {bullet.value}
             </motion.span>
           ))}
         </motion.p>

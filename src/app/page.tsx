@@ -1,5 +1,5 @@
 "use client";
-import { Card } from "@/entities/ui/card";
+import { Card, TicketType } from "@/entities/ui/card";
 import { Flower, Flower2, Flower3 } from "@/shared/assets/flower";
 import { Wave } from "@/shared/assets/wave";
 import { FlipText } from "@/shared/ui/flip-link";
@@ -50,21 +50,25 @@ export default function Home() {
     scale: sectionThreeScale,
   };
 
-  const basicBenefints = [
-    "місце в залі в категорії фан",
-    "виступ спікерів",
-    "нетворкінг з учасниками",
-    "закритий телеграм канал з учасниками",
-    "сертифікат про участь",
+  const basicBenefits: Array<{ value: string; type: TicketType }> = [
+    { value: "місце в залі в категорії фан", type: "regular" },
+    { value: "виступ спікерів", type: "regular" },
+    { value: "нетворкінг з учасниками", type: "regular" },
+    { value: "закритий телеграм канал з учасниками", type: "regular" },
+    { value: "сертифікат про участь", type: "regular" },
   ];
 
-  const vipBenefits = [...basicBenefints, "презентації від спікерів"];
-  const premiumBenefits = [
+  const vipBenefits: Array<{ value: string; type: TicketType }> = [
+    ...basicBenefits,
+    { value: "презентації від спікерів", type: "vip" },
+  ];
+
+  const premiumBenefits: Array<{ value: string; type: TicketType }> = [
     ...vipBenefits,
-    "кава брейк зі спікерами у Преміум - румі",
-    "нетворкінг зі спікерами",
-    "подарунок від спонсорів",
-    "окрема стійка реєстрації",
+    { value: "кава брейк зі спікерами у Преміум - румі", type: "premium" },
+    { value: "нетворкінг зі спікерами", type: "premium" },
+    { value: "подарунок від спонсорів", type: "premium" },
+    { value: "окрема стійка реєстрації", type: "premium" },
   ];
 
   return (
@@ -107,17 +111,17 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="bg-[#ffe699] flex flex-col justify-center items-center sticky top-0"
+          className="bg-[#ffe699] gap-5 flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
           <AnimatedTitle text="Квиток" />
-          <Card type="regular" bullets={basicBenefints} price={299} />
+          <Card type="regular" bullets={basicBenefits} price={299} />
           <div className="absolute rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
         </Section>
         <Section
-          className="relative flex overflow-hidden flex-col justify-start pt-12 items-center bg-cyan-500"
+          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-cyan-500"
           style={sectionThreeStyle}
         >
           <AnimatedTitle text="VIP квиток" />
