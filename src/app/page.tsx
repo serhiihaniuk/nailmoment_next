@@ -51,24 +51,24 @@ export default function Home() {
   };
 
   const basicBenefits: Array<{ value: string; type: TicketType }> = [
-    { value: "місце в залі в категорії фан", type: "regular" },
-    { value: "виступ спікерів", type: "regular" },
-    { value: "нетворкінг з учасниками", type: "regular" },
-    { value: "закритий телеграм канал з учасниками", type: "regular" },
-    { value: "сертифікат про участь", type: "regular" },
+    { value: "Місце в залі в категорії фан", type: "regular" },
+    { value: "Виступ спікерів", type: "regular" },
+    { value: "Нетворкінг з учасниками", type: "regular" },
+    { value: "Закритий телеграм канал з учасниками", type: "regular" },
+    { value: "Сертифікат про участь", type: "regular" },
   ];
 
   const vipBenefits: Array<{ value: string; type: TicketType }> = [
     ...basicBenefits,
-    { value: "презентації від спікерів", type: "vip" },
+    { value: "Презентації від спікерів", type: "vip" },
   ];
 
   const premiumBenefits: Array<{ value: string; type: TicketType }> = [
     ...vipBenefits,
-    { value: "кава брейк зі спікерами у Преміум - румі", type: "premium" },
-    { value: "нетворкінг зі спікерами", type: "premium" },
-    { value: "подарунок від спонсорів", type: "premium" },
-    { value: "окрема стійка реєстрації", type: "premium" },
+    { value: "Кава брейк зі спікерами у Преміум - румі", type: "premium" },
+    { value: "Нетворкінг зі спікерами", type: "premium" },
+    { value: "Подарунок від спонсорів", type: "premium" },
+    { value: "Окрема стійка реєстрації", type: "premium" },
   ];
 
   return (

@@ -49,7 +49,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
         delay: 0.2,
       }}
       variants={cardVariants}
-      className="relative z-50 min-h-[400px] w-80 md:w-[375px] shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
+      className="relative z-50 min-h-[400px] w-[92vw] max-w-96 md:w-[375px] shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
     >
       <div className="relative z-10 text-white">
         {type === "vip" && (
@@ -112,7 +112,15 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
                 delay: 0.3 + index * 0.1,
               }}
             >
-              <span>✔</span> {bullet.value}
+              <span
+                className={cn("self-center justify-self-center", {
+                  "text-emerald-300 font-regular": bullet.type === "vip",
+                  "text-pink-300 font-regular": bullet.type === "premium",
+                })}
+              >
+                ✔
+              </span>{" "}
+              {bullet.value}
             </motion.span>
           ))}
         </motion.p>
