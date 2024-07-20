@@ -102,11 +102,12 @@ export default function Home() {
           </div>
           <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
             <Marquee>
-              {"  "}КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
-              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
-              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
-              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ
-              КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ КОНФЕРЕНЦІЯ {"  "}
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
             </Marquee>
           </div>
         </Section>
@@ -140,8 +141,8 @@ export default function Home() {
           <AnimatedTitle text="PREMIUM квиток" />
           <Card type="premium" bullets={premiumBenefits} price={299} />
         </Section>
-        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-end pt-10 items-center">
-          <div className="font-light max-w-96 flex gap-10 mx-auto">
+        <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-black text-white flex flex-col justify-end items-center">
+          <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
             <div className="text-sm relative">
               <FlipText
                 className="text-[25px] md:text-[35px]"
@@ -178,6 +179,17 @@ export default function Home() {
                 <a href="instagram.com/nailmoment">Instagram</a>
               </li>
             </ul>
+          </div>
+
+          <div className="absolute  bottom-0 flex items-center justify-center">
+            <Marquee>
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+              КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ
+              22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024 КОНФЕРЕНЦІЯ 22.10.2024
+            </Marquee>
           </div>
         </Section>
       </div>
