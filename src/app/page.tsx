@@ -74,9 +74,9 @@ export default function Home() {
 
   return (
     <main className="relevant max-w-full">
-      <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-950">
+      <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-900">
         <Section
-          className="bg-stone-900 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
+          className="bg-gradient-to-r from-emerald-900 to-emerald-950 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
           <motion.div
