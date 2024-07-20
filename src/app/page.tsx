@@ -135,7 +135,7 @@ export default function Home() {
           </motion.div>
           <motion.div
             style={{ rotate: flower3Rotate, y: flower3X, scale: flower3Scale }}
-            className="absolute md:bottom-[25%] bottom-[10%] left-10 w-[200px] h-[200px] overflow-hidden z-20"
+            className="absolute md:bottom-[25%] bottom-[0%] left-10 w-[200px] h-[200px] overflow-hidden z-20"
           >
             <Flower3
               rotate={-360}
