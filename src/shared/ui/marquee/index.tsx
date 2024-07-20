@@ -46,7 +46,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   return (
     <div
       ref={containerRef}
-      className="w-[100vw] bg-[var(--green-yellow)] text-5xl font-black overflow-hidden "
+      className="w-[110vw] bg-[var(--green-yellow)] text-5xl font-black overflow-hidden "
     >
       <motion.div className="flex whitespace-nowrap" animate={controls}>
         {[...Array(repeatCount)].map((_, index) => (
