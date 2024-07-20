@@ -12,7 +12,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
 }) => {
   const ref = React.useRef(null);
   const words = text.split(" ");
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   const containerVariants = {
     hidden: { opacity: 0 },

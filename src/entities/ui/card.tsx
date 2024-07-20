@@ -36,13 +36,14 @@ type CardProps = {
 };
 export const Card: FC<CardProps> = ({ type, bullets, price }) => {
   const ref = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const isInViewOnce = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={isInViewOnce ? "visible" : "hidden"}
       transition={{
         duration: 1,
         ease: "backInOut",
