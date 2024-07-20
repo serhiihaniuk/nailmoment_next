@@ -1,6 +1,7 @@
 "use client";
 import { Card, TicketType } from "@/entities/ui/card";
 import { Flower, Flower2, Flower3 } from "@/shared/assets/flower";
+import AnimatedSVG from "@/shared/assets/path";
 import { Wave } from "@/shared/assets/wave";
 import { FlipText } from "@/shared/ui/flip-link";
 import Marquee from "@/shared/ui/marquee";
@@ -119,6 +120,9 @@ export default function Home() {
           <Card type="regular" bullets={basicBenefits} price={359} />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
+          </div>
+          <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border border-red-200 overflow-hidden z-20">
+            <AnimatedSVG />
           </div>
         </Section>
         <Section
