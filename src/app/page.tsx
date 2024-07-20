@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <main className="relevant max-w-full">
-      <div ref={containerRef} className="relative h-[300dvh] z-20 bg-black">
+      <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-950">
         <Section
           className="bg-stone-900 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
@@ -116,7 +116,7 @@ export default function Home() {
           style={sectionTwoStyle}
         >
           <AnimatedTitle className="text-4xl" text="Квиток" />
-          <Card type="regular" bullets={basicBenefits} price={299} />
+          <Card type="regular" bullets={basicBenefits} price={359} />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
-          <Card type="vip" bullets={vipBenefits} price={299} />
+          <Card type="vip" bullets={vipBenefits} price={459} />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
             className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
@@ -148,11 +148,11 @@ export default function Home() {
             <Wave />
           </div>
         </Section>
-        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-black text-white flex flex-col justify-start items-center">
+        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
-          <Card type="premium" bullets={premiumBenefits} price={299} />
+          <Card type="premium" bullets={premiumBenefits} price={839} />
         </Section>
-        <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-black text-white flex flex-col justify-end items-center">
+        <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-end items-center">
           <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
             <div className="text-sm relative">
               <FlipText

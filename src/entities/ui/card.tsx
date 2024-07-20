@@ -24,7 +24,7 @@ const buttonVariants: Variants = {
 };
 
 const bulletVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0 },
 };
 
@@ -36,7 +36,7 @@ type CardProps = {
 };
 export const Card: FC<CardProps> = ({ type, bullets, price }) => {
   const ref = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <motion.div
