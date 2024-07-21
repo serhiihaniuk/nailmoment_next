@@ -37,7 +37,7 @@ body {
 }
 
 .top-black {
-  box-shadow: 1px -7px 1px 4px var(--light-blue);
+  box-shadow: 1px -7px 1px 4px #ccd5ae;
 }
 
 @keyframes backgroundAnim {

@@ -183,10 +183,10 @@ export default function Home() {
             />
           </motion.div>
           <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave fill="#a2d2ff" />
+            <Wave fill="#CCD5AE" />
           </div>
         </Section>
-        <Section className="relative min-h-[20vh] pb-24 top-black gap-5 bg-[var(--light-blue)] text-black flex flex-col justify-start items-center">
+        <Section className="bg-[#CCD5AE] relative min-h-[20vh] pb-24 top-black gap-5  text-black flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
           <Card
             type="premium"
