@@ -121,6 +121,10 @@ export default function Home() {
               <FlipText delay={1.5} href="#" secondaryText="text-emerald-300">
                 Moment
               </FlipText>
+              <div className="text-black font-black w-min text-3xl px-5 relative z-20">
+                <div className="absolute inset-0 -skew-x-12  bg-[var(--green-yellow)]" />
+                <span className="relative z-20">13.10.2024 </span>
+              </div>
             </div>
           </div>
           <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
