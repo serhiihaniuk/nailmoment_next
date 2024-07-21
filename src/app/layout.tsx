@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Nail Moment",
     description: "Найбільша nail конференція в Польщі",
     images: [
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-CAJzMcYPr9IRL30gwVZ0TH5yifMCx2.png",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-81tOqcPijRyp76eyp0y5B57SIHYFDe",
     ],
   },
 };
