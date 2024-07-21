@@ -16,12 +16,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://nailmoment.pl",
     title: "Nail Moment",
-    description: "Найбільша nail конференція в Польщі",
+    description:
+      "Найбільша nail конференція в Польщі. Варшава. 13 жовтня 2024.",
     images: [
       {
-        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-CAJzMcYPr9IRL30gwVZ0TH5yifMCx2.png",
+        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/logo_date-kUpWk5HNz7tNbBSQ7IYEUrM5rHpj69",
         width: 500,
-        height: 216,
+        height: 320,
         alt: "Nail Moment",
       },
     ],
@@ -30,9 +31,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nail Moment",
-    description: "Найбільша nail конференція в Польщі",
+    description:
+      "Найбільша nail конференція в Польщі. Варшава. 13 жовтня 2024.",
     images: [
-      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nm_logo-Z4LVvuLCFRpVQWwx3qFJglD1zh7eUA",
+      "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/logo_date-kUpWk5HNz7tNbBSQ7IYEUrM5rHpj69",
     ],
   },
 };
