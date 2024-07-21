@@ -1,5 +1,6 @@
 "use client";
 import { Card, TicketType } from "@/entities/ui/card";
+import AnimatedDate from "@/entities/ui/date";
 import { Flower, Flower2, Flower3 } from "@/shared/assets/flower";
 import { AnimatedPath } from "@/shared/assets/path";
 import { Wave } from "@/shared/assets/wave";
@@ -121,10 +122,7 @@ export default function Home() {
               <FlipText delay={1.5} href="#" secondaryText="text-emerald-300">
                 Moment
               </FlipText>
-              <div className="text-black font-black w-min text-3xl px-5 relative z-20">
-                <div className="absolute inset-0 -skew-x-12  bg-[var(--green-yellow)]" />
-                <span className="relative z-20">13.10.2024 </span>
-              </div>
+              <AnimatedDate date="13.10.2024" delay={1.5} />
             </div>
           </div>
           <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
@@ -216,6 +214,7 @@ export default function Home() {
               >
                 Moment
               </FlipText>
+              <AnimatedDate className="text-xl" date="13.10.2024" delay={1.5} />
             </div>
             <ul className="flex flex-col gap-2">
               <li>
