@@ -33,8 +33,9 @@ type CardProps = {
   type: TicketType;
   bullets: { value: string; type: TicketType }[];
   price: number;
+  href: string;
 };
-export const Card: FC<CardProps> = ({ type, bullets, price }) => {
+export const Card: FC<CardProps> = ({ type, bullets, price, href }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, amount: 0.5 });
   const isInViewOnce = useInView(ref, { once: true, amount: 0.5 });
@@ -126,14 +127,15 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
           ))}
         </motion.p>
       </div>
-      <motion.button
+      <motion.a
         variants={buttonVariants}
         transition={{
           duration: 0.5,
           ease: "easeOut",
           delay: 0.4,
         }}
-        className="relative z-20 w-full h-14 rounded-xl"
+        className="block relative z-20 w-full h-14 rounded-xl"
+        href={href}
       >
         <div className="inset-0 btn rounded-xl">
           <span className="absolute inset-0 flex items-center justify-center uppercase rounded-xl text-white z-20 bg-black w-full h-full">
@@ -141,7 +143,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price }) => {
             Приєднатися{" "}
           </span>
         </div>
-      </motion.button>
+      </motion.a>
       <Background isInView={isInView} />
     </motion.div>
   );

@@ -139,7 +139,12 @@ export default function Home() {
           style={sectionTwoStyle}
         >
           <AnimatedTitle className="text-4xl" text="Звичайний Квиток" />
-          <Card type="regular" bullets={regularBenefits} price={359} />
+          <Card
+            type="regular"
+            bullets={regularBenefits}
+            price={359}
+            href="https://buy.stripe.com/5kA5mk0z51wlaOY5l2"
+          />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave />
           </div>
@@ -152,7 +157,12 @@ export default function Home() {
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
-          <Card type="vip" bullets={vipBenefits} price={459} />
+          <Card
+            type="vip"
+            bullets={vipBenefits}
+            price={459}
+            href="https://buy.stripe.com/fZe1640z55MB7CM28R"
+          />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
             className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
@@ -176,7 +186,12 @@ export default function Home() {
         </Section>
         <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
-          <Card type="premium" bullets={premiumBenefits} price={839} />
+          <Card
+            type="premium"
+            bullets={premiumBenefits}
+            price={839}
+            href="https://buy.stripe.com/9AQcOM81x0sh1eo3cW"
+          />
         </Section>
         <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-end items-center">
           <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
