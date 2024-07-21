@@ -50,7 +50,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   return (
     <motion.h1
       ref={ref}
-      className={`inline-block relative z-30 text-3xl uppercase font-black ${className}`}
+      className={`inline-block text-stone-900 relative z-30 text-3xl uppercase font-black ${className}`}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

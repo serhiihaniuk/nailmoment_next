@@ -99,7 +99,7 @@ export default function Home() {
     <main className="relevant max-w-full">
       <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-900">
         <Section
-          className="bg-gradient-to-r from-emerald-900 to-emerald-950 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
+          className="bg-gradient-to-r from-[#CCD5AE] to-[#E9EDC9] overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
           <motion.div
@@ -116,10 +116,10 @@ export default function Home() {
           </motion.div>
           <div className="relative">
             <div className="relative z-20">
-              <FlipText secondaryText="text-pink-300" delay={0.5} href="#">
+              <FlipText secondaryText="text-pink-500" delay={0.5} href="#">
                 Nail
               </FlipText>
-              <FlipText delay={1.5} href="#" secondaryText="text-emerald-300">
+              <FlipText delay={1.5} href="#" secondaryText="text-emerald-500">
                 Moment
               </FlipText>
               <AnimatedDate date="13.10.2024" delay={1.5} />
@@ -186,7 +186,7 @@ export default function Home() {
             <Wave fill="#a2d2ff" />
           </div>
         </Section>
-        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-[var(--light-blue)] text-black flex flex-col justify-start items-center">
+        <Section className="relative min-h-[20vh] pb-24 top-black gap-5 bg-[var(--light-blue)] text-black flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
           <Card
             type="premium"
@@ -199,18 +199,18 @@ export default function Home() {
           <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
             <div className="text-sm relative">
               <FlipText
-                className="text-[25px] md:text-[35px]"
-                secondaryText="text-pink-300"
+                className="text-[25px] md:text-[35px] text-stone-50"
+                secondaryText="text-pink-500"
                 delay={0.5}
                 href="#"
               >
                 Nail
               </FlipText>
               <FlipText
-                className="text-[25px] md:text-[35px] mb-2"
+                className="text-[25px] text-stone-50 md:text-[35px] mb-2"
                 delay={1.5}
                 href="#"
-                secondaryText="text-emerald-300"
+                secondaryText="text-emerald-500"
               >
                 Moment
               </FlipText>

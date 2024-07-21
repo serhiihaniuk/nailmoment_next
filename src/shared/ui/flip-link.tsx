@@ -72,7 +72,7 @@ export const FlipText: React.FC<FlipTextProps> = ({
       animate={animationTrigger ? "visible" : "initial"}
       href={href}
       className={cn(
-        "relative block overflow-hidden whitespace-nowrap font-black text-white uppercase text-[75px] md:text-[100px]",
+        "relative block overflow-hidden whitespace-nowrap font-black text-stone-900 uppercase text-[75px] md:text-[100px]",
         className
       )}
       style={{
