@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import { LenisScroll } from "@/shared/ui/lenis";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+import { AnalyticsWrapper } from "@/entities/analytics";
 
 const inter = Rubik({ subsets: ["latin", "cyrillic"] });
 
@@ -12,11 +11,12 @@ export const metadata: Metadata = {
   description: "Найбільша nail конференція в Польщі",
   keywords:
     "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
+  robots: "index,follow",
   openGraph: {
     type: "website",
     url: "https://nailmoment.pl",
     title: "Nail Moment",
-    description: "Найбiльша nail конференція в Польщі",
+    description: "Найбільша nail конференція в Польщі",
     images: [
       {
         url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-81tOqcPijRyp76eyp0y5B57SIHYFDe",
@@ -37,10 +37,10 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <LenisScroll />
-
-      <body className={inter.className}>{children}</body>
-      <SpeedInsights />
-      <Analytics />
+      <body className={inter.className}>
+        <AnalyticsWrapper />
+        {children}
+      </body>
     </html>
   );
 }

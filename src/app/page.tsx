@@ -99,7 +99,7 @@ export default function Home() {
     <main className="relevant max-w-full">
       <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-900">
         <Section
-          className="bg-[#CCD5AE] overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
+          className="bg-gradient-to-r from-emerald-900 to-emerald-950 overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
           <motion.div
@@ -115,15 +115,15 @@ export default function Home() {
             <Flower2 baseDelay={1.5} />
           </motion.div>
           <div className="relative">
-            <div className="relative z-20">
-              <FlipText secondaryText="text-pink-500" delay={0.5} href="#">
+            <h1 className="relative z-20">
+              <FlipText secondaryText="text-pink-300" delay={0.5} href="#">
                 Nail
               </FlipText>
-              <FlipText delay={1.5} href="#" secondaryText="text-emerald-500">
+              <FlipText delay={1.5} href="#" secondaryText="text-emerald-300">
                 Moment
               </FlipText>
               <AnimatedDate date="13.10.2024" delay={1.5} />
-            </div>
+            </h1>
           </div>
           <div className="absolute rotate-12  bottom-5 flex items-center justify-center">
             <Marquee>
@@ -147,15 +147,15 @@ export default function Home() {
             price={359}
             href="https://buy.stripe.com/5kA5mk0z51wlaOY5l2"
           />
-          <div className="absolute  rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave fill="#cdb4db" />
+          <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
+            <Wave fill="#022c22" />
           </div>
           <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border overflow-hidden z-20">
             <AnimatedPath />
           </div>
         </Section>
         <Section
-          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[#cdb4db]"
+          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[var(--light-blue)]"
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
@@ -167,7 +167,7 @@ export default function Home() {
           />
           <motion.div
             style={{ rotate: flower3Rotate, x: flower3X, scale: flower3Scale }}
-            className="absolute top-[25px] right-0 w-[100px] h-[100px] overflow-hidden z-20"
+            className="absolute top-0 right-0 w-[100px] h-[100px] overflow-hidden z-20"
           >
             <Flower3 fill3="orange" />
           </motion.div>
@@ -183,10 +183,10 @@ export default function Home() {
             />
           </motion.div>
           <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave fill="#CCD5AE" />
+            <Wave fill="#1c1917" />
           </div>
         </Section>
-        <Section className="bg-[#CCD5AE] relative min-h-[20vh] pb-24 top-black gap-5  text-black flex flex-col justify-start items-center">
+        <Section className="bg-stone-900 relative min-h-[20vh] pb-24 top-black gap-5  text-white flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
           <Card
             type="premium"
@@ -195,12 +195,12 @@ export default function Home() {
             href="https://buy.stripe.com/9AQcOM81x0sh1eo3cW"
           />
         </Section>
-        <Section className="relative overflow-hidden min-h-[20vh] pt-6 pb-10 top-black gap-5 bg-stone-900 px-3 text-white flex flex-col justify-end items-center">
-          <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
+        <Section className="relative overflow-hidden min-h-[20vh] pt-6 pb-10 top-black gap-5 bg-stone-950 px-3 text-white flex flex-col justify-end items-center">
+          <footer className="font-light max-w-96 flex gap-10 mx-auto pb-10">
             <div className="text-sm relative">
               <FlipText
                 className="text-[25px] md:text-[35px] text-stone-50"
-                secondaryText="text-pink-500"
+                secondaryText="text-pink-300"
                 delay={0.5}
                 href="#"
               >
@@ -210,7 +210,7 @@ export default function Home() {
                 className="text-[25px] text-stone-50 md:text-[35px] mb-2"
                 delay={1.5}
                 href="#"
-                secondaryText="text-emerald-500"
+                secondaryText="text-emerald-300"
               >
                 Moment
               </FlipText>
@@ -236,7 +236,7 @@ export default function Home() {
                 </a>
               </li>
             </ul>
-          </div>
+          </footer>
 
           <div className="absolute  bottom-0 flex items-center justify-center">
             <Marquee>

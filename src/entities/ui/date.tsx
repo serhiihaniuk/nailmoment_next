@@ -11,7 +11,7 @@ interface AnimatedDateProps {
 const AnimatedDate: React.FC<AnimatedDateProps> = ({
   className,
   date,
-  delay = 0,
+  delay = 0.1,
 }) => {
   return (
     <div className="relative w-min">

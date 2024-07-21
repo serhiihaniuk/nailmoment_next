@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 export const AnimatedPath = () => {
@@ -7,15 +7,6 @@ export const AnimatedPath = () => {
     target: ref,
     offset: ["start end", "end end"],
   });
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((value) => {
-      console.log("scrollYProgress:", value);
-    });
-
-    // Cleanup the listener when the component unmounts
-    return () => unsubscribe();
-  }, [scrollYProgress]);
 
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 30,
@@ -35,7 +26,7 @@ export const AnimatedPath = () => {
       >
         <motion.path
           d="M-304,17 C-304,17 -54.319000244140625,-178.7729949951172 20,-154 C53,-143 -97,-38 -190,68 C-243.6840057373047,129.18800354003906 0,-75 156,-82 C204,-82 48,32 21,78 C-6,124 162,22 192,26 C222,30 19,152 61,156 C103,160 249,69 287,84 C305.0069885253906,94.42500305175781 270.0190124511719,122.81500244140625 253.54400634765625,137.67100524902344"
-          stroke="#cdb4db"
+          stroke="#ec4899"
           strokeWidth="31"
           strokeLinecap="round"
           strokeLinejoin="round"
