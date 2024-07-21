@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[#cdb4db]"
+          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[#FAEDCD]"
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
