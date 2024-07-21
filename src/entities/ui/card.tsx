@@ -51,7 +51,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price, href }) => {
         delay: 0.2,
       }}
       variants={cardVariants}
-      className="relative z-50 min-h-[400px] w-[92vw] max-w-96 md:w-[375px] shrink-0 overflow-hidden rounded-xl bg-stone-900 p-8"
+      className="relative z-50 min-h-[400px] w-[92vw] max-w-96 md:w-[375px] shrink-0 overflow-hidden rounded-xl bg-stone-950 p-8"
     >
       <div className="relative z-10 text-white">
         {type === "vip" && (
