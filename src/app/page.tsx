@@ -137,7 +137,7 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="bg-[#ffe699] gap-5 flex flex-col justify-center items-center sticky top-0"
+          className="bg-[var(--slate-blue)] gap-5 flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
           <AnimatedTitle className="text-3xl" text="Звичайний Квиток" />
@@ -148,14 +148,14 @@ export default function Home() {
             href="https://buy.stripe.com/5kA5mk0z51wlaOY5l2"
           />
           <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave />
+            <Wave fill="#cdb4db" />
           </div>
-          <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border border-red-200 overflow-hidden z-20">
+          <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border overflow-hidden z-20">
             <AnimatedPath />
           </div>
         </Section>
         <Section
-          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-cyan-500"
+          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[var(--hot-pink)]"
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
@@ -183,10 +183,10 @@ export default function Home() {
             />
           </motion.div>
           <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
-            <Wave />
+            <Wave fill="#a2d2ff" />
           </div>
         </Section>
-        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-start items-center">
+        <Section className="relative min-h-[20vh] pb-10 top-black gap-5 bg-[var(--light-blue)] text-black flex flex-col justify-start items-center">
           <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
           <Card
             type="premium"
@@ -195,7 +195,7 @@ export default function Home() {
             href="https://buy.stripe.com/9AQcOM81x0sh1eo3cW"
           />
         </Section>
-        <Section className="relative overflow-hidden min-h-[20vh] py-10 top-black gap-5 bg-stone-950 text-white flex flex-col justify-end items-center">
+        <Section className="relative overflow-hidden min-h-[20vh] pt-6 pb-10 top-black gap-5 bg-stone-900 px-3 text-white flex flex-col justify-end items-center">
           <div className="font-light max-w-96 flex gap-10 mx-auto pb-10">
             <div className="text-sm relative">
               <FlipText
@@ -207,7 +207,7 @@ export default function Home() {
                 Nail
               </FlipText>
               <FlipText
-                className="text-[25px] md:text-[35px]"
+                className="text-[25px] md:text-[35px] mb-2"
                 delay={1.5}
                 href="#"
                 secondaryText="text-emerald-300"
@@ -216,7 +216,7 @@ export default function Home() {
               </FlipText>
               <AnimatedDate className="text-xl" date="13.10.2024" delay={1.5} />
             </div>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-2 basis-1/2">
               <li>
                 <a target="_blank" href="https://t.me/+THVRcBRhyWc5OWY0">
                   Напиши до нас в підтримку
