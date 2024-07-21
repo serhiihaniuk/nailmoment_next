@@ -57,9 +57,7 @@ body {
     -90deg,
     var(--slate-blue),
     var(--hot-pink),
-    var(--light-blue),
-    var(--carnation-pink),
-    var(--thistle)
+    var(--light-blue)
   );
   background-size: 400% 100%;
   border: 0;

@@ -147,7 +147,7 @@ export default function Home() {
             price={359}
             href="https://buy.stripe.com/5kA5mk0z51wlaOY5l2"
           />
-          <div className="absolute md:hidden rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
+          <div className="absolute  rotate-180 top-0 left-0 w-full flex flex-col justify-end overflow-hidden z-20">
             <Wave fill="#cdb4db" />
           </div>
           <div className="absolute h-full rotate-180 w-full bottom-0 left-0 border overflow-hidden z-20">
