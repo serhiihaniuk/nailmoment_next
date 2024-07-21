@@ -27,6 +27,19 @@ export const metadata: Metadata = {
     ],
     siteName: "Nail Moment",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nail Moment",
+    description: "Найбільша nail конференція в Польщі",
+    images: [
+      {
+        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-CAJzMcYPr9IRL30gwVZ0TH5yifMCx2.png",
+        width: 500,
+        height: 216,
+        alt: "Nail Moment",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
