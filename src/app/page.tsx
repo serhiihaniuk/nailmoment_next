@@ -99,7 +99,7 @@ export default function Home() {
     <main className="relevant max-w-full">
       <div ref={containerRef} className="relative h-[300dvh] z-20 bg-stone-900">
         <Section
-          className="bg-gradient-to-r from-[#CCD5AE] to-[#E9EDC9] overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
+          className="bg-[#CCD5AE] overflow-hidden sticky top-0 flex flex-col items-center justify-center p-5"
           style={sectionOneStyle}
         >
           <motion.div
