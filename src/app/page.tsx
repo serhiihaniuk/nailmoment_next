@@ -137,7 +137,7 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="bg-[var(--slate-blue)] gap-5 flex flex-col justify-center items-center sticky top-0"
+          className="bg-[#FAEDCD] gap-5 flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
           <AnimatedTitle className="text-3xl" text="Звичайний Квиток" />
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </Section>
         <Section
-          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[#FAEDCD]"
+          className="relative flex gap-5 overflow-hidden flex-col justify-start pt-12 items-center bg-[#cdb4db]"
           style={sectionThreeStyle}
         >
           <AnimatedTitle className="text-4xl" text="VIP квиток" />
