@@ -53,12 +53,7 @@ body {
   right: 1px;
   bottom: 1px;
   left: 1px;
-  background: linear-gradient(
-    -90deg,
-    var(--slate-blue),
-    var(--hot-pink),
-    var(--light-blue)
-  );
+  background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
   background-size: 400% 100%;
   border: 0;
   padding: 0;
