@@ -138,7 +138,7 @@ export default function Home() {
           className="bg-[#ffe699] gap-5 flex flex-col justify-center items-center sticky top-0"
           style={sectionTwoStyle}
         >
-          <AnimatedTitle className="text-4xl" text="Звичайний Квиток" />
+          <AnimatedTitle className="text-3xl" text="Звичайний Квиток" />
           <Card
             type="regular"
             bullets={regularBenefits}
