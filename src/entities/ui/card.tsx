@@ -136,6 +136,7 @@ export const Card: FC<CardProps> = ({ type, bullets, price, href }) => {
         }}
         className="block relative z-20 w-full h-14 rounded-xl"
         href={href}
+        target="_blank"
       >
         <div className="inset-0 btn rounded-xl">
           <span className="absolute inset-0 flex items-center justify-center uppercase rounded-xl text-white z-20 bg-black w-full h-full">

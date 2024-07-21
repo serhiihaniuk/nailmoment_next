@@ -10,6 +10,23 @@ const inter = Rubik({ subsets: ["latin", "cyrillic"] });
 export const metadata: Metadata = {
   title: "Nail Moment",
   description: "Найбільша nail конференція в Польщі",
+  keywords:
+    "nail, moment, conference, poland, ukraine, конференція, польща, найбільша, квиток",
+  openGraph: {
+    type: "website",
+    url: "https://nailmoment.pl",
+    title: "Nail Moment",
+    description: "Найбiльша nail конференція в Польщі",
+    images: [
+      {
+        url: "https://oet9iwqxtk87xaxw.public.blob.vercel-storage.com/nail_moment_logo-81tOqcPijRyp76eyp0y5B57SIHYFDe",
+        width: 500,
+        height: 234,
+        alt: "Nail Moment",
+      },
+    ],
+    siteName: "Nail Moment",
+  },
 };
 
 export default function RootLayout({
