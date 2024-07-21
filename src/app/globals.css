@@ -55,7 +55,7 @@ body {
   left: 1px;
   background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
   background-size: 400% 100%;
-  border: 0;
+  border: 1px solid #007cf0;
   padding: 0;
   margin: 0;
   animation: backgroundAnim 18s ease-in-out infinite;
