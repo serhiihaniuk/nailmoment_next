@@ -187,7 +187,10 @@ export default function Home() {
           </div>
         </Section>
         <Section className="bg-stone-900 relative min-h-[20vh] pb-24 top-black gap-5  text-white flex flex-col justify-start items-center">
-          <AnimatedTitle className="text-4xl" text="PREMIUM квиток" />
+          <AnimatedTitle
+            className="text-4xl text-white"
+            text="PREMIUM квиток"
+          />
           <Card
             type="premium"
             bullets={premiumBenefits}
