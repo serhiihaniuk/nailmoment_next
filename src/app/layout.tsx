@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import { LenisScroll } from "@/shared/ui/lenis";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Rubik({ subsets: ["latin", "cyrillic"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
 
       <body className={inter.className}>{children}</body>
       <SpeedInsights />
+      <Analytics />
     </html>
   );
 }
