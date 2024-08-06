@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --accent-green: 68 100 50;
-  --accent-green-foreground: 0 0 0;
-  --accent-pink: 328 99 50;
-  --accent-pink-foreground: 0 0 100;
-  --primary: 0 0 19;
-  --primary-foreground: 0 0 100;
-  --primary-foreground-muted: hsla(0, 0%, 100%, 0.7);
+  --accent-green: #dbfe00;
+  --accent-green-foreground: #000;
+  --accent-pink: #fe018a;
+  --accent-pink-foreground: #fff;
+  --primary: #1a1a1a;
+  --primary-foreground: #fff;
+  --primary-foreground-muted: #ffffffb3;
 }
 
 @layer utilities {
@@ -33,7 +33,7 @@ body {
   font-family: "Asteriks";
   src: url("/fonts/asteriks.otf") format("opentype");
   font-weight: 400;
-  font-display: swap;
+  font-display: auto;
   font-style: normal;
 }
 

@@ -10,12 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "accent-green": "hsl(var(--accent-green))",
-        "accent-pink": "hsl(var(--accent-pink))",
-        "accent-green-foreground": "hsl(var(--accent-green-foreground))",
-        "accent-pink-foreground": "hsl(var(--accent-pink-foreground))",
-        primary: "hsl(var(--primary))",
-        "primary-foreground": "hsl(var(--primary-foreground))",
+        "accent-green": "var(--accent-green)",
+        "accent-pink": "var(--accent-pink)",
+        "accent-green-foreground": "var(--accent-green-foreground)",
+        "accent-pink-foreground": "var(--accent-pink-foreground)",
+        primary: "var(--primary)",
+        "primary-foreground": "var(--primary-foreground)",
         "primary-foreground-muted": "var(--primary-foreground-muted)",
       },
       fontFamily: {
