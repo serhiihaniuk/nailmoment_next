@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
 import "./globals.css";
 import { LenisScroll } from "@/shared/ui/lenis";
 import { AnalyticsWrapper } from "@/entities/analytics";
-
-const inter = Rubik({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Nail Moment",
@@ -47,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <LenisScroll />
-      <body className={inter.className}>
+      <body>
         <AnalyticsWrapper />
         {children}
       </body>

@@ -3,19 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --black: #1c1c1c;
-  --white: white;
-  --slate-blue: #bde0fe;
-  --hot-pink: #ffc8dd;
-  --green-yellow: #bfff0a;
-  --carnation-pink: #ffafcc;
-  --light-blue: #a2d2ff;
-  --thistle: #cdb4db;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: #f3eee8;
+  --accent-green: 68 100 50;
+  --accent-green-foreground: 0 0 0;
+  --accent-pink: 328 99 50;
+  --accent-pink-foreground: 0 0 100;
+  --primary: 0 0 19;
+  --primary-foreground: 0 0 100;
+  --primary-foreground-muted: hsla(0, 0%, 100%, 0.7);
 }
 
 @layer utilities {
@@ -23,54 +17,36 @@ body {
     text-wrap: balance;
   }
 }
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+body {
+  background: #000;
+  color: var(--primary-foreground-muted);
 }
 
-.str {
-  color: rgb(28 25 23);
+.lines-1 {
+  background-image: url("/assets/lines-1.svg");
+  background-repeat: no-repeat;
+  background-position: center 0%;
 }
 
-.top-black {
-  box-shadow: 1px -7px 1px 4px #1c1917;
+@font-face {
+  font-family: "Asteriks";
+  src: url("/fonts/asteriks.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
 }
 
-@keyframes backgroundAnim {
-  50% {
-    background-position: 140% 50%;
-    skew: 2.5deg;
-  }
-}
-
-.btn {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  bottom: 1px;
-  left: 1px;
-  background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
-  background-size: 400% 100%;
-  border: 1px solid #007cf0;
-  padding: 0;
-  margin: 0;
-  animation: backgroundAnim 18s ease-in-out infinite;
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  background-size: inherit;
-  background-image: inherit;
-  animation: inherit;
-  left: 0;
-  right: 0;
-  top: 2px;
-  height: 100%;
-  filter: blur(0.5rem);
-  border-radius: 0.75rem;
+@font-face {
+  font-family: "tt-travels";
+  src: url("https://use.typekit.net/af/72e638/0000000000000000774f76f5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/72e638/0000000000000000774f76f5/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/72e638/0000000000000000774f76f5/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
 }

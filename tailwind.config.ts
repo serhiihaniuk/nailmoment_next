@@ -9,24 +9,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
-        "slate-blue": "var(--slate-blue)",
-        "hot-pink": "var(--hot-pink)",
-        "green-yellow": "var(--green-yellow)",
+        "accent-green": "hsl(var(--accent-green))",
+        "accent-pink": "hsl(var(--accent-pink))",
+        "accent-green-foreground": "hsl(var(--accent-green-foreground))",
+        "accent-pink-foreground": "hsl(var(--accent-pink-foreground))",
+        primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
+        "primary-foreground-muted": "var(--primary-foreground-muted)",
       },
-      animation: {
-        backgroundAnim: "backgroundAnim 8s ease-in-out infinite",
-      },
-      keyframes: {
-        backgroundAnim: {
-          "0%, 100%": { backgroundPosition: "0% 100%" },
-          "50%": { backgroundPosition: "100% 0%" },
-        },
+      fontFamily: {
+        asteriks: ["Asteriks", "sans-serif"],
+        travels: ["tt-travels", "sans-serif"],
       },
     },
   },
