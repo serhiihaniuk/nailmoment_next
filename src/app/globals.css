@@ -29,6 +29,12 @@ body {
   background-position: center 0%;
 }
 
+.lines-2 {
+  background-image: url("/assets/lines-2.svg");
+  background-repeat: no-repeat;
+  background-position: center 0%;
+}
+
 @font-face {
   font-family: "Asteriks";
   src: url("/fonts/asteriks.otf") format("opentype");

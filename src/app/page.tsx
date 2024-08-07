@@ -1,7 +1,46 @@
 import { Ball } from "@/shared/ui/ball";
 import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
+import { Speaker } from "@/shared/ui/speaker";
 import Image from "next/image";
+
+const speakers = {
+  belmas: {
+    name: "Юлія Бельмас",
+    image: "/speakers/speaker.png",
+    description: "Факапи викладача та власника салону в Польщі",
+  },
+  ragoza: {
+    name: "Ангеліна Рагоза",
+    image: "/speakers/speaker.png",
+    description: "Як продавати через Лайв",
+  },
+  zozylia: {
+    name: "Олена Зозуля",
+    image: "/speakers/speaker.png",
+    description: "Верхні форми",
+  },
+  mart: {
+    name: "Надя Март",
+    image: "/speakers/speaker.png",
+    description: "Як продавати через Лайв",
+  },
+  browko: {
+    name: "Діана Бровко",
+    image: "/speakers/speaker.png",
+    description: "Я знімаю відео. А що далі?",
+  },
+  sulima: {
+    name: "Юлія Суліма",
+    image: "/speakers/speaker.png",
+    description: "Запуски онлайн курсів",
+  },
+  zemlyanika: {
+    name: "Ніка Землянікіна",
+    image: "/speakers/speaker.png",
+    description: "Алергії та хімія матерівлів",
+  },
+};
 
 export default function Home() {
   return (
@@ -61,6 +100,48 @@ export default function Home() {
             перемоги стає реальністю.
           </p>
           <Ball className="flex flex-row-reverse" />
+        </div>
+      </section>
+      <section className="px-4 py-14 flex flex-col items-stretch gap-4 lines-2 justify-start">
+        <h2 className="text-xl text-primary-foreground w-min text-center uppercase font-travels font-bold block mx-auto">
+          Спікери Фестивалю
+        </h2>
+        <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch">
+          <Speaker
+            name={speakers.belmas.name}
+            image={speakers.belmas.image}
+            description={speakers.belmas.description}
+          />
+          <Speaker
+            name={speakers.ragoza.name}
+            image={speakers.ragoza.image}
+            description={speakers.ragoza.description}
+          />
+          <Speaker
+            name={speakers.zozylia.name}
+            image={speakers.zozylia.image}
+            description={speakers.zozylia.description}
+          />
+          <Speaker
+            name={speakers.mart.name}
+            image={speakers.mart.image}
+            description={speakers.mart.description}
+          />
+          <Speaker
+            name={speakers.browko.name}
+            image={speakers.browko.image}
+            description={speakers.browko.description}
+          />
+          <Speaker
+            name={speakers.sulima.name}
+            image={speakers.sulima.image}
+            description={speakers.sulima.description}
+          />
+          <Speaker
+            name={speakers.zemlyanika.name}
+            image={speakers.zemlyanika.image}
+            description={speakers.zemlyanika.description}
+          />
         </div>
       </section>
     </>
