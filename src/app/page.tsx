@@ -1,8 +1,10 @@
 import { Ball } from "@/shared/ui/ball";
 import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
+import { SectionTitle } from "@/shared/ui/section-title";
 import { Speaker } from "@/shared/ui/speaker";
 import Image from "next/image";
+import { cn } from "@/shared/utils/cn";
 
 const speakers = {
   belmas: {
@@ -38,7 +40,7 @@ const speakers = {
   zemlyanika: {
     name: "Ніка Землянікіна",
     image: "/speakers/speaker.png",
-    description: "Алергії та хімія матерівлів",
+    description: "Алергії та хімія матеріалів",
   },
 };
 
@@ -103,9 +105,7 @@ export default function Home() {
         </div>
       </section>
       <section className="px-4 py-14 flex flex-col items-stretch gap-4 lines-2 justify-start">
-        <h2 className="text-xl text-primary-foreground w-min text-center uppercase font-travels font-bold block mx-auto">
-          Спікери Фестивалю
-        </h2>
+        <SectionTitle>Спікери Фестивалю</SectionTitle>
         <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch">
           <Speaker
             name={speakers.belmas.name}
@@ -144,6 +144,118 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <section className="px-4 py-14 flex flex-col items-stretch gap-4 justify-start">
+        <SectionTitle>Программа</SectionTitle>
+        <CardSimple
+          time="10:00 - 10:15"
+          description="Відкриття Реєстрація. Нетворкінг. Nail - Маркет"
+        />
+        <CardSimple
+          time="10:15 - 10:30"
+          description="Програма початку фестивалю"
+        />
+        <CardSpeaker
+          time="10:30 - 10:45"
+          name={speakers.belmas.name}
+          description={speakers.belmas.description}
+        />
+        <CardSpeaker
+          time="10:45 - 11:00"
+          name={speakers.ragoza.name}
+          description={speakers.ragoza.description}
+        />
+        <CardSpeaker
+          time="11:00 - 11:15"
+          name={speakers.zozylia.name}
+          description={speakers.zozylia.description}
+        />
+        <CardSimple
+          time="10:00 - 10:15"
+          description="Перерва. Конкурси та інтерактиви в залі"
+        />
+        <CardSpeaker
+          time="10:15 - 10:30"
+          name={speakers.mart.name}
+          description={speakers.mart.description}
+        />
+        <CardSpeaker
+          time="10:30 - 10:45"
+          name={speakers.browko.name}
+          description={speakers.browko.description}
+        />
+        <CardSpeaker
+          time="10:45 - 11:00"
+          name={speakers.sulima.name}
+          description={speakers.sulima.description}
+          accent
+        />
+        <CardSpeaker
+          time="11:00 - 11:15"
+          name={speakers.zemlyanika.name}
+          description={speakers.zemlyanika.description}
+        />
+        <CardSimple
+          time="11:15 - 11:30"
+          description="Перерва. Конкурси та інтерактиви в залі"
+        />
+      </section>
     </>
   );
 }
+
+const CardSimple = ({
+  time,
+  description,
+}: {
+  time: string;
+  description: string;
+}) => {
+  return (
+    <div className={cn("flex flex-col gap-1 bg-primary rounded-xl p-5")}>
+      <div className="text-primary-foreground font-travels font-bold">
+        {time}
+      </div>
+      <div className="text-primary-foreground-muted font-asteriks">
+        {description}
+      </div>
+    </div>
+  );
+};
+
+const CardSpeaker = ({
+  time,
+  name,
+  description,
+  accent,
+}: {
+  time: string;
+  name: string;
+  description: string;
+  accent?: boolean;
+}) => {
+  return (
+    <div
+      className={cn(
+        "flex flex-row gap-1 bg-white rounded-xl p-5",
+        accent && "bg-accent-green"
+      )}
+    >
+      <div className="grow">
+        <div
+          className={cn(
+            "text-accent-pink font-travels font-bold",
+            accent && "text-black"
+          )}
+        >
+          {time}
+        </div>
+        <div className="text-black font-travels uppercase font-bold">
+          {name}
+        </div>
+        <div className="text-black/70 font-asteriks">{description}</div>
+      </div>
+      <div className="w-[55px] h-[55px] min-w-[55px] min-h-[55px] bg-accent-pink rounded-full"></div>
+    </div>
+  );
+};
