@@ -1,4 +1,6 @@
+import { Ball } from "@/shared/ui/ball";
 import { Button } from "@/shared/ui/button";
+import { List } from "@/shared/ui/list";
 import Image from "next/image";
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
       <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px]">
         <Image
           src="/assets/hero.png"
+          aria-hidden="true"
           alt="Background"
           width={300}
           height={452}
@@ -42,7 +45,24 @@ export default function Home() {
           Придбати
         </Button>
       </section>
-      <section></section>
+      <section className="px-4 py-14">
+        <List />
+        <h2 className="bg-accent-pink font-travels px-6 py-6 flex flex-col items-center justify-center rounded-xl text-2xl leading-7 mt-14 uppercase font-bold text-primary-foreground text-center">
+          Стань чемпіоном <br /> у своїй справі
+        </h2>
+        <div className="bg-primary px-7 py-14 rounded-xl">
+          <h3 className="text-primary-foreground uppercase text-xl font-travels font-bold">
+            Готові вийти за рамки звичайного?
+          </h3>
+          <p className="mt-4 mb-7 text-base leading-7 text-start">
+            Наш фестиваль об’єднує найкращих майстрів nail індустрії, щоб
+            надихати, навчати та створювати тренди. Відкрий нові горизонти своєї
+            кар’єри у незвичному місці - баскетбольній арені, де прагнення до
+            перемоги стає реальністю.
+          </p>
+          <Ball className="flex flex-row-reverse" />
+        </div>
+      </section>
     </>
   );
 }
