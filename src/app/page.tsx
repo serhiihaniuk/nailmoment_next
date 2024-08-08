@@ -95,7 +95,7 @@ export default function Home() {
           <h3 className="text-primary-foreground uppercase text-xl font-travels font-bold">
             Готові вийти за рамки звичайного?
           </h3>
-          <p className="mt-4 mb-7 text-base leading-7 text-start">
+          <p className="mt-4 font-asteriks mb-7 text-base leading-7 text-start">
             Наш фестиваль об’єднує найкращих майстрів nail індустрії, щоб
             надихати, навчати та створювати тренди. Відкрий нові горизонти своєї
             кар’єри у незвичному місці - баскетбольній арені, де прагнення до
@@ -199,6 +199,39 @@ export default function Home() {
           time="11:15 - 11:30"
           description="Перерва. Конкурси та інтерактиви в залі"
         />
+      </section>
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <SectionTitle>Программа</SectionTitle>
+        <div className="flex flex-col gap-8 justify-start rounded-xl bg-accent-pink px-5 py-9 ">
+          <h3 className="text-primary-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
+            <span className="w-min"> Найрівніший френч </span>
+            <span className="text-5xl font-bold">01</span>
+          </h3>
+          <p className=" font-asteriks text-base leading-7 text-start">
+            На сайті є попередня реєстрація, бо кількість місць обмежена.
+            Реєструйся, якщо відчуваєш, що робиш крутий френч, бо прямо на
+            заході ми визначимо кращих майстрів, які намалюють найрівніший
+            френч. Переможці отримають сертифікати та цінні призи від партнерів.
+          </p>
+          <Button color="white" className="self-center">
+            РЕЄСТРАЦІЯ
+          </Button>
+        </div>
+        <div className="flex flex-col gap-8 text-accent-green-foreground justify-start rounded-xl bg-accent-green px-5 py-9 ">
+          <h3 className="text-accent-green-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
+            <span className="w-min">Корейські дизайни</span>
+            <span className="text-5xl font-bold">02</span>
+          </h3>
+          <p className=" font-asteriks text-base leading-7 text-start">
+            На сайті є попередня реєстрація, бо кількість місць обмежена.
+            Реєструйся, якщо відчуваєш, що робиш крутий френч, бо прямо на
+            заході ми визначимо кращих майстрів, які намалюють найрівніший
+            френч. Переможці отримають сертифікати та цінні призи від партнерів.
+          </p>
+          <Button color="black" className="self-center">
+            РЕЄСТРАЦІЯ
+          </Button>
+        </div>
       </section>
     </>
   );
