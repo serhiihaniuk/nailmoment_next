@@ -48,6 +48,27 @@ const speakers = {
   },
 };
 
+const feedbacks = [
+  {
+    name: 'Юлія Бельмас',
+    position: 'Майстер манікюру',
+    image: '/assets/previous-festivals-1.png',
+    text: 'Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих. Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих'
+  },
+  {
+    name: 'Юлія Бельмас',
+    position: 'Майстер манікюру',
+    image: '/assets/previous-festivals-1.png',
+    text: 'Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих. Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих'
+  },
+  {
+    name: 'Юлія Бельмас',
+    position: 'Майстер манікюру',
+    image: '/assets/previous-festivals-1.png',
+    text: 'Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих. Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих'
+  }
+]
+
 export default function Home() {
   return (
     <>
@@ -238,7 +259,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section className="px-4 py-14 flex flex-col gap-4 justify-start">
         <SectionTitle className="w-full px-4">Фото з минулих фестивалів</SectionTitle>
         <Swiper
@@ -297,6 +317,46 @@ export default function Home() {
               className="rounded-xl w-auto h-auto"
             />
           </SwiperSlide>
+        </Swiper>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <SectionTitle>Відгуки</SectionTitle>
+        <Swiper
+          spaceBetween={30}
+          grabCursor={true}
+          slidesPerView={1.25}
+          className="w-full"
+        >
+          {
+            feedbacks.map((feedback, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-primary p-5 rounded-xl">
+                  <div className="flex items-center gap-2.5">
+                    <Image
+                      src={feedback.image}
+                      aria-hidden="true"
+                      alt={feedback.name}
+                      width={50}
+                      height={50}
+                      className="rounded-full h-12 w-12 object-cover"
+                    />
+                    <div className="flex flex-col">
+                      <h3 className="text-primary-foreground text-sm font-bold uppercase">{feedback.name}</h3>
+                      <h4 className="text-primary-foreground text-sm font-normal opacity-70">{feedback.position}</h4>
+                    </div>
+                    <svg className="hidden" width="42" height="33" viewBox="0 0 42 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M42 10.5339C42 24.7966 34.4494 33 22.746 33L22.746 22.1864L23.8786 22.1864C31.2404 22.1864 34.7325 20.1356 35.6764 15.9407C34.9213 16.1271 34.0718 16.2203 33.2224 16.2203C27.937 16.2203 24.3505 12.7712 24.3505 8.11017C24.3505 3.44915 27.9371 -1.22942e-06 32.7506 -8.08611e-07C38.5079 -3.05292e-07 42 3.44915 42 10.5339ZM19.2539 10.5339C19.2539 24.7966 11.7034 33 0 33L9.45352e-07 22.1864L1.13257 22.1864C8.49436 22.1864 11.9865 20.1356 12.9303 15.9407C12.1753 16.1271 11.3258 16.2203 10.4764 16.2203C5.19098 16.2203 1.60449 12.7712 1.60449 8.11016C1.60449 3.44915 5.19097 -3.21795e-06 10.0045 -2.79714e-06C15.7618 -2.29382e-06 19.2539 3.44915 19.2539 10.5339Z" fill="#FE018A"/>
+                    </svg>
+                    <svg className="hidden" width="210" height="165" viewBox="0 0 210 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 112.331C0 41.017 37.753 0 96.2698 0V54.0678H90.607C53.798 54.0678 36.3373 64.322 31.6182 85.2966C35.3935 84.3644 39.6408 83.8983 43.888 83.8983C70.3149 83.8983 88.2474 101.144 88.2474 124.449C88.2474 147.754 70.3146 165 46.2472 165C17.4607 165 0 147.754 0 112.331ZM113.731 112.331C113.731 41.017 151.483 0 210 0V54.0678H204.337C167.528 54.0678 150.067 64.322 145.348 85.2966C149.124 84.3644 153.371 83.8983 157.618 83.8983C184.045 83.8983 201.978 101.144 201.978 124.449C201.978 147.754 184.045 165 159.978 165C131.191 165 113.731 147.754 113.731 112.331Z" fill="black"/>
+                    </svg>
+                  </div>
+                  <p className="mt-2.5 text-primary-foreground text-sm font-light opacity-80">{feedback.text}</p>
+                </div>
+              </SwiperSlide>
+            ))
+          }
         </Swiper>
       </section>
     </>
