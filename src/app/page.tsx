@@ -277,7 +277,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section className="px-4 py-14 flex flex-col gap-4 justify-start">
         <SectionTitle className="w-full px-4">Фото з минулих фестивалів</SectionTitle>
         <Swiper
