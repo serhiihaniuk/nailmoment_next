@@ -3,6 +3,7 @@ import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
 import { SectionTitle } from "@/shared/ui/section-title";
 import { Speaker } from "@/shared/ui/speaker";
+import { TicketCard } from "@/shared/ui/ticket-card";
 import Image from "next/image";
 import { cn } from "@/shared/utils/cn";
 
@@ -43,6 +44,27 @@ const speakers = {
     description: "Алергії та хімія матеріалів",
   },
 };
+
+const tickets = [
+  {
+    plan: 'Fan',
+    price: '359',
+    options: ['Місце в залі в категорії фан', 'Виступ спікерів', 'Нетворкінг з учасниками', 'Закритий телеграм канал з учасниками', 'Сертифікат про участь'],
+    paymentUrl: '/'
+  },
+  {
+    plan: 'VIP',
+    price: '459',
+    options: ['Місце в залі в категорії фан', 'Виступ спікерів', 'Нетворкінг з учасниками', 'Закритий телеграм канал з учасниками', 'Сертифікат про участь', 'Нетворкінг зі спікерами'],
+    paymentUrl: '/'
+  },
+  {
+    plan: 'PREMIUM',
+    price: '839',
+    options: ['Місце в залі в категорії фан', 'Виступ спікерів', 'Нетворкінг з учасниками', 'Закритий телеграм канал з учасниками', 'Сертифікат про участь', 'Презентації від спікерів', 'Кава брейк зі спікерами у Преміум - румі', 'Нетворкінг зі спікерами', 'Подарунок від спонсорів', 'Окрема стійка реєстрації'],
+    paymentUrl: '/'
+  }
+];
 
 export default function Home() {
   return (
@@ -231,6 +253,23 @@ export default function Home() {
           <Button color="black" className="self-center">
             РЕЄСТРАЦІЯ
           </Button>
+        </div>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start bg-primary">
+        <SectionTitle>Квитки</SectionTitle>
+        <div className="flex gap-2.5 flex-col flex-wrap">
+          {
+            tickets.map((ticket, index) => (
+              <TicketCard
+                key={index}
+                plan={ticket.plan}
+                price={ticket.price}
+                options={ticket.options}
+                paymentUrl={ticket.paymentUrl}
+              />
+            ))
+          }
         </div>
       </section>
     </>
