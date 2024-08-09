@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         "accent-green": "var(--accent-green)",
         "accent-pink": "var(--accent-pink)",
+        "primary-card": "var(--primary-card)",
         "accent-green-foreground": "var(--accent-green-foreground)",
         "accent-pink-foreground": "var(--accent-pink-foreground)",
         primary: "var(--primary)",

@@ -10,6 +10,7 @@
   --primary: #1a1a1a;
   --primary-foreground: #fff;
   --primary-foreground-muted: #ffffffb3;
+  --primary-card: #313131;
 }
 
 @layer utilities {
