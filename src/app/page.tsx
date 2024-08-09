@@ -6,6 +6,7 @@ import { List } from "@/shared/ui/list";
 import { SectionTitle } from "@/shared/ui/section-title";
 import { Speaker } from "@/shared/ui/speaker";
 import { TicketCard } from "@/shared/ui/ticket-card";
+import { TicketButton } from "@/shared/ui/ticket-button";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { cn } from "@/shared/utils/cn";
@@ -529,6 +530,14 @@ export default function Home() {
           <span className="opacity-70">Якщо залишились питання, напишіть нам в </span>
           <a className="underline" href={links.telegramLink}>телеграм</a>
         </p>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <div className="py-7 px-5 bg-accent-green text-accent-green-foreground rounded-xl">
+          <h2 className="w-[296px] mx-auto uppercase text-primary font-bold text-xl text-center mb-2">15 жовтня / Баскетбольна арена</h2>
+          <p className="text-primary font-normal text-lg text-center mb-4">Jozefa Szanajcy 17/19, 03-481 Warszawa</p>
+          <TicketButton color="black">ЗАБРОНЮВАТИ</TicketButton>
+        </div>
       </section>
     </>
   );
