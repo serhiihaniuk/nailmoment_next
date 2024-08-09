@@ -1,4 +1,5 @@
 "use client";
+import { useState } from 'react';
 import { Ball } from "@/shared/ui/ball";
 import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
@@ -10,6 +11,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { cn } from "@/shared/utils/cn";
 
 import 'swiper/css';
+
+const links = {
+  partnerLink: '#TODO:ADD BE A PARTNER LINK',
+  telegramLink: '#TODO:ADD BE A PARTNER LINK',
+}
 
 const speakers = {
   belmas: {
@@ -92,6 +98,47 @@ const feedbacks = [
 ];
 
 export default function Home() {
+  const [frequentlyQuestions, setFrequentlyQuestions] = useState([
+    {
+      title: 'Як купити квиток?',
+      text: 'Ви можете купити квиток через сайт - натиснути кнопку «Придбати», вибрати тариф та зробити оплату. Також, можна придбати квиток через дірект.',
+      isActive: false
+    },
+    {
+      title: 'Як отримати фактуру?',
+      text: 'TODO: Fill text',
+      isActive: false
+    },
+    {
+      title: 'Яке місце проведення фестивалю?',
+      text: 'TODO: Fill text',
+      isActive: false
+    },
+    {
+      title: 'Як я можу прийняти участь в конкурсі «Найліпший Френч», «Корейський дизайн»?',
+      text: 'TODO: Fill text',
+      isActive: false
+    },
+    {
+      title: 'Чи потрібно реєструватися щоб взяти участь у конкурсі «Найліпший Френч» та «Корейский дизайн»?',
+      text: 'TODO: Fill text',
+      isActive: false
+    },
+    {
+      title: 'Я купив(ла) квиток, але змінилися плани і я хочу повернути кошти. Як я можу це зробити?',
+      text: 'TODO: Fill text',
+      isActive: false
+    }
+  ])
+
+  const onAccordionClick = (index: number) => {
+    setFrequentlyQuestions(prevQuestions =>
+      prevQuestions.map((question, i) =>
+        i === index ? { ...question, isActive: !question.isActive } : question
+      )
+    )
+  }
+
   return (
     <>
       <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px]">
@@ -428,7 +475,7 @@ export default function Home() {
             </svg>
           </div>
         </div>
-        <button className="relative h-[54px] w-full max-w-[300px] mt-3 flex items-center justify-center border-[1px] border-[#4C4C4C] rounded-md hover:opacity-80 transition-all">
+        <a href={links.partnerLink} className="mx-auto relative h-[54px] w-full max-w-[300px] mt-3 flex items-center justify-center border-[1px] border-[#4C4C4C] rounded-md hover:opacity-80 transition-all">
           <svg className="absolute left-[-1px] top-2/4 -translate-y-1/2" width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672V20.5137Z" fill="black"/>
             <path d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672" stroke="#4C4C4C"/>
@@ -437,8 +484,51 @@ export default function Home() {
             <path d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137L11 0.513672Z" fill="black"/>
             <path d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137" stroke="#4C4C4C"/>
           </svg>
-          <span className="text-sm font-bold color-primary-foreground">СТАТИ ПАРТНЕРОМ</span>
-        </button>
+          <span className="text-sm font-bold text-primary-foreground">СТАТИ ПАРТНЕРОМ</span>
+        </a>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <SectionTitle className="w-full px-4">Часто задаваємі питання</SectionTitle>
+
+        <div>
+          {
+            frequentlyQuestions.map((question, index) => (
+              <div
+                className={cn(
+                  "border-t-[1px] border-t-[#4C4C4C] py-5",
+                  frequentlyQuestions.length === index + 1 ? 'border-y-[1px] border-y-[#4C4C4C]' : 'border-t-[1px] border-t-[#4C4C4C] py-5'
+                )}
+                key={index}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="min-w-[30px] h-[30px] items-center text-primary-foreground text-lg font-semibold">0{index+1}.</div>
+                  <h3 className="w-full text-primary-foreground text-lg font-semibold">{question.title}</h3>
+                  <div className="min-w-[30px] h-[30px] bg-accent-pink rounded-full relative" onClick={() => onAccordionClick(index)}>
+                    <div
+                      className={cn(
+                        "w-[1px] h-[11px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-y-1/2 transition-all duration-500",
+                        question.isActive ? 'rotate-90' : ''
+                      )}
+                    ></div>
+                    <div
+                      className="w-[11px] h-[1px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-x-1/2"></div>
+                  </div>
+                </div>
+                <p
+                  className={cn(
+                    "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500",
+                    question.isActive ? 'max-h-[200px]' : ''
+                  )}
+                >{question.text}</p>
+              </div>
+            ))
+          }
+        </div>
+        <p className="w-[291px] mx-auto text-primary-foreground text-lg font-normal text-center">
+          <span className="opacity-70">Якщо залишились питання, напишіть нам в </span>
+          <a className="underline" href={links.telegramLink}>телеграм</a>
+        </p>
       </section>
     </>
   );
