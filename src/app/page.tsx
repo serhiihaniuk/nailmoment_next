@@ -1,3 +1,4 @@
+"use client";
 import { Ball } from "@/shared/ui/ball";
 import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
@@ -5,7 +6,10 @@ import { SectionTitle } from "@/shared/ui/section-title";
 import { Speaker } from "@/shared/ui/speaker";
 import { TicketCard } from "@/shared/ui/ticket-card";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { cn } from "@/shared/utils/cn";
+
+import 'swiper/css';
 
 const speakers = {
   belmas: {
@@ -271,6 +275,67 @@ export default function Home() {
             ))
           }
         </div>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <SectionTitle className="w-full px-4">Фото з минулих фестивалів</SectionTitle>
+        <Swiper
+          spaceBetween={30}
+          grabCursor={true}
+          slidesPerView={1.4}
+          className="w-full"
+        >
+          <SwiperSlide>
+            <Image
+              src="/assets/previous-festivals-1.png"
+              aria-hidden="true"
+              alt="Фото з минулих фестивалів"
+              width={363}
+              height={284}
+              className="rounded-xl w-auto h-auto"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/assets/previous-festivals-2.png"
+              aria-hidden="true"
+              alt="Фото з минулих фестивалів"
+              width={363}
+              height={284}
+              className="rounded-xl w-auto h-auto"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/assets/previous-festivals-3.png"
+              aria-hidden="true"
+              alt="Фото з минулих фестивалів"
+              width={363}
+              height={284}
+              className="rounded-xl w-auto h-auto"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/assets/previous-festivals-4.png"
+              aria-hidden="true"
+              alt="Фото з минулих фестивалів"
+              width={363}
+              height={284}
+              className="rounded-xl w-auto h-auto"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/assets/previous-festivals-5.png"
+              aria-hidden="true"
+              alt="Фото з минулих фестивалів"
+              width={363}
+              height={284}
+              className="rounded-xl w-auto h-auto"
+            />
+          </SwiperSlide>
+        </Swiper>
       </section>
     </>
   );
