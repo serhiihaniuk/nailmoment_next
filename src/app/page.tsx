@@ -89,7 +89,7 @@ const feedbacks = [
     image: '/assets/previous-festivals-1.png',
     text: 'Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих. Завдяки цьому курсу мої манікюри стали набагато якіснішими! Тепер клієнти повертаються тільки для нових дизайнів, а не для виправлення старих'
   }
-]
+];
 
 export default function Home() {
   return (
@@ -358,7 +358,6 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </section>
-
       <section className="px-4 py-14 flex flex-col gap-4 justify-start">
         <SectionTitle>Відгуки</SectionTitle>
         <Swiper
@@ -397,6 +396,49 @@ export default function Home() {
             ))
           }
         </Swiper>
+      </section>
+
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
+        <SectionTitle>Партнери</SectionTitle>
+        <div className="flex gap-2.5">
+          <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary">
+            <Image
+              src="/assets/partners-1.png"
+              aria-hidden="true"
+              alt="logo"
+              width={100}
+              height={100}
+              className="w-[74px]"
+            />
+          </div>
+          <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary">
+            <Image
+              src="/assets/partners-2.png"
+              aria-hidden="true"
+              alt="logo"
+              width={100}
+              height={100}
+              className="w-[80px]"
+            />
+          </div>
+          <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary">
+            <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="16.6333" y1="2.18557e-08" x2="16.6333" y2="33" stroke="white"/>
+              <line x1="33" y1="17" x2="-4.37114e-08" y2="17" stroke="white"/>
+            </svg>
+          </div>
+        </div>
+        <button className="relative h-[54px] w-full max-w-[300px] mt-3 flex items-center justify-center border-[1px] border-[#4C4C4C] rounded-md hover:opacity-80 transition-all">
+          <svg className="absolute left-[-1px] top-2/4 -translate-y-1/2" width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672V20.5137Z" fill="black"/>
+            <path d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672" stroke="#4C4C4C"/>
+          </svg>
+          <svg className="absolute right-[-1px] top-2/4 -translate-y-1/2" width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137L11 0.513672Z" fill="black"/>
+            <path d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137" stroke="#4C4C4C"/>
+          </svg>
+          <span className="text-sm font-bold color-primary-foreground">СТАТИ ПАРТНЕРОМ</span>
+        </button>
       </section>
     </>
   );
