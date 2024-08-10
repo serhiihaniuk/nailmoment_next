@@ -145,44 +145,46 @@ export default function Home() {
 
   return (
     <>
-      <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px]">
+      <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px] lg:h-lvh">
+        <div className="relative w-full h-full lg:max-w-[1084px] lg:m-auto lg:border-b lg:border-b-gray-800 lg:flex lg:flex-col">
         <Image
           src="/assets/hero.png"
           aria-hidden="true"
           alt="Background"
           width={300}
           height={452}
-          className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800"
+          className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800 lg:border-0 lg:left-auto lg:right-[40px] lg:w-[600px] lg:-translate-x-[0]"
         />
-        <div className="flex font-asteriks flex-col  gap-2 relative z-10">
-          <span className="text-primary-foreground text-sm">
+        <div className="flex font-asteriks flex-col  gap-2 relative z-10 lg:gap-0 lg:mb-16">
+          <span className="text-primary-foreground text-sm lg:text-lg">
             15 жовтня / Баскетбольна арена
           </span>
           <a
             href="TODO:ADD_LINK"
-            className="text-primary-foreground-muted text-xs"
+            className="text-primary-foreground-muted text-xs lg:text-lg"
           >
             Jozefa Szanajcy 17/19, 03-481 Warszawa
           </a>
         </div>
-        <h1 className="w-[282px] flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10">
-          <span className="text-3xl w-min leading-10 font-travels font-bold">
+        <h1 className="w-[282px] flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10 lg:w-[600px] lg:my-auto">
+          <span className="text-3xl w-min leading-10 font-travels font-bold lg:text-7xl">
             NAIL MOMENT
           </span>
-          <span className="text-center inline-flex text-accent-pink gap-3 items-center">
-            <span className="text-3xl font-travels">&</span>
+          <span className="text-center inline-flex text-accent-pink gap-3 items-center lg:items-center">
+            <span className="text-3xl font-travels lg:text-7xl lg:-ml-16">&</span>
             <span className="text-base font-asteriks text-nowrap">
               Перший фестиваль-коллаборація
             </span>
           </span>
-          <span className="text-3xl w-64 leading-10 font-bold font-travels">
+          <span className="text-3xl w-64 leading-10 font-bold font-travels lg:text-7xl lg:w-full">
             NAILS
             <br /> OF THE DAY
           </span>
         </h1>
-        <Button className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2">
+        <Button className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2 lg:right-[80px] lg:left-auto">
           Придбати
         </Button>
+        </div>
       </section>
       <section className="px-4 py-14">
         <List />
