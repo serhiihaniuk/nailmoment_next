@@ -523,46 +523,47 @@ export default function Home() {
       </section>
 
       <section className="px-4 py-14 flex flex-col gap-4 justify-start">
-        <SectionTitle className="w-full px-4">Часто задаваємі питання</SectionTitle>
-
-        <div>
-          {
-            frequentlyQuestions.map((question, index) => (
-              <div
-                className={cn(
-                  "border-t-[1px] border-t-[#4C4C4C] py-5",
-                  frequentlyQuestions.length === index + 1 ? 'border-y-[1px] border-y-[#4C4C4C]' : 'border-t-[1px] border-t-[#4C4C4C] py-5'
-                )}
-                key={index}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="min-w-[30px] h-[30px] items-center text-primary-foreground text-lg font-semibold">0{index+1}.</div>
-                  <h3 className="w-full text-primary-foreground text-lg font-semibold">{question.title}</h3>
-                  <div className="min-w-[30px] h-[30px] bg-accent-pink rounded-full relative" onClick={() => onAccordionClick(index)}>
-                    <div
-                      className={cn(
-                        "w-[1px] h-[11px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-y-1/2 transition-all duration-500",
-                        question.isActive ? 'rotate-90' : ''
-                      )}
-                    ></div>
-                    <div
-                      className="w-[11px] h-[1px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-x-1/2"></div>
-                  </div>
-                </div>
-                <p
+        <SectionTitle className="w-full px-4 lg:mb-6">Часто задаваємі питання</SectionTitle>
+        <div className="relative w-full h-full flex flex-col gap-4 lg:max-w-[760px] lg:m-auto">
+          <div>
+            {
+              frequentlyQuestions.map((question, index) => (
+                <div
                   className={cn(
-                    "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500",
-                    question.isActive ? 'max-h-[200px]' : ''
+                    "border-t-[1px] border-t-[#4C4C4C] py-5",
+                    frequentlyQuestions.length === index + 1 ? 'border-y-[1px] border-y-[#4C4C4C]' : 'border-t-[1px] border-t-[#4C4C4C] py-5'
                   )}
-                >{question.text}</p>
-              </div>
-            ))
-          }
+                  key={index}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="min-w-[30px] h-[30px] items-center text-primary-foreground text-lg font-semibold">0{index+1}.</div>
+                    <h3 className="w-full text-primary-foreground text-lg font-semibold">{question.title}</h3>
+                    <div className="min-w-[30px] h-[30px] bg-accent-pink rounded-full relative" onClick={() => onAccordionClick(index)}>
+                      <div
+                        className={cn(
+                          "w-[1px] h-[11px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-y-1/2 transition-all duration-500",
+                          question.isActive ? 'rotate-90' : ''
+                        )}
+                      ></div>
+                      <div
+                        className="w-[11px] h-[1px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-x-1/2"></div>
+                    </div>
+                  </div>
+                  <p
+                    className={cn(
+                      "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
+                      question.isActive ? 'max-h-[200px]' : ''
+                    )}
+                  >{question.text}</p>
+                </div>
+              ))
+            }
+          </div>
+          <p className="w-[291px] mx-auto text-primary-foreground text-lg font-normal text-center lg:w-full">
+            <span className="opacity-70">Якщо залишились питання, напишіть нам в </span>
+            <a className="underline" href={links.telegramLink}>телеграм</a>
+          </p>
         </div>
-        <p className="w-[291px] mx-auto text-primary-foreground text-lg font-normal text-center">
-          <span className="opacity-70">Якщо залишились питання, напишіть нам в </span>
-          <a className="underline" href={links.telegramLink}>телеграм</a>
-        </p>
       </section>
 
       <section className="px-4 pb-14 flex flex-col gap-4 justify-start">
