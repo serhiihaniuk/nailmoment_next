@@ -208,9 +208,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="px-4 py-14 flex flex-col items-stretch gap-4 lines-2 justify-start">
+      <section className="px-4 py-14 lines-2">
+        <SectionTitle className="mb-5 lg:mb-14">Спікери Фестивалю</SectionTitle>
         <div className="relative w-full h-full lg:max-w-[1120px] lg:m-auto lg:flex lg:flex-col">
-          <SectionTitle>Спікери Фестивалю</SectionTitle>
           <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch lg:grid-cols-4 lg:gap-y-16 lg:gap-x-8">
           <Speaker
             name={speakers.belmas.name}
@@ -251,9 +251,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-14 flex flex-col items-stretch justify-start">
+      <section className="px-4 py-14">
+        <SectionTitle className="mb-5 lg:mb-14">Программа</SectionTitle>
         <div className="relative w-full h-full gap-4 flex flex-col lg:max-w-[1120px] lg:m-auto">
-          <SectionTitle>Программа</SectionTitle>
           <CardSimple
             time="10:00 - 10:15"
             description="Відкриття Реєстрація. Нетворкінг. Nail - Маркет"
@@ -308,24 +308,25 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
-        <SectionTitle>Программа</SectionTitle>
-        <div className="flex flex-col gap-8 justify-start rounded-xl bg-accent-pink px-5 py-9 ">
-          <h3 className="text-primary-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
-            <span className="w-min"> Найрівніший френч </span>
-            <span className="text-5xl font-bold">01</span>
-          </h3>
-          <p className=" font-asteriks text-base leading-7 text-start">
-            На сайті є попередня реєстрація, бо кількість місць обмежена.
-            Реєструйся, якщо відчуваєш, що робиш крутий френч, бо прямо на
-            заході ми визначимо кращих майстрів, які намалюють найрівніший
-            френч. Переможці отримають сертифікати та цінні призи від партнерів.
-          </p>
-          <Button color="white" className="self-center">
-            РЕЄСТРАЦІЯ
-          </Button>
-        </div>
-        <div className="flex flex-col gap-8 text-accent-green-foreground justify-start rounded-xl bg-accent-green px-5 py-9 ">
+      <section className="px-4 py-14">
+        <SectionTitle className="mb-5 lg:mb-14">Программа</SectionTitle>
+        <div className="relative w-full h-full gap-4 flex flex-col justify-start lg:max-w-[1120px] lg:m-auto lg:flex-row lg:gap-8">
+          <div className="flex flex-col gap-8 justify-start rounded-xl bg-accent-pink px-5 py-9 ">
+            <h3 className="text-primary-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
+              <span className="w-min"> Найрівніший френч </span>
+              <span className="text-5xl font-bold">01</span>
+            </h3>
+            <p className=" font-asteriks text-base leading-7 text-start">
+              На сайті є попередня реєстрація, бо кількість місць обмежена.
+              Реєструйся, якщо відчуваєш, що робиш крутий френч, бо прямо на
+              заході ми визначимо кращих майстрів, які намалюють найрівніший
+              френч. Переможці отримають сертифікати та цінні призи від партнерів.
+            </p>
+            <Button color="white" className="self-center">
+              РЕЄСТРАЦІЯ
+            </Button>
+          </div>
+          <div className="flex flex-col gap-8 text-accent-green-foreground justify-start rounded-xl bg-accent-green px-5 py-9 ">
           <h3 className="text-accent-green-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
             <span className="w-min">Корейські дизайни</span>
             <span className="text-5xl font-bold">02</span>
@@ -340,11 +341,13 @@ export default function Home() {
             РЕЄСТРАЦІЯ
           </Button>
         </div>
+        </div>
       </section>
 
-      <section className="px-4 py-14 flex flex-col gap-4 justify-start bg-primary">
-        <SectionTitle>Квитки</SectionTitle>
-        <div className="flex gap-2.5 flex-col flex-wrap">
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start bg-primary lg:pt-36 lg:pb-40">
+        <SectionTitle className="mb-5 lg:mb-14">Квитки</SectionTitle>
+        <div className="relative w-full h-full gap-4 flex flex-col justify-start lg:max-w-[1120px] lg:m-auto ">
+          <div className="flex gap-2.5 flex-col lg:gap-6 lg:flex-row">
           {
             tickets.map((ticket, index) => (
               <TicketCard
@@ -356,6 +359,7 @@ export default function Home() {
               />
             ))
           }
+        </div>
         </div>
       </section>
 
