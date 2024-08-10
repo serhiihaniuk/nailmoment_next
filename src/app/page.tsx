@@ -187,7 +187,7 @@ export default function Home() {
         </div>
       </section>
       <section className="px-4 py-14">
-        <div className="relative w-full h-full lg:max-w-[1120px] lg:m-auto lg:border-b lg:border-b-gray-800 lg:flex lg:flex-col">
+        <div className="relative w-full h-full lg:max-w-[1120px] lg:m-auto lg:flex lg:flex-col">
           <List />
           <h2 className="bg-accent-pink font-travels px-6 py-6 flex flex-col items-center justify-center rounded-xl text-2xl leading-7 mt-14 uppercase font-bold text-primary-foreground text-center lg:mt-20">
             Стань чемпіоном <br /> у своїй справі
@@ -209,8 +209,9 @@ export default function Home() {
         </div>
       </section>
       <section className="px-4 py-14 flex flex-col items-stretch gap-4 lines-2 justify-start">
-        <SectionTitle>Спікери Фестивалю</SectionTitle>
-        <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch">
+        <div className="relative w-full h-full lg:max-w-[1120px] lg:m-auto lg:flex lg:flex-col">
+          <SectionTitle>Спікери Фестивалю</SectionTitle>
+          <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch lg:grid-cols-4 lg:gap-y-16 lg:gap-x-8">
           <Speaker
             name={speakers.belmas.name}
             image={speakers.belmas.image}
@@ -246,6 +247,7 @@ export default function Home() {
             image={speakers.zemlyanika.image}
             description={speakers.zemlyanika.description}
           />
+        </div>
         </div>
       </section>
 

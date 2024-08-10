@@ -9,8 +9,8 @@ export const Speaker = ({
   description: string;
 }) => {
   return (
-    <div className="flex flex-col gap-1 text-center justify-start items-center">
-      <div className="rounded-full relative overflow-hidden w-[140px] h-[140px]">
+    <div className="flex flex-col gap-1 text-center justify-start items-center lg:w-full">
+      <div className="rounded-full relative overflow-hidden w-[140px] h-[140px] lg:w-[260px] lg:h-[260px]">
         <Image
           src={image}
           width={140}
@@ -19,10 +19,10 @@ export const Speaker = ({
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
-      <h3 className=" w-min text-accent-green pt-2 uppercase text-base font-travels font-bold">
+      <h3 className="w-min text-accent-green pt-2 uppercase text-base font-travels font-bold lg:mt-5 lg:w-max lg:text-xl">
         {name}
       </h3>
-      <p className="text-primary-foreground-muted w-[120px] leading-5 text-base font-asteriks">
+      <p className="text-primary-foreground-muted w-[120px] leading-5 text-base font-asteriks lg:w-full lg:text-xl">
         {description}
       </p>
     </div>
