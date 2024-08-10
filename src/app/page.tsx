@@ -151,8 +151,8 @@ export default function Home() {
           src="/assets/hero.png"
           aria-hidden="true"
           alt="Background"
-          width={300}
-          height={452}
+          width={600}
+          height={900}
           className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800 lg:border-0 lg:left-auto lg:right-[40px] lg:w-[600px] lg:-translate-x-[0]"
         />
         <div className="flex font-asteriks flex-col  gap-2 relative z-10 lg:gap-0 lg:mb-16">
