@@ -363,12 +363,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
-        <SectionTitle className="w-full px-4">Фото з минулих фестивалів</SectionTitle>
+      <section className="px-4 py-14 flex flex-col gap-4 justify-start lg:px-0 lg:pt-36 lg:pb-5">
+        <SectionTitle className="w-full px-4 lg:mb-14">Фото з минулих фестивалів</SectionTitle>
         <Swiper
           spaceBetween={30}
           grabCursor={true}
           slidesPerView={1.4}
+          breakpoints={{
+            1024: {
+              slidesPerView: 3.5,
+              centeredSlides: true,
+              initialSlide: 2
+            }
+          }}
           className="w-full"
         >
           <SwiperSlide>
