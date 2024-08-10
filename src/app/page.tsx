@@ -566,11 +566,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-14 flex flex-col gap-4 justify-start">
-        <div className="py-7 px-5 bg-accent-green text-accent-green-foreground rounded-xl">
-          <h2 className="w-[296px] mx-auto uppercase text-primary font-bold text-xl text-center mb-2">15 жовтня / Баскетбольна арена</h2>
-          <p className="text-primary font-normal text-lg text-center mb-4">Jozefa Szanajcy 17/19, 03-481 Warszawa</p>
-          <TicketButton color="black">ЗАБРОНЮВАТИ</TicketButton>
+      <section className="px-4 pb-14 lg:pt-36 lg:pb-5">
+        <div className="relative w-full h-full flex flex-col gap-4 lg:max-w-[1120px] lg:m-auto">
+          <div className="py-7 px-5 bg-accent-green text-accent-green-foreground rounded-xl lg:py-9">
+            <h2 className="w-[296px] mx-auto uppercase text-primary font-bold text-xl text-center mb-2 lg:w-full lg:text-4xl">15 жовтня / Баскетбольна арена</h2>
+            <p className="text-primary font-normal text-lg text-center mb-4 lg:text-2xl lg:mb-10">Jozefa Szanajcy 17/19, 03-481 Warszawa</p>
+            <TicketButton className="m-auto" color="black">ЗАБРОНЮВАТИ</TicketButton>
+          </div>
         </div>
       </section>
 
