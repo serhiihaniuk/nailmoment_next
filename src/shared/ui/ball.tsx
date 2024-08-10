@@ -7,6 +7,7 @@ export const Ball = ({ className }: BallProps) => {
   return (
     <div className={cn(className)}>
       <svg
+        className="w-full h-full"
         width="96"
         height="96"
         viewBox="0 0 96 96"

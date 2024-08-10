@@ -16,9 +16,9 @@ const text = [
 ];
 export const List = () => {
   return (
-    <ul className="flex flex-col gap-6 text-center list-none">
+    <ul className="flex flex-col gap-6 text-center list-none lg:flex-row lg:gap-14">
       {text.map((item) => (
-        <li className="flex gap-4 text-start" key={item.title}>
+        <li className="flex gap-4 text-start lg:w-full" key={item.title}>
           <span>
             <svg
               width="29"
