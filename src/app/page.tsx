@@ -251,60 +251,62 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-14 flex flex-col items-stretch gap-4 justify-start">
-        <SectionTitle>Программа</SectionTitle>
-        <CardSimple
-          time="10:00 - 10:15"
-          description="Відкриття Реєстрація. Нетворкінг. Nail - Маркет"
-        />
-        <CardSimple
-          time="10:15 - 10:30"
-          description="Програма початку фестивалю"
-        />
-        <CardSpeaker
-          time="10:30 - 10:45"
-          name={speakers.belmas.name}
-          description={speakers.belmas.description}
-        />
-        <CardSpeaker
-          time="10:45 - 11:00"
-          name={speakers.ragoza.name}
-          description={speakers.ragoza.description}
-        />
-        <CardSpeaker
-          time="11:00 - 11:15"
-          name={speakers.zozylia.name}
-          description={speakers.zozylia.description}
-        />
-        <CardSimple
-          time="10:00 - 10:15"
-          description="Перерва. Конкурси та інтерактиви в залі"
-        />
-        <CardSpeaker
-          time="10:15 - 10:30"
-          name={speakers.mart.name}
-          description={speakers.mart.description}
-        />
-        <CardSpeaker
-          time="10:30 - 10:45"
-          name={speakers.browko.name}
-          description={speakers.browko.description}
-        />
-        <CardSpeaker
-          time="10:45 - 11:00"
-          name={speakers.sulima.name}
-          description={speakers.sulima.description}
-          accent
-        />
-        <CardSpeaker
-          time="11:00 - 11:15"
-          name={speakers.zemlyanika.name}
-          description={speakers.zemlyanika.description}
-        />
-        <CardSimple
-          time="11:15 - 11:30"
-          description="Перерва. Конкурси та інтерактиви в залі"
-        />
+      <section className="px-4 py-14 flex flex-col items-stretch justify-start">
+        <div className="relative w-full h-full gap-4 flex flex-col lg:max-w-[1120px] lg:m-auto">
+          <SectionTitle>Программа</SectionTitle>
+          <CardSimple
+            time="10:00 - 10:15"
+            description="Відкриття Реєстрація. Нетворкінг. Nail - Маркет"
+          />
+          <CardSimple
+            time="10:15 - 10:30"
+            description="Програма початку фестивалю"
+          />
+          <CardSpeaker
+            time="10:30 - 10:45"
+            name={speakers.belmas.name}
+            description={speakers.belmas.description}
+          />
+          <CardSpeaker
+            time="10:45 - 11:00"
+            name={speakers.ragoza.name}
+            description={speakers.ragoza.description}
+          />
+          <CardSpeaker
+            time="11:00 - 11:15"
+            name={speakers.zozylia.name}
+            description={speakers.zozylia.description}
+          />
+          <CardSimple
+            time="10:00 - 10:15"
+            description="Перерва. Конкурси та інтерактиви в залі"
+          />
+          <CardSpeaker
+            time="10:15 - 10:30"
+            name={speakers.mart.name}
+            description={speakers.mart.description}
+          />
+          <CardSpeaker
+            time="10:30 - 10:45"
+            name={speakers.browko.name}
+            description={speakers.browko.description}
+          />
+          <CardSpeaker
+            time="10:45 - 11:00"
+            name={speakers.sulima.name}
+            description={speakers.sulima.description}
+            accent
+          />
+          <CardSpeaker
+            time="11:00 - 11:15"
+            name={speakers.zemlyanika.name}
+            description={speakers.zemlyanika.description}
+          />
+          <CardSimple
+            time="11:15 - 11:30"
+            description="Перерва. Конкурси та інтерактиви в залі"
+          />
+        </div>
       </section>
       <section className="px-4 py-14 flex flex-col gap-4 justify-start">
         <SectionTitle>Программа</SectionTitle>
