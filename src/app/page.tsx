@@ -278,7 +278,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-14">
+      <section className="px-4 py-14 max-w-[500px]">
         <SectionTitle className="mb-5 md:mb-14">Программа</SectionTitle>
         <div className="relative w-full h-full gap-4 flex flex-col md:max-w-[1120px] md:m-auto">
           <CardSimple
@@ -373,10 +373,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-14 flex flex-col gap-4 justify-start bg-primary md:pt-36 md:pb-40">
+      <section className="px-4 py-8 flex flex-col gap-4 justify-start bg-primary ">
         <SectionTitle className="mb-5 md:mb-14">Квитки</SectionTitle>
         <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto ">
-          <div className="flex gap-2.5 flex-col md:gap-6 md:flex-row">
+          <div className="flex gap-2.5 flex-col md:gap-6 lg:flex-row">
             {tickets.map((ticket, index) => (
               <TicketCard
                 key={index}
@@ -395,7 +395,7 @@ export default function Home() {
           Фото з минулих фестивалів
         </SectionTitle>
         <Swiper
-          spaceBetween={2}
+          spaceBetween={30}
           className="prev"
           grabCursor={true}
           slidesPerView={1.1}
@@ -690,7 +690,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="px-4 pt-14 pb-7">
+      <footer className="px-4 pt-14 pb-7 max-w-[900px] mx-auto">
         <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
           <div className="flex flex-col gap-4 justify-start mb-6 md:flex-row">
             <div className="w-full">
