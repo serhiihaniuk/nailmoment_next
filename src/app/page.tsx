@@ -165,8 +165,8 @@ export default function Home() {
   const onAccordionClick = (index: number) => {
     setFrequentlyQuestions((prevQuestions) =>
       prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question,
-      ),
+        i === index ? { ...question, isActive: !question.isActive } : question
+      )
     );
   };
 
@@ -631,12 +631,13 @@ export default function Home() {
             {frequentlyQuestions.map((question, index) => (
               <div
                 className={cn(
-                  "border-t-[1px] border-t-[#4C4C4C] py-5",
+                  "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
                   frequentlyQuestions.length === index + 1
                     ? "border-y-[1px] border-y-[#4C4C4C]"
-                    : "border-t-[1px] border-t-[#4C4C4C] py-5",
+                    : "border-t-[1px] border-t-[#4C4C4C] py-5"
                 )}
                 key={index}
+                onClick={() => onAccordionClick(index)}
               >
                 <div className="flex items-center gap-2.5">
                   <div className="min-w-[30px] h-[30px] items-center text-primary-foreground text-lg font-semibold">
@@ -645,23 +646,16 @@ export default function Home() {
                   <h3 className="w-full text-primary-foreground text-lg font-semibold">
                     {question.title}
                   </h3>
-                  <div
-                    className="min-w-[30px] h-[30px] bg-accent-pink rounded-full relative"
-                    onClick={() => onAccordionClick(index)}
-                  >
-                    <div
-                      className={cn(
-                        "w-[1px] h-[11px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-y-1/2 transition-all duration-500",
-                        question.isActive ? "rotate-90" : "",
-                      )}
-                    ></div>
-                    <div className="w-[11px] h-[1px] bg-primary-foreground absolute top-2/4 left-2/4 -translate-x-1/2"></div>
+                  <div className="min-w-[30px] flex justify-center items-center leading-none font-asteriks text-2xl min-h-[30px] max-h-[30px] bg-accent-pink rounded-full relative">
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground">
+                      {question.isActive ? "-" : "+"}
+                    </span>
                   </div>
                 </div>
                 <p
                   className={cn(
                     "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
-                    question.isActive ? "max-h-[200px]" : "",
+                    question.isActive ? "max-h-[200px]" : ""
                   )}
                 >
                   {question.text}
@@ -880,14 +874,14 @@ const CardSpeaker = ({
     <div
       className={cn(
         "flex flex-row gap-1 bg-white rounded-xl p-5",
-        accent && "bg-accent-green",
+        accent && "bg-accent-green"
       )}
     >
       <div className="grow">
         <div
           className={cn(
             "text-accent-pink font-travels font-bold",
-            accent && "text-black",
+            accent && "text-black"
           )}
         >
           {time}
