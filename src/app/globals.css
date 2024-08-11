@@ -57,3 +57,32 @@ body {
   font-weight: 700;
   font-stretch: normal;
 }
+
+.swiper-slide-shadow-coverflow {
+  border-radius: 35px !important;
+}
+
+.prev .swiper-slide img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+}
+
+.swiper.prev {
+  height: 80vh;
+  margin-right: 8px;
+  width: 100%;
+}
+
+.swiper.prev .swiper-slide {
+  position: relative;
+  border: 1px solid #4c4c4c;
+  height: 80vh;
+  width: 100%;
+}
