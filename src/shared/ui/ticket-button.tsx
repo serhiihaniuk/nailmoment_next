@@ -25,16 +25,20 @@ export const TicketButton = ({
   children = "button",
   color = "green",
   className = "",
+  href,
 }: {
   children: string;
   color?: "green" | "pink" | "white" | "black";
   className?: string;
+  href?: string;
 }) => {
   return (
-    <button
+    <a
       style={{ background: colors[color] }}
+      href={href}
+      target="_blank"
       className={cn(
-        "w-full max-w-80 rounded h-14 flex items-center justify-between overflow-hidden relative hover:opacity-80 transition-all",
+        "w-full text-center max-w-80 rounded h-14 flex items-center justify-between overflow-hidden relative hover:opacity-80 transition-all",
         className
       )}
     >
@@ -128,6 +132,6 @@ export const TicketButton = ({
           />
         </svg>
       </span>
-    </button>
+    </a>
   );
 };
