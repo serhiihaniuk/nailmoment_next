@@ -175,8 +175,8 @@ export default function Home() {
   const onAccordionClick = (index: number) => {
     setFrequentlyQuestions((prevQuestions) =>
       prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question,
-      ),
+        i === index ? { ...question, isActive: !question.isActive } : question
+      )
     );
   };
 
@@ -371,7 +371,9 @@ export default function Home() {
               Зареєструйся вже зараз – кількість місць обмежена!
             </p>
             <RegisterEvent color="white" />
-            <a className="block mx-auto">Умови участі</a>
+            <a href="/rules" className="block mx-auto">
+              Умови участі
+            </a>
           </div>
           <div className="flex flex-col gap-8 basis-1/2 text-accent-green-foreground justify-start rounded-xl bg-accent-green px-5 py-9 ">
             <h3 className="text-accent-green-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
@@ -389,7 +391,9 @@ export default function Home() {
               сьогодні та доведи, що ти справжній ГУРУ корейського дизайну!
             </p>
             <RegisterEvent color="black" />
-            <a className="block mx-auto">Умови участі</a>
+            <a href="/rules" className="block mx-auto">
+              Умови участі
+            </a>
           </div>
         </div>
       </section>
@@ -609,7 +613,7 @@ export default function Home() {
                   "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
                   frequentlyQuestions.length === index + 1
                     ? "border-y-[1px] border-y-[#4C4C4C]"
-                    : "border-t-[1px] border-t-[#4C4C4C] py-5",
+                    : "border-t-[1px] border-t-[#4C4C4C] py-5"
                 )}
                 key={index}
                 onClick={() => onAccordionClick(index)}
@@ -630,7 +634,7 @@ export default function Home() {
                 <p
                   className={cn(
                     "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
-                    question.isActive ? "max-h-[200px]" : "",
+                    question.isActive ? "max-h-[200px]" : ""
                   )}
                 >
                   {question.text}
@@ -851,14 +855,14 @@ const CardSpeaker = ({
     <div
       className={cn(
         "flex flex-row gap-1 bg-white rounded-xl p-5",
-        accent && "bg-accent-green",
+        accent && "bg-accent-green"
       )}
     >
       <div className="grow">
         <div
           className={cn(
             "text-accent-pink font-travels font-bold",
-            accent && "text-black",
+            accent && "text-black"
           )}
         >
           {time}
