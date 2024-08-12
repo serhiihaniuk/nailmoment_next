@@ -188,8 +188,8 @@ export default function Home() {
             src="/assets/hero.png"
             aria-hidden="true"
             alt="Background"
-            width={600}
-            height={900}
+            width={1000}
+            height={1000}
             className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]"
           />
           <div className="flex font-asteriks flex-col  gap-2 relative z-10 md:gap-0 md:mb-16">
