@@ -36,14 +36,13 @@ export const TicketButton = ({
     <a
       style={{ background: colors[color] }}
       href={href}
-      target="_blank"
       className={cn(
         "w-full text-center max-w-80 rounded h-14 flex items-center justify-between overflow-hidden relative hover:opacity-80 transition-all",
         className
       )}
     >
       <svg
-        className="absolute left-0 top-2/4 -translate-y-1/2"
+        className="absolute -left-[2px] top-2/4 -translate-y-1/2"
         width="10"
         height="20"
         viewBox="0 0 10 20"

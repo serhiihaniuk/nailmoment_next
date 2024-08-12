@@ -175,8 +175,8 @@ export default function Home() {
   const onAccordionClick = (index: number) => {
     setFrequentlyQuestions((prevQuestions) =>
       prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question
-      )
+        i === index ? { ...question, isActive: !question.isActive } : question,
+      ),
     );
   };
 
@@ -218,9 +218,12 @@ export default function Home() {
               <br /> OF THE DAY
             </span>
           </h1>
-          <Button className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2 md:right-[80px] md:left-auto">
+          <TicketButton
+            href="#tickets"
+            className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2 md:right-[80px] md:left-auto"
+          >
             Придбати
-          </Button>
+          </TicketButton>
         </div>
       </section>
       <section className="px-4 py-14">
@@ -299,15 +302,18 @@ export default function Home() {
           <CardSpeaker
             time="11:00 - 11:30"
             name={speakers.belmas.name}
+            image={speakers.belmas.image}
             description={speakers.belmas.description}
           />
           <CardSpeaker
             time="11:40 - 12:10"
             name={speakers.ragoza.name}
+            image={speakers.ragoza.image}
             description={speakers.ragoza.description}
           />
           <CardSpeaker
             time="12:20 - 13:20"
+            image={speakers.zozylia.image}
             name={speakers.zozylia.name}
             description={speakers.zozylia.description}
           />
@@ -318,11 +324,13 @@ export default function Home() {
           <CardSpeaker
             time="15:00 - 15:30"
             name={speakers.mart.name}
+            image={speakers.mart.image}
             description={speakers.mart.description}
           />
           <CardSpeaker
             time="15:40 - 16:10"
             name={speakers.browko.name}
+            image={speakers.browko.image}
             description={speakers.browko.description}
           />
           <CardSimple
@@ -332,12 +340,14 @@ export default function Home() {
           <CardSpeaker
             time="16:50 - 17:20"
             name={speakers.sulima.name}
+            image={speakers.sulima.image}
             description={speakers.sulima.description}
             accent
           />
           <CardSpeaker
             time="17:30 - 18:00"
             name={speakers.zemlyanika.name}
+            image={speakers.zemlyanika.image}
             description={speakers.zemlyanika.description}
           />
           <CardSimple time="18:00 - 18:30" description="Результати змагань" />
@@ -384,7 +394,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-8 flex flex-col gap-4 justify-start bg-primary ">
+      <section
+        id="tickets"
+        className="px-4 py-8 flex flex-col gap-4 justify-start bg-primary "
+      >
         <SectionTitle className="mb-5 md:mb-14">ТАРИФИ УЧАСТІ</SectionTitle>
         <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto ">
           <div className="flex gap-2.5 flex-col md:grid md:grid-cols-[400px] md:gap-6 md:items-start md:justify-center lg:flex-row">
@@ -414,7 +427,7 @@ export default function Home() {
             1024: {
               slidesPerView: 1.5,
               centeredSlides: true,
-              initialSlide: 1,
+              initialSlide: 0,
             },
           }}
         >
@@ -596,7 +609,7 @@ export default function Home() {
                   "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
                   frequentlyQuestions.length === index + 1
                     ? "border-y-[1px] border-y-[#4C4C4C]"
-                    : "border-t-[1px] border-t-[#4C4C4C] py-5"
+                    : "border-t-[1px] border-t-[#4C4C4C] py-5",
                 )}
                 key={index}
                 onClick={() => onAccordionClick(index)}
@@ -617,7 +630,7 @@ export default function Home() {
                 <p
                   className={cn(
                     "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
-                    question.isActive ? "max-h-[200px]" : ""
+                    question.isActive ? "max-h-[200px]" : "",
                   )}
                 >
                   {question.text}
@@ -645,7 +658,7 @@ export default function Home() {
             <p className="text-primary font-normal text-lg text-center mb-4 md:text-2xl md:mb-10">
               Jozefa Szanajcy 17/19, 03-481 Warszawa
             </p>
-            <TicketButton className="m-auto" color="black">
+            <TicketButton href="#tickets" className="m-auto" color="black">
               ЗАБРОНЮВАТИ
             </TicketButton>
           </div>
@@ -826,24 +839,26 @@ const CardSpeaker = ({
   name,
   description,
   accent,
+  image,
 }: {
   time: string;
   name: string;
   description: string;
   accent?: boolean;
+  image: string;
 }) => {
   return (
     <div
       className={cn(
         "flex flex-row gap-1 bg-white rounded-xl p-5",
-        accent && "bg-accent-green"
+        accent && "bg-accent-green",
       )}
     >
       <div className="grow">
         <div
           className={cn(
             "text-accent-pink font-travels font-bold",
-            accent && "text-black"
+            accent && "text-black",
           )}
         >
           {time}
@@ -853,7 +868,15 @@ const CardSpeaker = ({
         </div>
         <div className="text-black/70 font-asteriks">{description}</div>
       </div>
-      <div className="w-[55px] h-[55px] min-w-[55px] min-h-[55px] bg-accent-pink rounded-full"></div>
+      <div className="w-[55px] h-[55px] overflow-y-hidden relative min-w-[55px] min-h-[55px] bg-accent-pink rounded-full">
+        <Image
+          src={image}
+          width={55}
+          height={55}
+          alt="Background"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      </div>
     </div>
   );
 };
