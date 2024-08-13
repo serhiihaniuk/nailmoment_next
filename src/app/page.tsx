@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Ball } from "@/shared/ui/ball";
-import { Button } from "@/shared/ui/button";
 import { List } from "@/shared/ui/list";
 import { SectionTitle } from "@/shared/ui/section-title";
 import { Speaker } from "@/shared/ui/speaker";
@@ -16,8 +15,9 @@ import { RegisterEvent } from "@/shared/ui/register-event";
 
 const links = {
   partnerLink: "#TODO:ADD BE A PARTNER LINK",
-  telegramLink: "#TODO:ADD BE A PARTNER LINK",
-  instagramLink: "#TODO:ADD BE A PARTNER LINK",
+  telegramLink: "https://t.me/+THVRcBRhyWc5OWY0",
+  instagramLink:
+    "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5",
   phoneNumber: "662 412 456",
   email: "Nail.moment.wroclaw@gmail.com",
 };
@@ -145,17 +145,17 @@ export default function Home() {
     },
     {
       title: "Яке місце проведення фестивалю?",
-      text: `Купи квиток на фестиваль Nail Moment & Nail of The Day. 
-На сайті заповни анкету під конкурсом в якому хочеш прийняти участь. 
-В день фестивалю на першій перерві підійди до столів з конкурсу та назви своє імʼя та прізвище. 
-Можете взяти з собою свій пензлик для комфортної роботи ✨
-`,
+      text: `map`,
       isActive: false,
     },
     {
       title:
         "Як я можу прийняти участь в конкурсі «Найліпший Френч», «Корейський дизайн»?",
-      text: "TODO: Fil",
+      text: `Купи квиток на фестиваль Nail Moment & Nail of The Day. 
+              На сайті заповни анкету під конкурсом в якому хочеш прийняти участь. 
+              В день фестивалю на першій перерві підійди до столів з конкурсу та назви своє імʼя та прізвище. 
+              Можете взяти з собою свій пензлик для комфортної роботи ✨
+            `,
       isActive: false,
     },
     {
@@ -175,8 +175,8 @@ export default function Home() {
   const onAccordionClick = (index: number) => {
     setFrequentlyQuestions((prevQuestions) =>
       prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question
-      )
+        i === index ? { ...question, isActive: !question.isActive } : question,
+      ),
     );
   };
 
@@ -197,7 +197,7 @@ export default function Home() {
               15 жовтня / Баскетбольна арена
             </span>
             <a
-              href="TODO:ADD_LINK"
+              href="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
               className="text-primary-foreground-muted text-xs md:text-lg"
             >
               Jozefa Szanajcy 17/19, 03-481 Warszawa
@@ -364,10 +364,14 @@ export default function Home() {
             <p className="font-asteriks text-white text-base leading-7 grow text-start">
               <span className="block mb-2 text-xl">
                 Продемонструйте свій рівень майстерності!
-              </span>{" "}
-              Френч — це класика, яка завжди в моді, але вимагає відточеного
-              вміння. Прийми виклик і доведи, що твій френч — найрівніший!
-              Змагайся за титул Королеви Френч і вигравай цінні подарунки!
+              </span>
+              <span className="block mb-2">
+                Френч — це класика, яка завжди в моді, але вимагає відточеного
+                вміння. Прийми виклик і доведи, що твій френч — найрівніший!
+              </span>
+              <span className="block mb-2">
+                Змагайся за титул Королеви Френч і вигравай цінні подарунки!
+              </span>
               Зареєструйся вже зараз – кількість місць обмежена!
             </p>
             <RegisterEvent color="white" />
@@ -384,11 +388,16 @@ export default function Home() {
               <span className="block mb-2 text-xl">
                 Відчуй себе зіркою та створи твій унікальний креативний вибух!
               </span>
-              Твій шанс продемонструвати неймовірний рівень креативності,
-              майстерності та здобути заслужене визнання! Прояви свою фантазію
-              та здивуй публіку змагаючись за титул &quot;Королева
-              Креативу&quot; та виграй розкішний подарунок! Подай заявку вже
-              сьогодні та доведи, що ти справжній ГУРУ корейського дизайну!
+              <span className="block mb-2">
+                Твій шанс продемонструвати неймовірний рівень креативності,
+                майстерності та здобути заслужене визнання!
+              </span>
+              <span className="block mb-2">
+                Прояви свою фантазію та здивуй публіку змагаючись за титул
+                &quot;Королева Креативу&quot; та виграй розкішний подарунок!
+                Подай заявку вже сьогодні та доведи, що ти справжній ГУРУ
+                корейського дизайну!
+              </span>
             </p>
             <RegisterEvent color="black" />
             <a href="/rules" className="block mx-auto">
@@ -402,7 +411,9 @@ export default function Home() {
         id="tickets"
         className="px-4 py-8 flex flex-col gap-4 justify-start bg-primary "
       >
-        <SectionTitle className="mb-5 md:mb-14">ТАРИФИ УЧАСТІ</SectionTitle>
+        <SectionTitle className="mb-5 w-max text-3xl md:mb-14">
+          ТАРИФИ УЧАСТІ
+        </SectionTitle>
         <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto ">
           <div className="flex gap-2.5 flex-col md:grid md:grid-cols-[400px] md:gap-6 md:items-start md:justify-center lg:flex-row">
             {tickets.map((ticket, index) => (
@@ -435,7 +446,7 @@ export default function Home() {
             },
           }}
         >
-          {Array.from({ length: 7 }).map((_, i) => (
+          {Array.from({ length: 9 }).map((_, i) => (
             <SwiperSlide key={i}>
               <Image
                 src={`/prev/${i + 1}.jpg`}
@@ -613,7 +624,7 @@ export default function Home() {
                   "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
                   frequentlyQuestions.length === index + 1
                     ? "border-y-[1px] border-y-[#4C4C4C]"
-                    : "border-t-[1px] border-t-[#4C4C4C] py-5"
+                    : "border-t-[1px] border-t-[#4C4C4C] py-5",
                 )}
                 key={index}
                 onClick={() => onAccordionClick(index)}
@@ -634,10 +645,21 @@ export default function Home() {
                 <p
                   className={cn(
                     "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
-                    question.isActive ? "max-h-[200px]" : ""
+                    question.isActive ? "max-h-[200px]" : "",
                   )}
                 >
-                  {question.text}
+                  {question.text === "map" ? (
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.8578951331633!2d21.02569855860169!3d52.26412550000783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc16560d5e8b%3A0x9376b884b993af61!2sJ%C3%B3zefa%20Szanajcy%2017%2F19%2C%2003-481%20Warszawa!5e0!3m2!1spl!2spl!4v1723571875617!5m2!1spl!2spl"
+                      width="200"
+                      height="250"
+                      allowFullScreen={false}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  ) : (
+                    question.text
+                  )}
                 </p>
               </div>
             ))}
@@ -660,7 +682,9 @@ export default function Home() {
               15 жовтня / Баскетбольна арена
             </h2>
             <p className="text-primary font-normal text-lg text-center mb-4 md:text-2xl md:mb-10">
-              Jozefa Szanajcy 17/19, 03-481 Warszawa
+              <a href="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9">
+                Jozefa Szanajcy 17/19, 03-481 Warszawa
+              </a>
             </p>
             <TicketButton href="#tickets" className="m-auto" color="black">
               ЗАБРОНЮВАТИ
@@ -855,14 +879,14 @@ const CardSpeaker = ({
     <div
       className={cn(
         "flex flex-row gap-1 bg-white rounded-xl p-5",
-        accent && "bg-accent-green"
+        accent && "bg-accent-green",
       )}
     >
       <div className="grow">
         <div
           className={cn(
             "text-accent-pink font-travels font-bold",
-            accent && "text-black"
+            accent && "text-black",
           )}
         >
           {time}
