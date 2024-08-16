@@ -1,17 +1,22 @@
 "use client";
 import { useState } from "react";
-import { Ball } from "@/shared/ui/ball";
-import { List } from "@/shared/ui/list";
 import { SectionTitle } from "@/shared/ui/section-title";
-import { Speaker } from "@/shared/ui/speaker";
-import { TicketCard } from "@/shared/ui/ticket-card";
 import { TicketButton } from "@/shared/ui/ticket-button";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { cn } from "@/shared/utils/cn";
-
 import "swiper/css";
-import { RegisterEvent } from "@/shared/ui/register-event";
+import { Features } from "@/entities/blocks/features";
+import { Hero } from "@/entities/blocks/hero";
+import { Speakers } from "@/entities/blocks/speakers";
+import { Schedule } from "@/entities/blocks/schedule";
+import { Competitions } from "@/entities/blocks/competitions";
+import { Tickets } from "@/entities/blocks/tickets";
+import { Gallery } from "@/entities/blocks/gallery";
+import { Testimonials } from "@/entities/blocks/testimonials";
+import { Partners } from "@/entities/blocks/partners";
+import { FAQ } from "@/entities/blocks/faq";
+import { Summary } from "@/entities/blocks/summary";
+import { Footer } from "@/entities/blocks/footer";
 
 const links = {
   partnerLink: "#TODO:ADD BE A PARTNER LINK",
@@ -60,75 +65,74 @@ const speakers = {
   },
 };
 
-const tickets = [
+const scheduleItems = [
   {
-    plan: "КВИТОК FAN",
-    price: "359",
-    options: [
-      { value: "Місце в залі в категорії ФАН", type: "default" },
-      { value: "Виступ спікерів", type: "default" },
-      { value: "Нетворкінг з учасниками", type: "default" },
-      { value: "Закритий телеграм канал з учасниками", type: "default" },
-    ],
-    paymentUrl: "https://buy.stripe.com/5kA5mk0z51wlaOY5l2",
+    type: "simple",
+    time: "9:00 - 10:45",
+    description: "Реєстрація. Nail market",
+  },
+  { type: "simple", time: "10:45 - 11:00", description: "Відкриття" },
+  {
+    type: "speaker",
+    time: "11:00 - 11:30",
+    name: speakers.belmas.name,
+    image: speakers.belmas.image,
+    description: speakers.belmas.description,
   },
   {
-    plan: "КВИТОК VIP",
-    price: "459",
-    options: [
-      { value: "Місце в залі в категорії ВІП", type: "default" },
-      { value: "Виступ спікерів", type: "default" },
-      { value: "Нетворкінг з учасниками", type: "default" },
-      { value: "Закритий телеграм канал з учасниками", type: "default" },
-      { value: "Презентації від спікерів", type: "premium" },
-    ],
-    paymentUrl: "https://buy.stripe.com/fZe1640z55MB7CM28R",
+    type: "speaker",
+    time: "11:40 - 12:10",
+    name: speakers.ragoza.name,
+    image: speakers.ragoza.image,
+    description: speakers.ragoza.description,
   },
   {
-    plan: "КВИТОК PREMIUM",
-    price: "839",
-    options: [
-      { value: "Місце в залі в категорії ПРЕМІУМ", type: "default" },
-      { value: "Виступ спікерів", type: "default" },
-      { value: "Нетворкінг з учасниками", type: "default" },
-      { value: "Закритий телеграм канал з учасниками", type: "default" },
-      { value: "Презентації від спікерів", type: "premium" },
-      { value: "Кава брейк зі спікерами у Преміум - румі", type: "premium" },
-      { value: "Нетворкінг зі спікерами", type: "premium" },
-      { value: "Окрема стійка реєстрації", type: "premium" },
-    ],
-    paymentUrl: "https://buy.stripe.com/9AQcOM81x0sh1eo3cW",
-  },
-];
-const feedbacks = [
-  {
-    name: "Elia",
-    text: "Дякую 🥰 Відчуття просто неймовірні тому що переживала, щоб встигнути купити квиток і УРААА ЦЕ ВДАЛОСЯ!😁🔥 Тому що для мене це дуже важливо так як я хочу розвиватися і більше дізнатися і вдосконалювати свої знання, я в перше буду на такій масштабній конференції nails moment сподіваюсь буде дуже круто і багато цікавого але я як побачила, що буде така конкуренція в Польщі сперва не повірила думала справді розводняк 😅але ні, я побачила на сторінці angelina_nail_say що це офіційно так, що буде такий захід і відразу ж написала 😁❤️ І дякую велике за терпіння адміністрації сторінки за терпіння 😅❤️",
+    type: "speaker",
+    time: "12:20 - 13:20",
+    name: speakers.zozylia.name,
+    image: speakers.zozylia.image,
+    description: speakers.zozylia.description,
   },
   {
-    name: "Mariia",
-    text: "Збулася моя маленька мрія (познайомитися з Машою:)) завдяки Вам. Закохалася в Юлю Зварич. Супер мотиватор. Все було по ділу, дуже інформативно. Чудові люди. Нові знайомі. Ще раз дякую і до нової зустрічі 😘❤️🤗😍",
+    type: "simple",
+    time: "13:20 - 15:00",
+    description: "Перерва. Конкурси та інтерактиви в залі",
   },
   {
-    name: "Mariia",
-    text: "Я насправді, дуже задоволена😍із нетерпінням чекаю на цей день ❤я такий отримала заряд позитивної енергії, прагнення йти в перед і не зупинятися ні в чому ❤❤🔥вдячна кожному, хто був причетний в організації цієї конференції ❤",
+    type: "speaker",
+    time: "15:00 - 15:30",
+    name: speakers.mart.name,
+    image: speakers.mart.image,
+    description: speakers.mart.description,
   },
   {
-    name: "Kasia",
-    text: "Супер) даже не думала идти или нет на вторую конференцию, как увидела - сразу поняла что надо идти😁 Прошлая конференция была супер! Всё очень понравилось, было невероятно интересно) Вышла очень замотивированная и с очень положительными эмоциями 🥰 Подарки тоже огонь! Спасибо большое вам за такую возможность 🤗😍 С нетерпением жду следующую конференцию 💗",
+    type: "speaker",
+    time: "15:40 - 16:10",
+    name: speakers.browko.name,
+    image: speakers.browko.image,
+    description: speakers.browko.description,
   },
   {
-    name: "Svetik",
-    text: "Дякую Вам🫶я навіть не можу підібрати слова ,які в мене відчуття 😍я після конференції почула себе на пару сходинок вище ,багато в чому оцінила себе зі сторони в кращий  напрямок, в якому ,ще більше хочу розвиватися ,тому те ,що знову йду на Nail Moment переповнює  натхнення не тільки розвиватися ,а й жити 😍так ,як з понеділка йду на операцію не дуже легку, за яку дуже переживаю ,щоб все пройшло нормально без наслідків .тому буду боротися за життя ради конференції 🫶😍є стимул такий !!!.дякую ще раз вам всім за такі круті конференції  🫶🫶🫶🫶",
+    type: "simple",
+    time: "16:10 - 16:50",
+    description: "Перерва. Конкурси та інтерактиви в залі",
   },
   {
-    name: "Diana",
-    text: "Тепер я розумію настільки круті та важливі такі події ❤️  🔥 їх точно потрібно відвідувати раз в рік то 💯",
+    type: "speaker",
+    time: "16:50 - 17:20",
+    name: speakers.sulima.name,
+    image: speakers.sulima.image,
+    description: speakers.sulima.description,
+    accent: true,
   },
   {
-    name: "Liza",
-    text: "Вот приблизительно такие ощущения у меня от предстоящей конференции. Возможность провести целый день в окружении ЛУЧШИХ мастеров своего дела, научиться чему-то новому, приобрести новые навыки. Это на самом деле придает уверенности в себе. Это что-то невероятное! Спасибо вам за такую возможность!",
+    type: "speaker",
+    time: "17:30 - 18:00",
+    name: speakers.zemlyanika.name,
+    image: speakers.zemlyanika.image,
+    description: speakers.zemlyanika.description,
   },
+  { type: "simple", time: "18:00 - 18:30", description: "Результати змагань" },
 ];
 
 export default function Home() {
@@ -175,737 +179,49 @@ export default function Home() {
   const onAccordionClick = (index: number) => {
     setFrequentlyQuestions((prevQuestions) =>
       prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question,
-      ),
+        i === index ? { ...question, isActive: !question.isActive } : question
+      )
     );
   };
 
   return (
     <>
-      <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px] md:h-lvh">
-        <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:border-b md:border-b-gray-800 md:flex md:flex-col">
-          <Image
-            src="/assets/hero.png"
-            aria-hidden="true"
-            alt="Background"
-            width={1000}
-            height={1000}
-            quality={100}
-            className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]"
-          />
-          <div className="flex font-asteriks flex-col  gap-2 relative z-10 md:gap-0 md:mb-16">
-            <span className="text-primary-foreground text-sm md:text-lg">
-              15 жовтня / Баскетбольна арена
-            </span>
-            <a
-              href="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
-              className="text-primary-foreground-muted text-xs md:text-lg"
-            >
-              Jozefa Szanajcy 17/19, 03-481 Warszawa
-            </a>
-          </div>
-          <h1 className="w-[282px] flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10 md:w-[600px] md:my-auto">
-            <span className="text-3xl w-min leading-10 font-travels font-bold md:text-7xl">
-              NAIL MOMENT
-            </span>
-            <span className="text-center inline-flex text-accent-pink gap-3 items-center md:items-center">
-              <span className="text-3xl font-travels md:text-7xl ">&</span>
-              <span className="text-base font-asteriks text-nowrap">
-                Перший фестиваль-коллаборація
-              </span>
-            </span>
-            <span className="text-3xl w-64 leading-10 font-bold font-travels md:text-7xl md:w-full">
-              NAILS
-              <br /> OF THE DAY
-            </span>
-          </h1>
-          <TicketButton
-            href="#tickets"
-            className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2 md:right-[80px] md:left-auto"
-          >
-            Придбати
-          </TicketButton>
-        </div>
-      </section>
-      <section className="px-4 py-14">
-        <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:flex md:flex-col">
-          <List />
-          <h2 className="bg-accent-pink font-travels px-6 py-6 flex flex-col items-center justify-center rounded-xl text-2xl leading-7 mt-14 uppercase font-bold text-primary-foreground text-center md:mt-20">
-            Стань чемпіоном <br /> у своїй справі
-          </h2>
-          <div className="bg-primary px-7 py-14 rounded-xl md:flex md:flex-row-reverse md:gap-16 md:items-center md:px-[110px]">
-            <div className="w-full">
-              <h3 className="text-primary-foreground uppercase text-xl font-travels font-bold md:text-3xl">
-                Готові вийти за рамки звичайного?
-              </h3>
-              <p className="mt-4 font-asteriks mb-7 text-base leading-7 text-start md:mt-1 md:mb-0 md:text-lg">
-                Наш фестиваль об’єднує найкращих майстрів nail індустрії, щоб
-                надихати, навчати та створювати тренди. Відкрий нові горизонти
-                своєї кар’єри у незвичному місці - баскетбольній арені, де
-                прагнення до перемоги стає реальністю.
-              </p>
-            </div>
-            <Ball className="w-[95px] h-[95px] ml-auto flex flex-row-reverse md:min-w-[162px] md:h-[162px]" />
-          </div>
-        </div>
-      </section>
-      <section className="px-4 py-14 lines-2">
-        <SectionTitle className="mb-5 md:mb-14">Спікери Фестивалю</SectionTitle>
-        <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:flex md:flex-col">
-          <div className="grid grid-cols-2 gap-x-2 gap-y-6 mt-4 justify-center items-stretch md:grid-cols-4 md:gap-y-16 md:gap-x-8">
-            <Speaker
-              name={speakers.belmas.name}
-              image={speakers.belmas.image}
-              description={speakers.belmas.description}
-            />
-            <Speaker
-              name={speakers.ragoza.name}
-              image={speakers.ragoza.image}
-              description={speakers.ragoza.description}
-            />
-            <Speaker
-              name={speakers.zozylia.name}
-              image={speakers.zozylia.image}
-              description={speakers.zozylia.description}
-            />
-            <Speaker
-              name={speakers.mart.name}
-              image={speakers.mart.image}
-              description={speakers.mart.description}
-            />
-            <Speaker
-              name={speakers.browko.name}
-              image={speakers.browko.image}
-              description={speakers.browko.description}
-            />
-            <Speaker
-              name={speakers.sulima.name}
-              image={speakers.sulima.image}
-              description={speakers.sulima.description}
-            />
-            <Speaker
-              name={speakers.zemlyanika.name}
-              image={speakers.zemlyanika.image}
-              description={speakers.zemlyanika.description}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-14 max-w-[500px]">
-        <SectionTitle className="mb-5 md:mb-14">Программа</SectionTitle>
-        <div className="relative w-full h-full gap-4 flex flex-col md:max-w-[1120px] md:m-auto">
-          <CardSimple
-            time="9:00 - 10:45"
-            description="Реєстрація. Nail market"
-          />
-          <CardSimple time="10:45 - 11:00" description="Відкриття" />
-          <CardSpeaker
-            time="11:00 - 11:30"
-            name={speakers.belmas.name}
-            image={speakers.belmas.image}
-            description={speakers.belmas.description}
-          />
-          <CardSpeaker
-            time="11:40 - 12:10"
-            name={speakers.ragoza.name}
-            image={speakers.ragoza.image}
-            description={speakers.ragoza.description}
-          />
-          <CardSpeaker
-            time="12:20 - 13:20"
-            image={speakers.zozylia.image}
-            name={speakers.zozylia.name}
-            description={speakers.zozylia.description}
-          />
-          <CardSimple
-            time="13:20 - 15:00"
-            description="Перерва. Конкурси та інтерактиви в залі"
-          />
-          <CardSpeaker
-            time="15:00 - 15:30"
-            name={speakers.mart.name}
-            image={speakers.mart.image}
-            description={speakers.mart.description}
-          />
-          <CardSpeaker
-            time="15:40 - 16:10"
-            name={speakers.browko.name}
-            image={speakers.browko.image}
-            description={speakers.browko.description}
-          />
-          <CardSimple
-            time="16:10 - 16:50"
-            description="Перерва. Конкурси та інтерактиви в залі"
-          />
-          <CardSpeaker
-            time="16:50 - 17:20"
-            name={speakers.sulima.name}
-            image={speakers.sulima.image}
-            description={speakers.sulima.description}
-            accent
-          />
-          <CardSpeaker
-            time="17:30 - 18:00"
-            name={speakers.zemlyanika.name}
-            image={speakers.zemlyanika.image}
-            description={speakers.zemlyanika.description}
-          />
-          <CardSimple time="18:00 - 18:30" description="Результати змагань" />
-        </div>
-      </section>
-      <section className="px-4 py-14">
-        <SectionTitle className="mb-5 md:mb-14">Программа</SectionTitle>
-        <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto md:flex-row md:gap-8">
-          <div className="flex flex-col gap-8 basis-1/2 justify-start rounded-xl bg-accent-pink px-5 py-9 ">
-            <h3 className="text-primary-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
-              <span className="w-min"> Найрівніший френч </span>
-              <span className="text-5xl font-bold">01</span>
-            </h3>
-            <p className="font-asteriks text-white text-base leading-7 grow text-start">
-              <span className="block mb-2 text-xl">
-                Продемонструйте свій рівень майстерності!
-              </span>
-              <span className="block mb-2">
-                Френч — це класика, яка завжди в моді, але вимагає відточеного
-                вміння. Прийми виклик і доведи, що твій френч — найрівніший!
-              </span>
-              <span className="block mb-2">
-                Змагайся за титул Королеви Френч і вигравай цінні подарунки!
-              </span>
-              Зареєструйся вже зараз – кількість місць обмежена!
-            </p>
-            <RegisterEvent color="white" />
-            <a href="/rules" className="block mx-auto">
-              Умови участі
-            </a>
-          </div>
-          <div className="flex flex-col gap-8 basis-1/2 text-accent-green-foreground justify-start rounded-xl bg-accent-green px-5 py-9 ">
-            <h3 className="text-accent-green-foreground w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center">
-              <span className="w-min">Корейські дизайни</span>
-              <span className="text-5xl font-bold">02</span>
-            </h3>
-            <p className=" font-asteriks text-base leading-7 grow text-start">
-              <span className="block mb-2 text-xl">
-                Відчуй себе зіркою та створи твій унікальний креативний вибух!
-              </span>
-              <span className="block mb-2">
-                Твій шанс продемонструвати неймовірний рівень креативності,
-                майстерності та здобути заслужене визнання!
-              </span>
-              <span className="block mb-2">
-                Прояви свою фантазію та здивуй публіку змагаючись за титул
-                &quot;Королева Креативу&quot; та виграй розкішний подарунок!
-                Подай заявку вже сьогодні та доведи, що ти справжній ГУРУ
-                корейського дизайну!
-              </span>
-            </p>
-            <RegisterEvent color="black" />
-            <a href="/rules" className="block mx-auto">
-              Умови участі
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="tickets"
-        className="px-4 py-8 flex flex-col gap-4 justify-start bg-primary "
-      >
-        <SectionTitle className="mb-5 w-max text-3xl md:mb-14">
-          ТАРИФИ УЧАСТІ
-        </SectionTitle>
-        <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto ">
-          <div className="flex gap-2.5 flex-col md:grid md:grid-cols-[400px] md:gap-6 md:items-start md:justify-center lg:flex-row">
-            {tickets.map((ticket, index) => (
-              <TicketCard
-                key={index}
-                plan={ticket.plan}
-                price={ticket.price}
-                options={ticket.options}
-                paymentUrl={ticket.paymentUrl}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-14 md:px-0 md:pt-36 md:pb-5">
-        <SectionTitle className="w-full px-4 md:mb-14">
-          Фото з минулих фестивалів
-        </SectionTitle>
-        <Swiper
-          spaceBetween={30}
-          className="prev"
-          grabCursor={true}
-          slidesPerView={1.1}
-          breakpoints={{
-            1024: {
-              slidesPerView: 1.5,
-              centeredSlides: true,
-              initialSlide: 0,
-            },
-          }}
-        >
-          {Array.from({ length: 9 }).map((_, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                src={`/prev/${i + 1}.jpg`}
-                aria-hidden="true"
-                alt="Фото з минулих фестивалів"
-                className="rounded-xl w-full h-full"
-                fill
-                quality={100}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-      <section className="px-4 py-14 flex flex-col md:pt-36 md:pb-5">
-        <SectionTitle className="w-full px-4 md:mb-6">Відгуки</SectionTitle>
-        <Swiper
-          spaceBetween={30}
-          grabCursor={true}
-          slidesPerView={1.25}
-          breakpoints={{
-            1024: {
-              slidesPerView: 2.5,
-              centeredSlides: true,
-              initialSlide: 1,
-            },
-          }}
-          className="w-full"
-        >
-          {feedbacks.map((feedback, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-primary p-5 rounded-xl md:px-10 md:pt-10 md:pb-16">
-                <div className="flex items-center gap-2.5 md:gap-4">
-                  <div className="flex flex-col">
-                    <h3 className="text-primary-foreground text-sm font-bold uppercase md:text-lg">
-                      {feedback.name}
-                    </h3>
-                  </div>
-                  <svg
-                    className="hidden ml-auto md:block"
-                    width="42"
-                    height="33"
-                    viewBox="0 0 42 33"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M42 10.5339C42 24.7966 34.4494 33 22.746 33L22.746 22.1864L23.8786 22.1864C31.2404 22.1864 34.7325 20.1356 35.6764 15.9407C34.9213 16.1271 34.0718 16.2203 33.2224 16.2203C27.937 16.2203 24.3505 12.7712 24.3505 8.11017C24.3505 3.44915 27.9371 -1.22942e-06 32.7506 -8.08611e-07C38.5079 -3.05292e-07 42 3.44915 42 10.5339ZM19.2539 10.5339C19.2539 24.7966 11.7034 33 0 33L9.45352e-07 22.1864L1.13257 22.1864C8.49436 22.1864 11.9865 20.1356 12.9303 15.9407C12.1753 16.1271 11.3258 16.2203 10.4764 16.2203C5.19098 16.2203 1.60449 12.7712 1.60449 8.11016C1.60449 3.44915 5.19097 -3.21795e-06 10.0045 -2.79714e-06C15.7618 -2.29382e-06 19.2539 3.44915 19.2539 10.5339Z"
-                      fill="#FE018A"
-                    />
-                  </svg>
-                </div>
-                <svg
-                  className="hidden"
-                  width="210"
-                  height="165"
-                  viewBox="0 0 210 165"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 112.331C0 41.017 37.753 0 96.2698 0V54.0678H90.607C53.798 54.0678 36.3373 64.322 31.6182 85.2966C35.3935 84.3644 39.6408 83.8983 43.888 83.8983C70.3149 83.8983 88.2474 101.144 88.2474 124.449C88.2474 147.754 70.3146 165 46.2472 165C17.4607 165 0 147.754 0 112.331ZM113.731 112.331C113.731 41.017 151.483 0 210 0V54.0678H204.337C167.528 54.0678 150.067 64.322 145.348 85.2966C149.124 84.3644 153.371 83.8983 157.618 83.8983C184.045 83.8983 201.978 101.144 201.978 124.449C201.978 147.754 184.045 165 159.978 165C131.191 165 113.731 147.754 113.731 112.331Z"
-                    fill="black"
-                  />
-                </svg>
-                <p className="mt-2.5 text-primary-foreground text-sm font-light opacity-80 md:text-lg md:mt-4">
-                  {feedback.text}
-                </p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-
-      <section className="px-4 py-14 md:pt-36 md:pb-5">
-        <SectionTitle className="w-full px-4 md:mb-6">Партнери</SectionTitle>
-        <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
-          <div className="flex gap-2.5 md:justify-center md:gap-8">
-            <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]">
-              <Image
-                src="/assets/partners-1.png"
-                aria-hidden="true"
-                alt="logo"
-                width={100}
-                height={100}
-                className="w-[74px]"
-              />
-            </div>
-            <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]">
-              <Image
-                src="/assets/partners-2.png"
-                aria-hidden="true"
-                alt="logo"
-                width={100}
-                height={100}
-                className="w-[80px]"
-              />
-            </div>
-            <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]">
-              <svg
-                width="33"
-                height="33"
-                viewBox="0 0 33 33"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line
-                  x1="16.6333"
-                  y1="2.18557e-08"
-                  x2="16.6333"
-                  y2="33"
-                  stroke="white"
-                />
-                <line
-                  x1="33"
-                  y1="17"
-                  x2="-4.37114e-08"
-                  y2="17"
-                  stroke="white"
-                />
-              </svg>
-            </div>
-          </div>
-          <a
-            href={links.partnerLink}
-            className="text-primary-foreground mx-auto relative h-[54px] w-full max-w-[300px] mt-3 flex items-center justify-center border-[1px] border-[#4C4C4C] rounded-md hover:bg-primary-foreground hover:text-primary transition-all md:mt-6"
-          >
-            <svg
-              className="absolute left-[-1px] top-2/4 -translate-y-1/2"
-              width="11"
-              height="22"
-              viewBox="0 0 11 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672V20.5137Z"
-                fill="black"
-              />
-              <path
-                d="M0 20.5137C5.52285 20.5137 10 16.0365 10 10.5137C10 4.99082 5.52285 0.513672 0 0.513672"
-                stroke="#4C4C4C"
-              />
-            </svg>
-            <svg
-              className="absolute right-[-1px] top-2/4 -translate-y-1/2"
-              width="11"
-              height="22"
-              viewBox="0 0 11 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137L11 0.513672Z"
-                fill="black"
-              />
-              <path
-                d="M11 0.513672C5.47715 0.513671 1 4.99082 1 10.5137C1 16.0365 5.47715 20.5137 11 20.5137"
-                stroke="#4C4C4C"
-              />
-            </svg>
-            <span className="text-sm font-bold">СТАТИ ПАРТНЕРОМ</span>
-          </a>
-        </div>
-      </section>
-
-      <section className="px-4 py-14 flex flex-col gap-4 justify-start">
-        <SectionTitle className="w-full px-4 md:mb-6">
-          Часто задаваємі питання
-        </SectionTitle>
-        <div className="relative w-full h-full flex flex-col gap-4 md:max-w-[760px] md:m-auto">
-          <div>
-            {frequentlyQuestions.map((question, index) => (
-              <div
-                className={cn(
-                  "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
-                  frequentlyQuestions.length === index + 1
-                    ? "border-y-[1px] border-y-[#4C4C4C]"
-                    : "border-t-[1px] border-t-[#4C4C4C] py-5",
-                )}
-                key={index}
-                onClick={() => onAccordionClick(index)}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="min-w-[30px] h-[30px] items-center text-primary-foreground text-lg font-semibold">
-                    0{index + 1}.
-                  </div>
-                  <h3 className="w-full text-primary-foreground text-lg font-semibold">
-                    {question.title}
-                  </h3>
-                  <div className="min-w-[30px] flex justify-center items-center leading-none font-asteriks text-2xl min-h-[30px] max-h-[30px] bg-accent-pink rounded-full relative">
-                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-foreground">
-                      {question.isActive ? "-" : "+"}
-                    </span>
-                  </div>
-                </div>
-                <p
-                  className={cn(
-                    "max-h-[0] text-lg text-primary-foreground opacity-80 font-light mt-1 overflow-hidden transition-all duration-500 pl-10",
-                    question.isActive ? "max-h-[200px]" : "",
-                  )}
-                >
-                  {question.text === "map" ? (
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.8578951331633!2d21.02569855860169!3d52.26412550000783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc16560d5e8b%3A0x9376b884b993af61!2sJ%C3%B3zefa%20Szanajcy%2017%2F19%2C%2003-481%20Warszawa!5e0!3m2!1spl!2spl!4v1723571875617!5m2!1spl!2spl"
-                      width="200"
-                      height="250"
-                      allowFullScreen={false}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                  ) : (
-                    question.text
-                  )}
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="w-[291px] mx-auto text-primary-foreground text-lg font-normal text-center md:w-full">
-            <span className="opacity-70">
-              Якщо залишились питання, напишіть нам в{" "}
-            </span>
-            <a className="underline" href={links.telegramLink}>
-              телеграм
-            </a>
-          </p>
-        </div>
-      </section>
-
-      <section className="px-4 pb-14 md:pt-36 md:pb-5">
-        <div className="relative w-full h-full flex flex-col gap-4 md:max-w-[1120px] md:m-auto">
-          <div className="py-7 px-5 bg-accent-green text-accent-green-foreground rounded-xl md:py-9">
-            <h2 className="w-[296px] mx-auto uppercase text-primary font-bold text-xl text-center mb-2 md:w-full md:text-4xl">
-              15 жовтня / Баскетбольна арена
-            </h2>
-            <p className="text-primary font-normal text-lg text-center mb-4 md:text-2xl md:mb-10">
-              <a href="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9">
-                Jozefa Szanajcy 17/19, 03-481 Warszawa
-              </a>
-            </p>
-            <TicketButton href="#tickets" className="m-auto" color="black">
-              ЗАБРОНЮВАТИ
-            </TicketButton>
-          </div>
-        </div>
-      </section>
-
-      <footer className="px-4 pt-14 pb-7 max-w-[900px] mx-auto">
-        <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
-          <div className="flex flex-col gap-4 justify-start mb-6 md:flex-row">
-            <div className="w-full">
-              <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
-                дані компанії
-              </SectionTitle>
-              <p className="font-normal text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
-                Nail Moment Anhelina Rahoza <br />
-                Burakowska 16b/162 <br />
-                01-066 Warszawa <br />
-                <br />
-                NIP: 5223118965 <br />
-                REGON: 529210914 <br />
-              </p>
-            </div>
-            <div className="w-full">
-              <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
-                Контактна точка
-              </SectionTitle>
-              <p className="font-normal text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
-                Nail Moment <br />
-                (TODO: Тут потом напишем номер) <br />
-                <br />
-                <a href={`mailto:${links.email}`}>{links.email}</a> <br />
-              </p>
-            </div>
-            <div className="w-full flex flex-col">
-              <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
-                Відділ турботи
-              </SectionTitle>
-              <p className="font-normal text-base text-primary-foreground opacity-80 text-center mb-2 md:text-start">
-                Якщо виникли питання, пишіть на:
-              </p>
-              <a
-                href={`tel:${links.phoneNumber}`}
-                className="font-bold text-base text-primary-foreground text-center mb-7 md:text-start"
-              >
-                {links.phoneNumber}
-              </a>
-
-              <div className="hidden justify-start gap-4 mt-auto md:flex">
-                <a
-                  href={links.instagramLink}
-                  className="opacity-50 transition-all hover:opacity-100"
-                >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 22 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 1.98214C13.937 1.98214 14.2848 1.99324 15.4448 2.04626C16.5173 2.09518 17.0997 2.2744 17.4874 2.42485C18.0008 2.62422 18.367 2.86263 18.7522 3.2478C19.137 3.63255 19.3754 3.99922 19.5751 4.51263C19.7256 4.90026 19.9048 5.48274 19.9537 6.55519C20.0068 7.71521 20.0179 8.06297 20.0179 11C20.0179 13.937 20.0068 14.2848 19.9537 15.4448C19.9048 16.5173 19.7256 17.0997 19.5751 17.4874C19.3758 18.0008 19.1374 18.367 18.7522 18.7522C18.3675 19.137 18.0008 19.3754 17.4874 19.5751C17.0997 19.7256 16.5173 19.9048 15.4448 19.9537C14.2852 20.0068 13.9374 20.0179 11 20.0179C8.06256 20.0179 7.7148 20.0068 6.55519 19.9537C5.48274 19.9048 4.90026 19.7256 4.51263 19.5751C3.99922 19.3758 3.63296 19.1374 3.2478 18.7522C2.86304 18.3675 2.62463 18.0008 2.42485 17.4874C2.2744 17.0997 2.09518 16.5173 2.04626 15.4448C1.99324 14.2848 1.98214 13.937 1.98214 11C1.98214 8.06297 1.99324 7.71521 2.04626 6.55519C2.09518 5.48274 2.2744 4.90026 2.42485 4.51263C2.62422 3.99922 2.86263 3.63296 3.2478 3.2478C3.63296 2.86263 3.99922 2.62463 4.51263 2.42485C4.90026 2.2744 5.48274 2.09518 6.55519 2.04626C7.71521 1.99324 8.06297 1.98214 11 1.98214ZM11 0C8.01282 0 7.63793 0.0127429 6.46476 0.0661809C5.29406 0.119619 4.49454 0.305419 3.79451 0.577541C3.07104 0.858707 2.45774 1.23483 1.84608 1.84608C1.23442 2.45774 0.858296 3.07104 0.577541 3.79451C0.30583 4.49413 0.119619 5.29365 0.0661809 6.46476C0.0127429 7.63793 0 8.01241 0 11C0 13.9876 0.0127429 14.3621 0.0661809 15.5352C0.119619 16.7059 0.305419 17.5055 0.577541 18.2055C0.858707 18.929 1.23483 19.5423 1.84608 20.1539C2.45774 20.7656 3.07104 21.1417 3.79451 21.4225C4.49413 21.6942 5.29365 21.8804 6.46476 21.9338C7.63793 21.9873 8.01241 22 11 22C13.9876 22 14.3621 21.9873 15.5352 21.9338C16.7059 21.8804 17.5055 21.6946 18.2055 21.4225C18.929 21.1413 19.5423 20.7652 20.1539 20.1539C20.7656 19.5423 21.1417 18.929 21.4225 18.2055C21.6942 17.5059 21.8804 16.7064 21.9338 15.5352C21.9873 14.3621 22 13.9876 22 11C22 8.01241 21.9873 7.63793 21.9338 6.46476C21.8804 5.29406 21.6946 4.49454 21.4225 3.79451C21.1413 3.07104 20.7652 2.45774 20.1539 1.84608C19.5423 1.23442 18.929 0.858296 18.2055 0.577541C17.5059 0.30583 16.7064 0.119619 15.5352 0.0661809C14.3621 0.0127429 13.9876 0 11 0Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M11 5.35107C7.88041 5.35107 5.35156 7.87992 5.35156 10.9995C5.35156 14.119 7.88041 16.6479 11 16.6479C14.1195 16.6479 16.6483 14.119 16.6483 10.9995C16.6483 7.87992 14.1195 5.35107 11 5.35107ZM11 14.6661C8.97507 14.6661 7.33329 13.0244 7.33329 10.9995C7.33329 8.97458 8.97507 7.3328 11 7.3328C13.0248 7.3328 14.6666 8.97458 14.6666 10.9995C14.6666 13.0244 13.0248 14.6661 11 14.6661Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M17.8049 6.06174C18.3203 5.54628 18.3203 4.71056 17.8049 4.1951C17.2894 3.67964 16.4537 3.67964 15.9382 4.1951C15.4227 4.71056 15.4227 5.54628 15.9382 6.06174C16.4537 6.5772 17.2894 6.5772 17.8049 6.06174Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href={links.telegramLink}
-                  className="opacity-50 transition-all hover:opacity-100"
-                >
-                  <svg
-                    width="22"
-                    height="19"
-                    viewBox="0 0 22 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.757 2.53404C21.757 2.55621 21.757 2.57838 21.757 2.60054C21.7285 2.64044 21.7461 2.68478 21.7417 2.7269C21.7263 2.84882 21.7461 2.97961 21.6606 3.08602C21.6606 3.0971 21.6606 3.10819 21.6606 3.11927C21.6321 3.14809 21.6562 3.19464 21.6299 3.22346C21.6299 3.24563 21.6299 3.26779 21.6277 3.29218C21.5993 3.321 21.6234 3.36755 21.5971 3.39637C21.5971 3.41853 21.5971 3.4407 21.5949 3.46287C21.5686 3.50277 21.5795 3.54489 21.5861 3.58479C21.5773 3.8109 21.4985 4.0215 21.47 4.24318C21.4678 4.25869 21.4634 4.27643 21.459 4.29194C21.4459 4.33185 21.4393 4.37175 21.4349 4.41165C21.413 4.51584 21.3955 4.62224 21.3736 4.72643C21.3714 4.74195 21.367 4.75968 21.3626 4.7752C21.3495 4.8151 21.3451 4.85722 21.3385 4.89934C21.3013 5.10994 21.2509 5.31831 21.2093 5.52891C21.1786 5.67743 21.1391 5.82595 21.115 5.9767C21.069 6.17399 21.023 6.37128 20.9836 6.57079C20.9814 6.58853 20.9748 6.60404 20.9704 6.61956C20.9573 6.65946 20.9485 6.69936 20.9441 6.73927C20.9266 6.83459 20.9003 6.92769 20.8806 7.02301C20.8784 7.03853 20.874 7.05405 20.8696 7.06957C20.8565 7.10725 20.8499 7.14494 20.8455 7.18484C20.8368 7.24026 20.8193 7.29124 20.8127 7.34666C20.8105 7.36218 20.8061 7.3777 20.8017 7.39322C20.7798 7.46859 20.7601 7.54617 20.7513 7.62376C20.7491 7.64814 20.7448 7.67253 20.7382 7.69691C20.7272 7.73682 20.7185 7.77893 20.7097 7.81884C20.6637 8.00283 20.6243 8.18904 20.5848 8.37525C20.5585 8.47057 20.5454 8.57032 20.5213 8.66786C20.5191 8.68338 20.5147 8.6989 20.5081 8.71442C20.4884 8.7654 20.484 8.8186 20.4753 8.87181C20.4731 8.88732 20.4687 8.90284 20.4643 8.91836C20.4555 8.94939 20.4512 8.98265 20.4446 9.0159C20.3526 9.44817 20.254 9.87822 20.1554 10.3083C20.094 10.5388 20.0568 10.776 19.9954 11.0066C19.9932 11.0221 19.9867 11.0398 19.9823 11.0553C19.9538 11.1374 19.9385 11.2238 19.9187 11.308C19.9166 11.3236 19.9122 11.3391 19.9078 11.3524C19.8925 11.3967 19.8903 11.4411 19.8837 11.4876C19.8618 11.5785 19.8421 11.6672 19.8223 11.7581C19.8202 11.7736 19.8158 11.7891 19.8092 11.8046C19.7961 11.8445 19.7917 11.8844 19.7829 11.9243C19.7391 12.1127 19.704 12.3012 19.6602 12.4896C19.5945 12.7733 19.5353 13.0593 19.4652 13.343C19.3447 13.8972 19.2045 14.447 19.0774 14.999C19.0752 15.0256 19.0686 15.05 19.0621 15.0744C19.0533 15.1054 19.0423 15.1386 19.038 15.1719C19.0336 15.1963 19.0292 15.2207 19.0226 15.245C19.0007 15.3271 18.981 15.4113 18.9657 15.4933C18.8189 16.0919 18.6918 16.6948 18.545 17.2933C18.442 17.6236 18.4267 17.9805 18.2733 18.2975C18.0476 18.8074 17.6708 19.0424 17.134 18.9892C16.871 18.9493 16.641 18.8296 16.4306 18.6655C15.6769 17.9916 14.8685 17.3909 14.0644 16.7835C13.6152 16.4443 13.1617 16.114 12.7125 15.7793C12.6643 15.7438 12.6161 15.7083 12.5657 15.6751C12.5241 15.6441 12.4802 15.6152 12.4364 15.5886C12.3444 15.5266 12.259 15.4556 12.1713 15.3869C12.0749 15.3115 11.9938 15.3182 11.9084 15.4002C11.6038 15.6884 11.2818 15.9544 10.9882 16.2559C10.9049 16.3401 10.8107 16.4089 10.7274 16.4931C10.7165 16.5042 10.7055 16.5153 10.6946 16.5263C10.6836 16.5374 10.6727 16.5485 10.6617 16.5596C10.6573 16.5662 10.6507 16.5707 10.6464 16.5773C10.5697 16.666 10.4755 16.7347 10.3922 16.8145C10.0022 17.2401 9.58372 17.6347 9.18057 18.0448C9.03816 18.1889 8.87821 18.3108 8.70293 18.4062C8.46411 18.5347 8.27349 18.4904 8.14641 18.2887C8.10259 18.1867 8.08945 18.0759 8.07192 17.9672C8.06754 17.7722 8.10698 17.5815 8.11136 17.3864C8.13984 17.3044 8.13546 17.2202 8.13546 17.136C8.13546 17.1071 8.13765 17.0805 8.14422 17.0539C8.16613 16.9653 8.17271 16.8744 8.16832 16.7835C8.16832 16.7458 8.16832 16.7081 8.17709 16.6704C8.20338 16.5773 8.199 16.4798 8.20119 16.3845C8.27349 15.6862 8.32389 14.9857 8.39619 14.2852C8.39619 14.2541 8.39619 14.2231 8.39619 14.1943C8.43125 13.9261 8.45096 13.6578 8.47287 13.3874C8.50136 13.1635 8.5145 12.9374 8.53641 12.7113C8.54518 12.6536 8.57366 12.6049 8.59776 12.5539C8.60434 12.5406 8.61091 12.5273 8.61967 12.5162C8.62844 12.5051 8.6372 12.494 8.64597 12.4829C8.65035 12.4785 8.65473 12.4719 8.65911 12.4674C8.66788 12.4563 8.67664 12.4475 8.6876 12.4386C8.69198 12.4342 8.69636 12.4297 8.70293 12.4231C8.7117 12.412 8.72265 12.4031 8.73361 12.3943C8.74456 12.3854 8.75552 12.3765 8.76647 12.3677C8.86068 12.2967 8.9308 12.2014 9.01625 12.1194C9.06007 12.0795 9.11265 12.0507 9.15428 12.0063C9.37338 11.7802 9.6122 11.5763 9.83788 11.359C10.0723 11.1329 10.3068 10.9068 10.5478 10.6873C10.5784 10.6563 10.6113 10.6275 10.6398 10.5942C10.6486 10.5832 10.6595 10.5743 10.6705 10.5632C10.6814 10.5521 10.6924 10.5433 10.7033 10.5344C10.7143 10.5255 10.7274 10.5144 10.7384 10.5056C11.1875 10.0622 11.6542 9.64103 12.1012 9.19546C12.1122 9.18437 12.1231 9.17107 12.1341 9.15999C12.1384 9.15334 12.145 9.1489 12.1516 9.14225C12.3597 8.97821 12.5284 8.76983 12.7344 8.60136C12.9184 8.39298 13.131 8.21564 13.326 8.01835C13.4793 7.85874 13.6568 7.72795 13.8014 7.55947C13.8168 7.54396 13.8321 7.52844 13.8474 7.51514C13.8628 7.49962 13.8759 7.48632 13.8913 7.4708C13.9044 7.45529 13.9197 7.44198 13.9329 7.42647C13.9504 7.40652 13.9701 7.38657 13.9877 7.36883C14.0008 7.35553 14.0161 7.34223 14.0337 7.33115C14.06 7.31341 14.0863 7.29568 14.1104 7.27351C14.1191 7.26464 14.1279 7.25577 14.1367 7.24691C14.141 7.24247 14.1454 7.23804 14.1498 7.23361C14.1586 7.22474 14.1673 7.21587 14.1761 7.20701C14.1805 7.20257 14.1849 7.19814 14.1892 7.19371C14.198 7.18484 14.2068 7.17597 14.2155 7.1671C14.2199 7.16267 14.2243 7.15824 14.2287 7.1538C14.2374 7.14272 14.2462 7.13385 14.255 7.12499C14.2593 7.12055 14.2637 7.1139 14.2681 7.10947C14.2769 7.09838 14.2856 7.0873 14.2966 7.07622C14.301 7.06957 14.3054 7.06513 14.3119 7.05848C14.7041 6.69936 15.0503 6.28926 15.4491 5.93679C15.46 5.92571 15.4688 5.91463 15.4797 5.90576C15.4841 5.90132 15.4907 5.89467 15.4951 5.89024C15.506 5.87916 15.5148 5.87029 15.5258 5.85921C15.5301 5.85477 15.5367 5.84812 15.5411 5.84369C15.5499 5.8326 15.5608 5.82152 15.5718 5.81044C15.5762 5.80379 15.5827 5.79935 15.5871 5.79492C15.7449 5.63088 15.9026 5.46462 16.0582 5.29836C16.2313 5.12102 16.4022 4.93924 16.5731 4.7619C16.584 4.75082 16.595 4.73973 16.6059 4.72865C16.6103 4.722 16.6169 4.71757 16.6213 4.71092C16.6322 4.69983 16.6432 4.68875 16.6519 4.67766C16.6563 4.67101 16.6629 4.66658 16.6673 4.65993C17.0003 4.32076 17.3224 3.96829 17.6028 3.57814C17.6467 3.51829 17.7321 3.44292 17.673 3.37198C17.6116 3.29883 17.5305 3.38307 17.4692 3.41853C17.0858 3.64021 16.7133 3.87962 16.3342 4.11017C16.3233 4.11904 16.3101 4.12569 16.297 4.13234C16.286 4.1412 16.2751 4.14785 16.2619 4.15672C16.251 4.16559 16.24 4.17224 16.2269 4.18111C16.1896 4.20327 16.159 4.23209 16.1217 4.25426C15.8676 4.40943 15.6156 4.57126 15.3636 4.73087C14.8071 5.10107 14.2418 5.45575 13.6853 5.82374C13.2033 6.12965 12.73 6.45109 12.248 6.75478C12.1428 6.82129 12.0442 6.89887 11.9369 6.96316C11.6542 7.14272 11.3782 7.33336 11.0933 7.51292C10.9728 7.59716 10.8457 7.6681 10.7274 7.75677C10.5149 7.88756 10.3111 8.03386 10.103 8.1713C9.66041 8.4484 9.23316 8.74988 8.79057 9.0292C8.58243 9.16885 8.3699 9.30186 8.16175 9.44373C7.71478 9.74522 7.25905 10.0356 6.81208 10.3393C6.48781 10.5388 6.17888 10.7605 5.86118 10.9689C5.77792 11.0243 5.69248 11.0731 5.59607 11.0997C5.40983 11.1241 5.24989 11.0199 5.0768 10.9777C4.93438 10.9423 4.79854 10.8846 4.65832 10.8359C4.57944 10.8048 4.50056 10.7782 4.41949 10.7538C4.09303 10.6364 3.76438 10.5233 3.43573 10.4125C2.95151 10.2573 2.47825 10.0777 1.99185 9.93143C1.53393 9.76295 1.06943 9.61221 0.611507 9.44817C0.460327 9.39497 0.317911 9.32846 0.201787 9.20654C0.0177413 9.01368 -0.0370342 8.792 0.0506065 8.53264C0.129483 8.32205 0.302573 8.20899 0.469091 8.08707C0.736395 7.94076 1.01246 7.80997 1.29072 7.69026C1.30387 7.68361 1.31701 7.67696 1.33235 7.67031C1.35864 7.65701 1.38713 7.64371 1.41342 7.63263C1.54488 7.58386 1.66977 7.51292 1.80342 7.46415C1.8319 7.45307 1.86039 7.4442 1.88668 7.4309C1.89982 7.42203 1.91516 7.41538 1.92831 7.40873C2.56808 7.12277 3.2232 6.87006 3.87174 6.60404C3.90022 6.59296 3.9309 6.58409 3.95938 6.57079C3.97253 6.56414 3.98786 6.55749 4.00101 6.55084C4.18506 6.47547 4.3691 6.40453 4.55315 6.32916C4.57287 6.3203 4.59258 6.31143 4.61449 6.30256C4.62764 6.29591 4.64079 6.29148 4.65612 6.28704C4.68461 6.27818 4.7109 6.26709 4.73938 6.25379C4.75253 6.24714 4.76787 6.24049 4.7832 6.23606C5.50843 5.94123 6.23804 5.6597 6.96326 5.36486C6.99175 5.35378 7.02242 5.34491 7.05091 5.33383C7.06405 5.32718 7.07939 5.32275 7.09473 5.31831C7.14731 5.30501 7.19332 5.27619 7.24152 5.25403C7.42557 5.19196 7.60304 5.1188 7.7827 5.04565C8.13108 4.91043 8.47945 4.77298 8.82563 4.63554C9.08855 4.53801 9.34709 4.42495 9.6122 4.33185C9.63192 4.32298 9.65383 4.31633 9.67355 4.30746C9.6867 4.30081 9.69984 4.29638 9.7108 4.29416C9.7349 4.28751 9.759 4.28086 9.7831 4.26978C9.79406 4.26534 9.80501 4.26091 9.81816 4.25869C9.84007 4.25204 9.86417 4.24539 9.88389 4.23653C9.89485 4.23209 9.9058 4.22766 9.91675 4.22544C9.93209 4.22101 9.94962 4.21657 9.96496 4.20992C9.97591 4.20549 9.98687 4.19884 9.99563 4.19441C10.0175 4.18332 10.0395 4.17224 10.0614 4.16337C10.0723 4.15894 10.0855 4.1545 10.0964 4.15007C10.1161 4.14342 10.1337 4.13455 10.1534 4.12569C10.1665 4.11904 10.1797 4.1146 10.195 4.10795C10.5938 3.95943 10.986 3.79095 11.3891 3.64686C11.4176 3.638 11.4439 3.63134 11.4724 3.62248C11.4855 3.61583 11.4987 3.61139 11.5118 3.60474C11.5381 3.59144 11.5644 3.57814 11.5907 3.56706C11.6038 3.56041 11.6192 3.55376 11.6345 3.54932C12.2984 3.29218 12.9645 3.03725 13.6305 2.78454C13.659 2.77567 13.6875 2.76902 13.716 2.75793C13.7291 2.75128 13.7423 2.74685 13.7554 2.7402C13.8058 2.71803 13.8584 2.70251 13.911 2.68035C13.9504 2.66705 13.9877 2.65375 14.0249 2.63601C14.0687 2.61606 14.1147 2.60054 14.1586 2.58281C14.1892 2.57172 14.2199 2.56286 14.2506 2.55177C14.2615 2.54734 14.2747 2.54291 14.2856 2.54069C14.3097 2.53404 14.3317 2.52961 14.3536 2.51852C14.3645 2.51187 14.3755 2.50744 14.3864 2.50301C14.4018 2.49414 14.4193 2.48527 14.4346 2.47862C14.4456 2.47419 14.4587 2.46975 14.4697 2.46532C14.4872 2.45867 14.5047 2.45202 14.5223 2.44537C14.5332 2.44094 14.5464 2.4365 14.5573 2.43428C14.5749 2.42763 14.5924 2.4232 14.6099 2.41655C14.6209 2.41212 14.634 2.40768 14.645 2.40325C14.6625 2.3966 14.6822 2.39217 14.6997 2.3833C14.7107 2.37665 14.7238 2.37222 14.7348 2.36778C14.7523 2.35891 14.7699 2.35005 14.7896 2.34118C14.8027 2.33453 14.8159 2.3301 14.829 2.32566C14.8553 2.3168 14.8816 2.30571 14.9079 2.29463C14.921 2.28798 14.9364 2.28354 14.9495 2.27911C15.2891 2.14832 15.6287 2.01975 15.9705 1.88896C15.9968 1.88009 16.0253 1.87344 16.0516 1.86457C16.0626 1.86014 16.0757 1.85349 16.0867 1.84906C16.1042 1.84019 16.1217 1.83354 16.1392 1.82689C16.1568 1.82024 16.1743 1.8158 16.1918 1.80915C16.2094 1.8025 16.2269 1.79585 16.2422 1.7892C16.2532 1.78477 16.2663 1.78034 16.2773 1.7759C16.2948 1.76925 16.3123 1.76482 16.3299 1.75817C16.3408 1.75373 16.354 1.7493 16.3649 1.74708C16.3824 1.74265 16.4 1.736 16.4175 1.72935C16.4285 1.7227 16.4394 1.71827 16.4504 1.71383C16.4657 1.70496 16.4832 1.69831 16.5008 1.68945C16.5117 1.68501 16.5249 1.68058 16.5358 1.67615C16.5599 1.6695 16.5818 1.66063 16.6059 1.65176C16.6169 1.64733 16.63 1.6429 16.6432 1.63846C16.6629 1.63181 16.6804 1.62294 16.698 1.61408C16.7111 1.60743 16.7242 1.60078 16.7352 1.59413C16.9324 1.51876 17.134 1.45004 17.329 1.37245C17.3553 1.36358 17.3837 1.35471 17.41 1.34585C17.4232 1.34141 17.4363 1.33698 17.4495 1.33255C17.4758 1.32368 17.5021 1.31481 17.5283 1.30373C17.5415 1.29708 17.5546 1.29264 17.5678 1.28821C17.6708 1.24609 17.7715 1.20397 17.8789 1.17072C17.9052 1.16185 17.9315 1.15742 17.9556 1.14634C17.9665 1.13969 17.9797 1.13525 17.9907 1.13082C18.0082 1.12195 18.0235 1.1153 18.041 1.10643C18.052 1.102 18.063 1.09757 18.0761 1.09535C18.098 1.0887 18.1221 1.08205 18.144 1.07318C18.155 1.06875 18.1659 1.06432 18.1769 1.0621C18.1988 1.05545 18.2229 1.0488 18.2448 1.03771C18.2558 1.03328 18.2667 1.02885 18.2799 1.02663C18.2974 1.0222 18.3127 1.01555 18.3303 1.0089C18.3412 1.00446 18.3522 1.00003 18.3631 0.993379C18.3785 0.984512 18.396 0.977862 18.4113 0.968995C18.4223 0.964561 18.4332 0.960128 18.4442 0.957911C18.4661 0.951261 18.4902 0.942393 18.5121 0.933526C18.5231 0.929093 18.5362 0.924659 18.5472 0.920226C18.5713 0.911359 18.5954 0.900275 18.6195 0.886974C18.6326 0.880324 18.6458 0.873673 18.6589 0.867023C18.7948 0.811604 18.935 0.771702 19.0664 0.707415C19.3294 0.61431 19.5901 0.512339 19.8508 0.4148C19.8793 0.403717 19.9078 0.397066 19.9363 0.385982C19.9494 0.379332 19.9626 0.374898 19.9757 0.370465C20.0086 0.359381 20.0414 0.350514 20.0743 0.33943C20.1006 0.330563 20.1247 0.323913 20.1488 0.312829C20.1598 0.308395 20.1729 0.303962 20.1861 0.299528C20.2036 0.292878 20.2233 0.288444 20.2408 0.281794C20.2518 0.275143 20.2627 0.27071 20.2759 0.266276C20.2868 0.259626 20.2978 0.255192 20.3087 0.248542C20.3153 0.246325 20.3197 0.244109 20.3263 0.241892C20.3372 0.237458 20.3504 0.233025 20.3613 0.230808C20.3789 0.224158 20.3964 0.217507 20.4139 0.210857C20.4249 0.206423 20.438 0.20199 20.449 0.199773C20.4731 0.193123 20.495 0.186472 20.5169 0.175388C20.5278 0.170955 20.5388 0.166521 20.552 0.164305C20.5695 0.157654 20.587 0.153221 20.6023 0.14657C20.6133 0.142137 20.6243 0.135486 20.6352 0.131053C20.6527 0.122186 20.6681 0.113319 20.6856 0.106668C20.6966 0.102235 20.7097 0.0978013 20.7229 0.0933677C20.7426 0.0867174 20.7601 0.0867174 20.7798 0.0800671C20.793 0.0756335 20.8061 0.080067 20.8149 0.0911509C21.0427 0.0379483 21.2706 0.0069134 21.505 0.0224308C21.5182 0.00469662 21.5379 0.000263063 21.5576 0.00247984C21.5839 0.0069134 21.608 0.0179973 21.6343 0.0246476C21.6475 0.0290812 21.6606 0.0335147 21.6716 0.0379483C21.6913 0.0468154 21.7088 0.0556825 21.7285 0.0667664C21.7417 0.0734167 21.7548 0.0822838 21.768 0.0911509C21.7877 0.106668 21.8052 0.122186 21.8227 0.13992C21.9739 0.303962 22.0112 0.505688 22.009 0.720716C22.009 0.804953 22.009 0.891408 22.009 0.975645C22.009 0.993379 22.009 1.01333 22.009 1.03106C22.0046 1.17072 21.9652 1.30595 21.9739 1.44782C21.9739 1.48329 21.9695 1.51876 21.9608 1.55422C21.9454 1.60299 21.9389 1.65176 21.9367 1.70496C21.9367 1.73822 21.9323 1.77147 21.9235 1.8025C21.9104 1.84906 21.9038 1.89561 21.9016 1.94438C21.9016 1.96876 21.895 1.99315 21.8885 2.01531C21.8775 2.053 21.8709 2.0929 21.8688 2.13502C21.8688 2.16827 21.8622 2.20152 21.8556 2.23477C21.8271 2.33453 21.8359 2.44759 21.7636 2.53404H21.757Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="w-full border-y-[1px] border-y-[#4C4C4C] py-10 md:hidden">
-              <p className="text-lg text-center font-normal text-primary-foreground mb-7">
-                Договір оферти
-              </p>
-              <div className="flex justify-center gap-4">
-                <a
-                  href={links.instagramLink}
-                  className="opacity-50 transition-all hover:opacity-100"
-                >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 22 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 1.98214C13.937 1.98214 14.2848 1.99324 15.4448 2.04626C16.5173 2.09518 17.0997 2.2744 17.4874 2.42485C18.0008 2.62422 18.367 2.86263 18.7522 3.2478C19.137 3.63255 19.3754 3.99922 19.5751 4.51263C19.7256 4.90026 19.9048 5.48274 19.9537 6.55519C20.0068 7.71521 20.0179 8.06297 20.0179 11C20.0179 13.937 20.0068 14.2848 19.9537 15.4448C19.9048 16.5173 19.7256 17.0997 19.5751 17.4874C19.3758 18.0008 19.1374 18.367 18.7522 18.7522C18.3675 19.137 18.0008 19.3754 17.4874 19.5751C17.0997 19.7256 16.5173 19.9048 15.4448 19.9537C14.2852 20.0068 13.9374 20.0179 11 20.0179C8.06256 20.0179 7.7148 20.0068 6.55519 19.9537C5.48274 19.9048 4.90026 19.7256 4.51263 19.5751C3.99922 19.3758 3.63296 19.1374 3.2478 18.7522C2.86304 18.3675 2.62463 18.0008 2.42485 17.4874C2.2744 17.0997 2.09518 16.5173 2.04626 15.4448C1.99324 14.2848 1.98214 13.937 1.98214 11C1.98214 8.06297 1.99324 7.71521 2.04626 6.55519C2.09518 5.48274 2.2744 4.90026 2.42485 4.51263C2.62422 3.99922 2.86263 3.63296 3.2478 3.2478C3.63296 2.86263 3.99922 2.62463 4.51263 2.42485C4.90026 2.2744 5.48274 2.09518 6.55519 2.04626C7.71521 1.99324 8.06297 1.98214 11 1.98214ZM11 0C8.01282 0 7.63793 0.0127429 6.46476 0.0661809C5.29406 0.119619 4.49454 0.305419 3.79451 0.577541C3.07104 0.858707 2.45774 1.23483 1.84608 1.84608C1.23442 2.45774 0.858296 3.07104 0.577541 3.79451C0.30583 4.49413 0.119619 5.29365 0.0661809 6.46476C0.0127429 7.63793 0 8.01241 0 11C0 13.9876 0.0127429 14.3621 0.0661809 15.5352C0.119619 16.7059 0.305419 17.5055 0.577541 18.2055C0.858707 18.929 1.23483 19.5423 1.84608 20.1539C2.45774 20.7656 3.07104 21.1417 3.79451 21.4225C4.49413 21.6942 5.29365 21.8804 6.46476 21.9338C7.63793 21.9873 8.01241 22 11 22C13.9876 22 14.3621 21.9873 15.5352 21.9338C16.7059 21.8804 17.5055 21.6946 18.2055 21.4225C18.929 21.1413 19.5423 20.7652 20.1539 20.1539C20.7656 19.5423 21.1417 18.929 21.4225 18.2055C21.6942 17.5059 21.8804 16.7064 21.9338 15.5352C21.9873 14.3621 22 13.9876 22 11C22 8.01241 21.9873 7.63793 21.9338 6.46476C21.8804 5.29406 21.6946 4.49454 21.4225 3.79451C21.1413 3.07104 20.7652 2.45774 20.1539 1.84608C19.5423 1.23442 18.929 0.858296 18.2055 0.577541C17.5059 0.30583 16.7064 0.119619 15.5352 0.0661809C14.3621 0.0127429 13.9876 0 11 0Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M11 5.35107C7.88041 5.35107 5.35156 7.87992 5.35156 10.9995C5.35156 14.119 7.88041 16.6479 11 16.6479C14.1195 16.6479 16.6483 14.119 16.6483 10.9995C16.6483 7.87992 14.1195 5.35107 11 5.35107ZM11 14.6661C8.97507 14.6661 7.33329 13.0244 7.33329 10.9995C7.33329 8.97458 8.97507 7.3328 11 7.3328C13.0248 7.3328 14.6666 8.97458 14.6666 10.9995C14.6666 13.0244 13.0248 14.6661 11 14.6661Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M17.8049 6.06174C18.3203 5.54628 18.3203 4.71056 17.8049 4.1951C17.2894 3.67964 16.4537 3.67964 15.9382 4.1951C15.4227 4.71056 15.4227 5.54628 15.9382 6.06174C16.4537 6.5772 17.2894 6.5772 17.8049 6.06174Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href={links.telegramLink}
-                  className="opacity-50 transition-all hover:opacity-100"
-                >
-                  <svg
-                    width="22"
-                    height="19"
-                    viewBox="0 0 22 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.757 2.53404C21.757 2.55621 21.757 2.57838 21.757 2.60054C21.7285 2.64044 21.7461 2.68478 21.7417 2.7269C21.7263 2.84882 21.7461 2.97961 21.6606 3.08602C21.6606 3.0971 21.6606 3.10819 21.6606 3.11927C21.6321 3.14809 21.6562 3.19464 21.6299 3.22346C21.6299 3.24563 21.6299 3.26779 21.6277 3.29218C21.5993 3.321 21.6234 3.36755 21.5971 3.39637C21.5971 3.41853 21.5971 3.4407 21.5949 3.46287C21.5686 3.50277 21.5795 3.54489 21.5861 3.58479C21.5773 3.8109 21.4985 4.0215 21.47 4.24318C21.4678 4.25869 21.4634 4.27643 21.459 4.29194C21.4459 4.33185 21.4393 4.37175 21.4349 4.41165C21.413 4.51584 21.3955 4.62224 21.3736 4.72643C21.3714 4.74195 21.367 4.75968 21.3626 4.7752C21.3495 4.8151 21.3451 4.85722 21.3385 4.89934C21.3013 5.10994 21.2509 5.31831 21.2093 5.52891C21.1786 5.67743 21.1391 5.82595 21.115 5.9767C21.069 6.17399 21.023 6.37128 20.9836 6.57079C20.9814 6.58853 20.9748 6.60404 20.9704 6.61956C20.9573 6.65946 20.9485 6.69936 20.9441 6.73927C20.9266 6.83459 20.9003 6.92769 20.8806 7.02301C20.8784 7.03853 20.874 7.05405 20.8696 7.06957C20.8565 7.10725 20.8499 7.14494 20.8455 7.18484C20.8368 7.24026 20.8193 7.29124 20.8127 7.34666C20.8105 7.36218 20.8061 7.3777 20.8017 7.39322C20.7798 7.46859 20.7601 7.54617 20.7513 7.62376C20.7491 7.64814 20.7448 7.67253 20.7382 7.69691C20.7272 7.73682 20.7185 7.77893 20.7097 7.81884C20.6637 8.00283 20.6243 8.18904 20.5848 8.37525C20.5585 8.47057 20.5454 8.57032 20.5213 8.66786C20.5191 8.68338 20.5147 8.6989 20.5081 8.71442C20.4884 8.7654 20.484 8.8186 20.4753 8.87181C20.4731 8.88732 20.4687 8.90284 20.4643 8.91836C20.4555 8.94939 20.4512 8.98265 20.4446 9.0159C20.3526 9.44817 20.254 9.87822 20.1554 10.3083C20.094 10.5388 20.0568 10.776 19.9954 11.0066C19.9932 11.0221 19.9867 11.0398 19.9823 11.0553C19.9538 11.1374 19.9385 11.2238 19.9187 11.308C19.9166 11.3236 19.9122 11.3391 19.9078 11.3524C19.8925 11.3967 19.8903 11.4411 19.8837 11.4876C19.8618 11.5785 19.8421 11.6672 19.8223 11.7581C19.8202 11.7736 19.8158 11.7891 19.8092 11.8046C19.7961 11.8445 19.7917 11.8844 19.7829 11.9243C19.7391 12.1127 19.704 12.3012 19.6602 12.4896C19.5945 12.7733 19.5353 13.0593 19.4652 13.343C19.3447 13.8972 19.2045 14.447 19.0774 14.999C19.0752 15.0256 19.0686 15.05 19.0621 15.0744C19.0533 15.1054 19.0423 15.1386 19.038 15.1719C19.0336 15.1963 19.0292 15.2207 19.0226 15.245C19.0007 15.3271 18.981 15.4113 18.9657 15.4933C18.8189 16.0919 18.6918 16.6948 18.545 17.2933C18.442 17.6236 18.4267 17.9805 18.2733 18.2975C18.0476 18.8074 17.6708 19.0424 17.134 18.9892C16.871 18.9493 16.641 18.8296 16.4306 18.6655C15.6769 17.9916 14.8685 17.3909 14.0644 16.7835C13.6152 16.4443 13.1617 16.114 12.7125 15.7793C12.6643 15.7438 12.6161 15.7083 12.5657 15.6751C12.5241 15.6441 12.4802 15.6152 12.4364 15.5886C12.3444 15.5266 12.259 15.4556 12.1713 15.3869C12.0749 15.3115 11.9938 15.3182 11.9084 15.4002C11.6038 15.6884 11.2818 15.9544 10.9882 16.2559C10.9049 16.3401 10.8107 16.4089 10.7274 16.4931C10.7165 16.5042 10.7055 16.5153 10.6946 16.5263C10.6836 16.5374 10.6727 16.5485 10.6617 16.5596C10.6573 16.5662 10.6507 16.5707 10.6464 16.5773C10.5697 16.666 10.4755 16.7347 10.3922 16.8145C10.0022 17.2401 9.58372 17.6347 9.18057 18.0448C9.03816 18.1889 8.87821 18.3108 8.70293 18.4062C8.46411 18.5347 8.27349 18.4904 8.14641 18.2887C8.10259 18.1867 8.08945 18.0759 8.07192 17.9672C8.06754 17.7722 8.10698 17.5815 8.11136 17.3864C8.13984 17.3044 8.13546 17.2202 8.13546 17.136C8.13546 17.1071 8.13765 17.0805 8.14422 17.0539C8.16613 16.9653 8.17271 16.8744 8.16832 16.7835C8.16832 16.7458 8.16832 16.7081 8.17709 16.6704C8.20338 16.5773 8.199 16.4798 8.20119 16.3845C8.27349 15.6862 8.32389 14.9857 8.39619 14.2852C8.39619 14.2541 8.39619 14.2231 8.39619 14.1943C8.43125 13.9261 8.45096 13.6578 8.47287 13.3874C8.50136 13.1635 8.5145 12.9374 8.53641 12.7113C8.54518 12.6536 8.57366 12.6049 8.59776 12.5539C8.60434 12.5406 8.61091 12.5273 8.61967 12.5162C8.62844 12.5051 8.6372 12.494 8.64597 12.4829C8.65035 12.4785 8.65473 12.4719 8.65911 12.4674C8.66788 12.4563 8.67664 12.4475 8.6876 12.4386C8.69198 12.4342 8.69636 12.4297 8.70293 12.4231C8.7117 12.412 8.72265 12.4031 8.73361 12.3943C8.74456 12.3854 8.75552 12.3765 8.76647 12.3677C8.86068 12.2967 8.9308 12.2014 9.01625 12.1194C9.06007 12.0795 9.11265 12.0507 9.15428 12.0063C9.37338 11.7802 9.6122 11.5763 9.83788 11.359C10.0723 11.1329 10.3068 10.9068 10.5478 10.6873C10.5784 10.6563 10.6113 10.6275 10.6398 10.5942C10.6486 10.5832 10.6595 10.5743 10.6705 10.5632C10.6814 10.5521 10.6924 10.5433 10.7033 10.5344C10.7143 10.5255 10.7274 10.5144 10.7384 10.5056C11.1875 10.0622 11.6542 9.64103 12.1012 9.19546C12.1122 9.18437 12.1231 9.17107 12.1341 9.15999C12.1384 9.15334 12.145 9.1489 12.1516 9.14225C12.3597 8.97821 12.5284 8.76983 12.7344 8.60136C12.9184 8.39298 13.131 8.21564 13.326 8.01835C13.4793 7.85874 13.6568 7.72795 13.8014 7.55947C13.8168 7.54396 13.8321 7.52844 13.8474 7.51514C13.8628 7.49962 13.8759 7.48632 13.8913 7.4708C13.9044 7.45529 13.9197 7.44198 13.9329 7.42647C13.9504 7.40652 13.9701 7.38657 13.9877 7.36883C14.0008 7.35553 14.0161 7.34223 14.0337 7.33115C14.06 7.31341 14.0863 7.29568 14.1104 7.27351C14.1191 7.26464 14.1279 7.25577 14.1367 7.24691C14.141 7.24247 14.1454 7.23804 14.1498 7.23361C14.1586 7.22474 14.1673 7.21587 14.1761 7.20701C14.1805 7.20257 14.1849 7.19814 14.1892 7.19371C14.198 7.18484 14.2068 7.17597 14.2155 7.1671C14.2199 7.16267 14.2243 7.15824 14.2287 7.1538C14.2374 7.14272 14.2462 7.13385 14.255 7.12499C14.2593 7.12055 14.2637 7.1139 14.2681 7.10947C14.2769 7.09838 14.2856 7.0873 14.2966 7.07622C14.301 7.06957 14.3054 7.06513 14.3119 7.05848C14.7041 6.69936 15.0503 6.28926 15.4491 5.93679C15.46 5.92571 15.4688 5.91463 15.4797 5.90576C15.4841 5.90132 15.4907 5.89467 15.4951 5.89024C15.506 5.87916 15.5148 5.87029 15.5258 5.85921C15.5301 5.85477 15.5367 5.84812 15.5411 5.84369C15.5499 5.8326 15.5608 5.82152 15.5718 5.81044C15.5762 5.80379 15.5827 5.79935 15.5871 5.79492C15.7449 5.63088 15.9026 5.46462 16.0582 5.29836C16.2313 5.12102 16.4022 4.93924 16.5731 4.7619C16.584 4.75082 16.595 4.73973 16.6059 4.72865C16.6103 4.722 16.6169 4.71757 16.6213 4.71092C16.6322 4.69983 16.6432 4.68875 16.6519 4.67766C16.6563 4.67101 16.6629 4.66658 16.6673 4.65993C17.0003 4.32076 17.3224 3.96829 17.6028 3.57814C17.6467 3.51829 17.7321 3.44292 17.673 3.37198C17.6116 3.29883 17.5305 3.38307 17.4692 3.41853C17.0858 3.64021 16.7133 3.87962 16.3342 4.11017C16.3233 4.11904 16.3101 4.12569 16.297 4.13234C16.286 4.1412 16.2751 4.14785 16.2619 4.15672C16.251 4.16559 16.24 4.17224 16.2269 4.18111C16.1896 4.20327 16.159 4.23209 16.1217 4.25426C15.8676 4.40943 15.6156 4.57126 15.3636 4.73087C14.8071 5.10107 14.2418 5.45575 13.6853 5.82374C13.2033 6.12965 12.73 6.45109 12.248 6.75478C12.1428 6.82129 12.0442 6.89887 11.9369 6.96316C11.6542 7.14272 11.3782 7.33336 11.0933 7.51292C10.9728 7.59716 10.8457 7.6681 10.7274 7.75677C10.5149 7.88756 10.3111 8.03386 10.103 8.1713C9.66041 8.4484 9.23316 8.74988 8.79057 9.0292C8.58243 9.16885 8.3699 9.30186 8.16175 9.44373C7.71478 9.74522 7.25905 10.0356 6.81208 10.3393C6.48781 10.5388 6.17888 10.7605 5.86118 10.9689C5.77792 11.0243 5.69248 11.0731 5.59607 11.0997C5.40983 11.1241 5.24989 11.0199 5.0768 10.9777C4.93438 10.9423 4.79854 10.8846 4.65832 10.8359C4.57944 10.8048 4.50056 10.7782 4.41949 10.7538C4.09303 10.6364 3.76438 10.5233 3.43573 10.4125C2.95151 10.2573 2.47825 10.0777 1.99185 9.93143C1.53393 9.76295 1.06943 9.61221 0.611507 9.44817C0.460327 9.39497 0.317911 9.32846 0.201787 9.20654C0.0177413 9.01368 -0.0370342 8.792 0.0506065 8.53264C0.129483 8.32205 0.302573 8.20899 0.469091 8.08707C0.736395 7.94076 1.01246 7.80997 1.29072 7.69026C1.30387 7.68361 1.31701 7.67696 1.33235 7.67031C1.35864 7.65701 1.38713 7.64371 1.41342 7.63263C1.54488 7.58386 1.66977 7.51292 1.80342 7.46415C1.8319 7.45307 1.86039 7.4442 1.88668 7.4309C1.89982 7.42203 1.91516 7.41538 1.92831 7.40873C2.56808 7.12277 3.2232 6.87006 3.87174 6.60404C3.90022 6.59296 3.9309 6.58409 3.95938 6.57079C3.97253 6.56414 3.98786 6.55749 4.00101 6.55084C4.18506 6.47547 4.3691 6.40453 4.55315 6.32916C4.57287 6.3203 4.59258 6.31143 4.61449 6.30256C4.62764 6.29591 4.64079 6.29148 4.65612 6.28704C4.68461 6.27818 4.7109 6.26709 4.73938 6.25379C4.75253 6.24714 4.76787 6.24049 4.7832 6.23606C5.50843 5.94123 6.23804 5.6597 6.96326 5.36486C6.99175 5.35378 7.02242 5.34491 7.05091 5.33383C7.06405 5.32718 7.07939 5.32275 7.09473 5.31831C7.14731 5.30501 7.19332 5.27619 7.24152 5.25403C7.42557 5.19196 7.60304 5.1188 7.7827 5.04565C8.13108 4.91043 8.47945 4.77298 8.82563 4.63554C9.08855 4.53801 9.34709 4.42495 9.6122 4.33185C9.63192 4.32298 9.65383 4.31633 9.67355 4.30746C9.6867 4.30081 9.69984 4.29638 9.7108 4.29416C9.7349 4.28751 9.759 4.28086 9.7831 4.26978C9.79406 4.26534 9.80501 4.26091 9.81816 4.25869C9.84007 4.25204 9.86417 4.24539 9.88389 4.23653C9.89485 4.23209 9.9058 4.22766 9.91675 4.22544C9.93209 4.22101 9.94962 4.21657 9.96496 4.20992C9.97591 4.20549 9.98687 4.19884 9.99563 4.19441C10.0175 4.18332 10.0395 4.17224 10.0614 4.16337C10.0723 4.15894 10.0855 4.1545 10.0964 4.15007C10.1161 4.14342 10.1337 4.13455 10.1534 4.12569C10.1665 4.11904 10.1797 4.1146 10.195 4.10795C10.5938 3.95943 10.986 3.79095 11.3891 3.64686C11.4176 3.638 11.4439 3.63134 11.4724 3.62248C11.4855 3.61583 11.4987 3.61139 11.5118 3.60474C11.5381 3.59144 11.5644 3.57814 11.5907 3.56706C11.6038 3.56041 11.6192 3.55376 11.6345 3.54932C12.2984 3.29218 12.9645 3.03725 13.6305 2.78454C13.659 2.77567 13.6875 2.76902 13.716 2.75793C13.7291 2.75128 13.7423 2.74685 13.7554 2.7402C13.8058 2.71803 13.8584 2.70251 13.911 2.68035C13.9504 2.66705 13.9877 2.65375 14.0249 2.63601C14.0687 2.61606 14.1147 2.60054 14.1586 2.58281C14.1892 2.57172 14.2199 2.56286 14.2506 2.55177C14.2615 2.54734 14.2747 2.54291 14.2856 2.54069C14.3097 2.53404 14.3317 2.52961 14.3536 2.51852C14.3645 2.51187 14.3755 2.50744 14.3864 2.50301C14.4018 2.49414 14.4193 2.48527 14.4346 2.47862C14.4456 2.47419 14.4587 2.46975 14.4697 2.46532C14.4872 2.45867 14.5047 2.45202 14.5223 2.44537C14.5332 2.44094 14.5464 2.4365 14.5573 2.43428C14.5749 2.42763 14.5924 2.4232 14.6099 2.41655C14.6209 2.41212 14.634 2.40768 14.645 2.40325C14.6625 2.3966 14.6822 2.39217 14.6997 2.3833C14.7107 2.37665 14.7238 2.37222 14.7348 2.36778C14.7523 2.35891 14.7699 2.35005 14.7896 2.34118C14.8027 2.33453 14.8159 2.3301 14.829 2.32566C14.8553 2.3168 14.8816 2.30571 14.9079 2.29463C14.921 2.28798 14.9364 2.28354 14.9495 2.27911C15.2891 2.14832 15.6287 2.01975 15.9705 1.88896C15.9968 1.88009 16.0253 1.87344 16.0516 1.86457C16.0626 1.86014 16.0757 1.85349 16.0867 1.84906C16.1042 1.84019 16.1217 1.83354 16.1392 1.82689C16.1568 1.82024 16.1743 1.8158 16.1918 1.80915C16.2094 1.8025 16.2269 1.79585 16.2422 1.7892C16.2532 1.78477 16.2663 1.78034 16.2773 1.7759C16.2948 1.76925 16.3123 1.76482 16.3299 1.75817C16.3408 1.75373 16.354 1.7493 16.3649 1.74708C16.3824 1.74265 16.4 1.736 16.4175 1.72935C16.4285 1.7227 16.4394 1.71827 16.4504 1.71383C16.4657 1.70496 16.4832 1.69831 16.5008 1.68945C16.5117 1.68501 16.5249 1.68058 16.5358 1.67615C16.5599 1.6695 16.5818 1.66063 16.6059 1.65176C16.6169 1.64733 16.63 1.6429 16.6432 1.63846C16.6629 1.63181 16.6804 1.62294 16.698 1.61408C16.7111 1.60743 16.7242 1.60078 16.7352 1.59413C16.9324 1.51876 17.134 1.45004 17.329 1.37245C17.3553 1.36358 17.3837 1.35471 17.41 1.34585C17.4232 1.34141 17.4363 1.33698 17.4495 1.33255C17.4758 1.32368 17.5021 1.31481 17.5283 1.30373C17.5415 1.29708 17.5546 1.29264 17.5678 1.28821C17.6708 1.24609 17.7715 1.20397 17.8789 1.17072C17.9052 1.16185 17.9315 1.15742 17.9556 1.14634C17.9665 1.13969 17.9797 1.13525 17.9907 1.13082C18.0082 1.12195 18.0235 1.1153 18.041 1.10643C18.052 1.102 18.063 1.09757 18.0761 1.09535C18.098 1.0887 18.1221 1.08205 18.144 1.07318C18.155 1.06875 18.1659 1.06432 18.1769 1.0621C18.1988 1.05545 18.2229 1.0488 18.2448 1.03771C18.2558 1.03328 18.2667 1.02885 18.2799 1.02663C18.2974 1.0222 18.3127 1.01555 18.3303 1.0089C18.3412 1.00446 18.3522 1.00003 18.3631 0.993379C18.3785 0.984512 18.396 0.977862 18.4113 0.968995C18.4223 0.964561 18.4332 0.960128 18.4442 0.957911C18.4661 0.951261 18.4902 0.942393 18.5121 0.933526C18.5231 0.929093 18.5362 0.924659 18.5472 0.920226C18.5713 0.911359 18.5954 0.900275 18.6195 0.886974C18.6326 0.880324 18.6458 0.873673 18.6589 0.867023C18.7948 0.811604 18.935 0.771702 19.0664 0.707415C19.3294 0.61431 19.5901 0.512339 19.8508 0.4148C19.8793 0.403717 19.9078 0.397066 19.9363 0.385982C19.9494 0.379332 19.9626 0.374898 19.9757 0.370465C20.0086 0.359381 20.0414 0.350514 20.0743 0.33943C20.1006 0.330563 20.1247 0.323913 20.1488 0.312829C20.1598 0.308395 20.1729 0.303962 20.1861 0.299528C20.2036 0.292878 20.2233 0.288444 20.2408 0.281794C20.2518 0.275143 20.2627 0.27071 20.2759 0.266276C20.2868 0.259626 20.2978 0.255192 20.3087 0.248542C20.3153 0.246325 20.3197 0.244109 20.3263 0.241892C20.3372 0.237458 20.3504 0.233025 20.3613 0.230808C20.3789 0.224158 20.3964 0.217507 20.4139 0.210857C20.4249 0.206423 20.438 0.20199 20.449 0.199773C20.4731 0.193123 20.495 0.186472 20.5169 0.175388C20.5278 0.170955 20.5388 0.166521 20.552 0.164305C20.5695 0.157654 20.587 0.153221 20.6023 0.14657C20.6133 0.142137 20.6243 0.135486 20.6352 0.131053C20.6527 0.122186 20.6681 0.113319 20.6856 0.106668C20.6966 0.102235 20.7097 0.0978013 20.7229 0.0933677C20.7426 0.0867174 20.7601 0.0867174 20.7798 0.0800671C20.793 0.0756335 20.8061 0.080067 20.8149 0.0911509C21.0427 0.0379483 21.2706 0.0069134 21.505 0.0224308C21.5182 0.00469662 21.5379 0.000263063 21.5576 0.00247984C21.5839 0.0069134 21.608 0.0179973 21.6343 0.0246476C21.6475 0.0290812 21.6606 0.0335147 21.6716 0.0379483C21.6913 0.0468154 21.7088 0.0556825 21.7285 0.0667664C21.7417 0.0734167 21.7548 0.0822838 21.768 0.0911509C21.7877 0.106668 21.8052 0.122186 21.8227 0.13992C21.9739 0.303962 22.0112 0.505688 22.009 0.720716C22.009 0.804953 22.009 0.891408 22.009 0.975645C22.009 0.993379 22.009 1.01333 22.009 1.03106C22.0046 1.17072 21.9652 1.30595 21.9739 1.44782C21.9739 1.48329 21.9695 1.51876 21.9608 1.55422C21.9454 1.60299 21.9389 1.65176 21.9367 1.70496C21.9367 1.73822 21.9323 1.77147 21.9235 1.8025C21.9104 1.84906 21.9038 1.89561 21.9016 1.94438C21.9016 1.96876 21.895 1.99315 21.8885 2.01531C21.8775 2.053 21.8709 2.0929 21.8688 2.13502C21.8688 2.16827 21.8622 2.20152 21.8556 2.23477C21.8271 2.33453 21.8359 2.44759 21.7636 2.53404H21.757Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="md:flex md:items-center md:justify-between md:border-t-[1px] md:border-t-[#4C4C4C] pt-5">
-            <p className="text-center text-primary-foreground text-lg">
-              ©{new Date().getFullYear()} Всі права захищено
-            </p>
-            <p className="hidden text-lg text-center font-normal text-primary-foreground md:block">
-              Договір оферти
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Hero
+        date="15 жовтня"
+        location="Jozefa Szanajcy 17/19, 03-481 Warszawa"
+        mapUrl="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
+      />
+      <Features />
+      <Speakers speakers={speakers} />
+      <Schedule scheduleItems={scheduleItems} />
+      <Competitions />
+      <Tickets />
+      <Gallery />
+      <Testimonials />
+      <Partners />
+      <FAQ />
+      <Summary
+        date="15 жовтня"
+        location="Jozefa Szanajcy 17/19, 03-481 Warszawa"
+        mapUrl="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
+      />
+      <Footer
+        companyInfo={{
+          name: "Nail Moment Anhelina Rahoza",
+          address: "Burakowska 16b/162 01-066 Warszawa",
+          nip: "5223118965",
+          regon: "529210914",
+        }}
+        contactInfo={{
+          email: "Nail.moment.wroclaw@gmail.com",
+          phone: "662 412 456",
+        }}
+        socialLinks={{
+          instagram:
+            "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5",
+          telegram: "https://t.me/+THVRcBRhyWc5OWY0",
+        }}
+      />
     </>
   );
 }
-
-const CardSimple = ({
-  time,
-  description,
-}: {
-  time: string;
-  description: string;
-}) => {
-  return (
-    <div className={cn("flex flex-col gap-1 bg-primary rounded-xl p-5")}>
-      <div className="text-primary-foreground font-travels font-bold">
-        {time}
-      </div>
-      <div className="text-primary-foreground-muted font-asteriks">
-        {description}
-      </div>
-    </div>
-  );
-};
-
-const CardSpeaker = ({
-  time,
-  name,
-  description,
-  accent,
-  image,
-}: {
-  time: string;
-  name: string;
-  description: string;
-  accent?: boolean;
-  image: string;
-}) => {
-  return (
-    <div
-      className={cn(
-        "flex flex-row gap-1 bg-white rounded-xl p-5",
-        accent && "bg-accent-green",
-      )}
-    >
-      <div className="grow">
-        <div
-          className={cn(
-            "text-accent-pink font-travels font-bold",
-            accent && "text-black",
-          )}
-        >
-          {time}
-        </div>
-        <div className="text-black font-travels uppercase font-bold">
-          {name}
-        </div>
-        <div className="text-black/70 font-asteriks">{description}</div>
-      </div>
-      <div className="w-[55px] h-[55px] overflow-y-hidden relative min-w-[55px] min-h-[55px] bg-accent-pink rounded-full">
-        <Image
-          src={image}
-          width={55}
-          height={55}
-          alt="Background"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-      </div>
-    </div>
-  );
-};
