@@ -1,9 +1,4 @@
 "use client";
-import { useState } from "react";
-import { SectionTitle } from "@/shared/ui/section-title";
-import { TicketButton } from "@/shared/ui/ticket-button";
-import Image from "next/image";
-import { cn } from "@/shared/utils/cn";
 import "swiper/css";
 import { Features } from "@/entities/blocks/features";
 import { Hero } from "@/entities/blocks/hero";
@@ -17,15 +12,7 @@ import { Partners } from "@/entities/blocks/partners";
 import { FAQ } from "@/entities/blocks/faq";
 import { Summary } from "@/entities/blocks/summary";
 import { Footer } from "@/entities/blocks/footer";
-
-const links = {
-  partnerLink: "#TODO:ADD BE A PARTNER LINK",
-  telegramLink: "https://t.me/+THVRcBRhyWc5OWY0",
-  instagramLink:
-    "https://www.instagram.com/nail_moment_pl?igsh=YWZpY2JjOTFueXc5",
-  phoneNumber: "662 412 456",
-  email: "Nail.moment.wroclaw@gmail.com",
-};
+import { Adress } from "@/entities/blocks/adress";
 
 const speakers = {
   belmas: {
@@ -35,18 +22,19 @@ const speakers = {
   },
   ragoza: {
     name: "Ангеліна Рагоза",
-    image: "/speakers/speaker.png",
+    image: "/speakers/ragoza.png",
     description: "Як продавати через Лайв",
   },
   zozylia: {
     name: "Олена Зозуля",
-    image: "/speakers/speaker.png",
+    image: "/speakers/zozylia.jpg",
     description: "Верхні форми",
   },
   mart: {
     name: "Надя Март",
-    image: "/speakers/speaker.png",
-    description: "Як продавати через Лайв",
+    image: "/speakers/mart.jpg",
+    description:
+      "Цифрова ера манікюру: як монетизувати з брендами мої таланти?",
   },
   browko: {
     name: "Діана Бровко",
@@ -136,58 +124,10 @@ const scheduleItems = [
 ];
 
 export default function Home() {
-  const [frequentlyQuestions, setFrequentlyQuestions] = useState([
-    {
-      title: "Як купити квиток?",
-      text: "Ви можете купити квиток через сайт - натиснути кнопку «Придбати», вибрати тариф та зробити оплату. Також, можна придбати квиток через дірект.",
-      isActive: false,
-    },
-    {
-      title: "Як отримати фактуру?",
-      text: "Щоб отримати фактуру напишіть нам в дірект ✨",
-      isActive: false,
-    },
-    {
-      title: "Яке місце проведення фестивалю?",
-      text: `map`,
-      isActive: false,
-    },
-    {
-      title:
-        "Як я можу прийняти участь в конкурсі «Найліпший Френч», «Корейський дизайн»?",
-      text: `Купи квиток на фестиваль Nail Moment & Nail of The Day. 
-              На сайті заповни анкету під конкурсом в якому хочеш прийняти участь. 
-              В день фестивалю на першій перерві підійди до столів з конкурсу та назви своє імʼя та прізвище. 
-              Можете взяти з собою свій пензлик для комфортної роботи ✨
-            `,
-      isActive: false,
-    },
-    {
-      title:
-        "Чи потрібно реєструватися щоб взяти участь у конкурсі «Найліпший Френч» та «Корейский дизайн»?",
-      text: "Так, що прийняти участь у конкурсі «Найліпший Френч» та «Корейский дизайн» треба зареєструватися на сайті.",
-      isActive: false,
-    },
-    {
-      title:
-        "Я купив(ла) квиток, але змінилися плани і я хочу повернути кошти. Як я можу це зробити?",
-      text: "Повернення квитка можливе протягом 14 днів з моменту оплати квитка. Також, ми лишаємо за вами право на перепродаж квитка",
-      isActive: false,
-    },
-  ]);
-
-  const onAccordionClick = (index: number) => {
-    setFrequentlyQuestions((prevQuestions) =>
-      prevQuestions.map((question, i) =>
-        i === index ? { ...question, isActive: !question.isActive } : question
-      )
-    );
-  };
-
   return (
     <>
       <Hero
-        date="15 жовтня"
+        date="13 жовтня"
         location="Jozefa Szanajcy 17/19, 03-481 Warszawa"
         mapUrl="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
       />
@@ -201,9 +141,15 @@ export default function Home() {
       <Partners />
       <FAQ />
       <Summary
-        date="15 жовтня"
+        date="13 жовтня"
         location="Jozefa Szanajcy 17/19, 03-481 Warszawa"
         mapUrl="https://maps.app.goo.gl/q2zzTENBh3TEw8Jx9"
+      />
+
+      <Adress
+        location="Jozefa Szanajcy 17/19, 03-481 Warszawa"
+        mapUrl="https://goo.gl/maps/xyz123"
+        iframeSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.8578951331633!2d21.02569855860169!3d52.26412550000783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc16560d5e8b%3A0x9376b884b993af61!2sJ%C3%B3zefa%20Szanajcy%2017%2F19%2C%2003-481%20Warszawa!5e0!3m2!1spl!2spl!4v1723571875617!5m2!1spl!2spl"
       />
       <Footer
         companyInfo={{

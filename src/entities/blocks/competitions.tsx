@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, useInView } from "framer-motion";
 import { SectionTitle } from "@/shared/ui/section-title";
 import { RegisterEvent } from "@/shared/ui/register-event";
 
@@ -15,6 +16,9 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({
   description,
   color,
 }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
   const bgColor = color === "pink" ? "bg-accent-pink" : "bg-accent-green";
   const textColor =
     color === "pink"
@@ -22,8 +26,13 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({
       : "text-accent-green-foreground";
 
   return (
-    <div
+    <motion.div
+      ref={ref}
       className={`flex flex-col gap-8 basis-1/2 justify-start rounded-xl ${bgColor} px-5 py-9`}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
     >
       <h3
         className={`${textColor} w-full uppercase text-xl font-travels font-bold inline-flex justify-between items-center`}
@@ -37,10 +46,10 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({
         {description}
       </div>
       <RegisterEvent color={color === "pink" ? "white" : "black"} />
-      <a href="/rules" className="block mx-auto">
+      <a href="/rules" className={"block text-black mx-auto"}>
         Умови участі
       </a>
-    </div>
+    </motion.div>
   );
 };
 

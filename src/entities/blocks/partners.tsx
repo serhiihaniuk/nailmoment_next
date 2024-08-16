@@ -46,24 +46,6 @@ export const Partners: React.FC = () => {
               />
             </div>
           ))}
-          <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]">
-            <svg
-              width="33"
-              height="33"
-              viewBox="0 0 33 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="16.6333"
-                y1="2.18557e-08"
-                x2="16.6333"
-                y2="33"
-                stroke="white"
-              />
-              <line x1="33" y1="17" x2="-4.37114e-08" y2="17" stroke="white" />
-            </svg>
-          </div>
         </div>
         <a
           href={partnerLink}
