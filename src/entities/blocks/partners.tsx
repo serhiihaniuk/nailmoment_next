@@ -22,6 +22,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
+import { LoaderIcon } from "lucide-react";
 
 type Partner = {
   image: string;
@@ -44,6 +45,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export const Partners: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -74,6 +76,7 @@ export const Partners: React.FC = () => {
   const onSubmit = async (data: FormValues) => {
     try {
       // Replace with your actual API endpoint
+      setIsLoading(true);
       const response = await fetch(
         "https://dashboard.nailmoment.pl/api/partner-request",
         {
@@ -93,6 +96,8 @@ export const Partners: React.FC = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -227,7 +232,15 @@ export const Partners: React.FC = () => {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full">
+                    <Button
+                      disabled={isLoading}
+                      type="submit"
+                      className="w-full"
+                    >
+                      <LoaderIcon
+                        size={12}
+                        className="animate-spin h-5 w-5 mr-2"
+                      />{" "}
                       НАДІСЛАТИ
                     </Button>
                   </form>
