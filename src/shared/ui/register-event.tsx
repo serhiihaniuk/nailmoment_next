@@ -29,10 +29,11 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
+import { LoaderIcon } from "lucide-react";
 
 const formSchema = z.object({
-  firstName: z.string().min(2, "Ім'я повинно містити мінімум 2 символи"),
-  lastName: z.string().min(2, "Прізвище повинно містити мінімум 2 символи"),
+  first_name: z.string().min(2, "Ім'я повинно містити мінімум 2 символи"),
+  last_name: z.string().min(2, "Прізвище повинно містити мінімум 2 символи"),
   phone: z.number().min(9, "Введіть коректний номер телефону"),
   email: z.string().email("Введіть коректну email адресу"),
   instagram: z.string().min(1, "Введіть ваш Instagram"),
@@ -43,11 +44,12 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function RegisterEvent({ color }: { color: string }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       phone: undefined,
       email: "",
       instagram: "",
@@ -56,15 +58,19 @@ export function RegisterEvent({ color }: { color: string }) {
   });
 
   const onSubmit = async (data: FormValues) => {
+    setIsLoading(true);
     try {
       // Replace with your actual API endpoint
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://dashboard.nailmoment.pl/api/concurs",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         setIsSubmitted(true);
@@ -75,6 +81,7 @@ export function RegisterEvent({ color }: { color: string }) {
     } catch (error) {
       console.error("Error:", error);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -100,7 +107,7 @@ export function RegisterEvent({ color }: { color: string }) {
                 <div className="grid grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="first_name"
                     render={({ field }) => (
                       <FormItem>
                         <Label>Ім&apos;я</Label>
@@ -113,7 +120,7 @@ export function RegisterEvent({ color }: { color: string }) {
                   />
                   <FormField
                     control={form.control}
-                    name="lastName"
+                    name="last_name"
                     render={({ field }) => (
                       <FormItem>
                         <Label>Прізвище</Label>
@@ -194,6 +201,12 @@ export function RegisterEvent({ color }: { color: string }) {
                   )}
                 />
                 <Button type="submit" className="w-full">
+                  {isLoading && (
+                    <LoaderIcon
+                      size={12}
+                      className="animate-spin h-5 w-5 mr-2"
+                    />
+                  )}{" "}
                   РЕЄСТРАЦІЯ
                 </Button>
               </form>
