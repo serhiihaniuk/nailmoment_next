@@ -32,12 +32,12 @@ type Partner = {
 };
 
 const formSchema = z.object({
-  fullName: z
+  full_name: z
     .string()
     .min(2, "Ім'я та прізвище повинні містити мінімум 2 символи"),
   phone: z.string().min(9, "Введіть коректний номер телефону"),
   email: z.string().email("Введіть коректну email адресу"),
-  brandName: z.string().min(1, "Введіть назву бренду"),
+  brand_name: z.string().min(1, "Введіть назву бренду"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -47,10 +47,10 @@ export const Partners: React.FC = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
+      full_name: "",
       phone: "",
       email: "",
-      brandName: "",
+      brand_name: "",
     },
   });
 
@@ -74,13 +74,16 @@ export const Partners: React.FC = () => {
   const onSubmit = async (data: FormValues) => {
     try {
       // Replace with your actual API endpoint
-      const response = await fetch("/api/become-sponsor", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://dashboard.nailmoment.pl/api/partner-request",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         setIsSubmitted(true);
@@ -170,7 +173,7 @@ export const Partners: React.FC = () => {
                   >
                     <FormField
                       control={form.control}
-                      name="fullName"
+                      name="full_name"
                       render={({ field }) => (
                         <FormItem>
                           <Label>Ім&apos;я та прізвище</Label>
@@ -213,7 +216,7 @@ export const Partners: React.FC = () => {
                     />
                     <FormField
                       control={form.control}
-                      name="brandName"
+                      name="brand_name"
                       render={({ field }) => (
                         <FormItem>
                           <Label>Назва бренду</Label>
