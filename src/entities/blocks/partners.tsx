@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -27,6 +28,7 @@ type Partner = {
   alt: string;
   width: number;
   height: number;
+  url: string;
 };
 
 const formSchema = z.object({
@@ -58,12 +60,14 @@ export const Partners: React.FC = () => {
       alt: "Partner 1",
       width: 74,
       height: 100,
+      url: "https://partner1-website.com",
     },
     {
       image: "/assets/partners-2.png",
       alt: "Partner 2",
       width: 80,
       height: 100,
+      url: "https://partner2-website.com",
     },
   ];
 
@@ -94,9 +98,12 @@ export const Partners: React.FC = () => {
       <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
         <div className="flex gap-2.5 md:justify-center md:gap-8">
           {partners.map((partner, index) => (
-            <div
+            <Link
               key={index}
-              className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]"
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80"
             >
               <Image
                 src={partner.image}
@@ -105,26 +112,8 @@ export const Partners: React.FC = () => {
                 height={partner.height}
                 className="w-auto"
               />
-            </div>
+            </Link>
           ))}
-          <div className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px]">
-            <svg
-              width="33"
-              height="33"
-              viewBox="0 0 33 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="16.6333"
-                y1="2.18557e-08"
-                x2="16.6333"
-                y2="33"
-                stroke="white"
-              />
-              <line x1="33" y1="17" x2="-4.37114e-08" y2="17" stroke="white" />
-            </svg>
-          </div>
         </div>
         <Dialog>
           <DialogTrigger asChild>

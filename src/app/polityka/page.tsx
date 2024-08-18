@@ -1,8 +1,15 @@
+import Link from "next/link";
 import React from "react";
 
 const Page = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-900 to-slate-900 py-12 px-4 sm:px-6 lg:px-8">
+      <Link
+        href="/"
+        className="text-lg block mb-4 text-center font-normal text-primary-foreground"
+      >
+        {"< Назад"}
+      </Link>
       <div className="max-w-3xl mx-auto bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-xl overflow-hidden">
         <div className="p-8">
           <h1 className="text-4xl font-bold text-white mb-8 border-b border-indigo-300 pb-4">
