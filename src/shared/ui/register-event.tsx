@@ -75,7 +75,6 @@ export function RegisterEvent({ color }: { color: string }) {
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        // Handle error
         console.error("Submission failed");
       }
     } catch (error) {
