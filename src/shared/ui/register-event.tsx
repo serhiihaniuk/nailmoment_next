@@ -33,7 +33,7 @@ import {
 const formSchema = z.object({
   firstName: z.string().min(2, "Ім'я повинно містити мінімум 2 символи"),
   lastName: z.string().min(2, "Прізвище повинно містити мінімум 2 символи"),
-  phone: z.string().min(9, "Введіть коректний номер телефону"),
+  phone: z.number().min(9, "Введіть коректний номер телефону"),
   email: z.string().email("Введіть коректну email адресу"),
   instagram: z.string().min(1, "Введіть ваш Instagram"),
   category: z.string().min(1, "Оберіть вид змагання"),
@@ -48,7 +48,7 @@ export function RegisterEvent({ color }: { color: string }) {
     defaultValues: {
       firstName: "",
       lastName: "",
-      phone: "",
+      phone: undefined,
       email: "",
       instagram: "",
       category: "1",

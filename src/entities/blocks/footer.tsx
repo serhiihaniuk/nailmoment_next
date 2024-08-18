@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer className="px-4 pt-14 pb-7 max-w-[700px] mx-auto">
       <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
-        <div className="flex flex-col gap-4 justify-start mb-6 md:flex-row">
+        <div className="flex flex-col gap-4 justify-start md:flex-row">
           <div className="w-full">
             <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
               дані компанії
@@ -114,7 +114,7 @@ export const Footer: React.FC<FooterProps> = ({
               </a>
             </div>
           </div>
-          <div className="w-full border-y-[1px] border-y-[#4C4C4C] py-10 md:hidden">
+          <div className="w-full border-y-[1px] flex flex-col gap-2 items-center justify-start border-y-[#4C4C4C] py-2 md:hidden">
             <Link
               href="#"
               className="text-lg text-center font-normal text-primary-foreground"
@@ -129,13 +129,22 @@ export const Footer: React.FC<FooterProps> = ({
             </Link>
           </div>
         </div>
-        <div className="md:flex md:items-center md:justify-between md:border-t-[1px] md:border-t-[#4C4C4C] pt-5">
+        <div className="flex items-center flex-col gap-2 justify-between md:border-t-[1px] md:border-t-[#4C4C4C] pt-2">
           <p className="text-center text-primary-foreground text-lg">
             ©{new Date().getFullYear()} Всі права захищено
           </p>
-          <p className="hidden text-lg text-center font-normal text-primary-foreground md:block">
+          <Link
+            href="#"
+            className="hidden text-lg text-center font-normal text-primary-foreground md:block"
+          >
             Договір оферти
-          </p>
+          </Link>
+          <Link
+            href="/polityka"
+            className="hidden text-lg text-center font-normal text-primary-foreground md:block"
+          >
+            Polityka prywatności
+          </Link>
         </div>
       </div>
     </footer>

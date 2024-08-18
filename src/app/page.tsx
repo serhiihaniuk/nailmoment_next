@@ -38,7 +38,7 @@ const speakers = {
   },
   browko: {
     name: "Діана Бровко",
-    image: "/speakers/speaker.png",
+    image: "/speakers/di.jpg",
     description: "Я знімаю відео. А що далі?",
   },
   sulima: {
