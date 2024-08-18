@@ -116,12 +116,6 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
           <div className="w-full border-y-[1px] flex flex-col gap-2 items-center justify-start border-y-[#4C4C4C] py-2 md:hidden">
             <Link
-              href="#"
-              className="text-lg text-center font-normal text-primary-foreground"
-            >
-              Договір оферти
-            </Link>
-            <Link
               href="/polityka"
               className="text-lg text-center font-normal text-primary-foreground"
             >
@@ -133,12 +127,6 @@ export const Footer: React.FC<FooterProps> = ({
           <p className="text-center text-primary-foreground text-lg">
             ©{new Date().getFullYear()} Всі права захищено
           </p>
-          <Link
-            href="#"
-            className="hidden text-lg text-center font-normal text-primary-foreground md:block"
-          >
-            Договір оферти
-          </Link>
           <Link
             href="/polityka"
             className="hidden text-lg text-center font-normal text-primary-foreground md:block"
