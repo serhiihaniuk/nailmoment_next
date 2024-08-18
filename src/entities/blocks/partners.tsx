@@ -237,10 +237,12 @@ export const Partners: React.FC = () => {
                       type="submit"
                       className="w-full"
                     >
-                      <LoaderIcon
-                        size={12}
-                        className="animate-spin h-5 w-5 mr-2"
-                      />{" "}
+                      {isLoading && (
+                        <LoaderIcon
+                          size={12}
+                          className="animate-spin h-5 w-5 mr-2"
+                        />
+                      )}{" "}
                       НАДІСЛАТИ
                     </Button>
                   </form>
