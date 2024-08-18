@@ -1,5 +1,6 @@
 import React from "react";
 import { SectionTitle } from "@/shared/ui/section-title";
+import Link from "next/link";
 
 type FooterProps = {
   companyInfo: {
@@ -114,12 +115,18 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
           <div className="w-full border-y-[1px] border-y-[#4C4C4C] py-10 md:hidden">
-            <p className="text-lg text-center font-normal text-primary-foreground">
+            <Link
+              href="#"
+              className="text-lg text-center font-normal text-primary-foreground"
+            >
               Договір оферти
-            </p>
-            <div className="flex justify-center gap-4">
-              {/* Mobile social icons */}
-            </div>
+            </Link>
+            <Link
+              href="/polityka"
+              className="text-lg text-center font-normal text-primary-foreground"
+            >
+              Polityka prywatności
+            </Link>
           </div>
         </div>
         <div className="md:flex md:items-center md:justify-between md:border-t-[1px] md:border-t-[#4C4C4C] pt-5">
