@@ -44,9 +44,11 @@ export const Footer: React.FC<FooterProps> = ({
             <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
               Контактна точка
             </SectionTitle>
-            <p className="font-normal flex items-center justify-start gap-2 text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
-              <Mail size={12} />{" "}
-              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>{" "}
+            <p className="font-normal flex items-center justify-center md:justify-start gap-2 text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
+              <Mail size={12} />
+              <a href={`mailto:${contactInfo.email}`}>
+                {contactInfo.email}
+              </a>{" "}
             </p>
           </div>
           <div className="w-full flex flex-col">
