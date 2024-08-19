@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { TicketButton } from "@/shared/ui/ticket-button";
+
+const images = [
+  "/speakers/t/1.PNG",
+  "/speakers/t/2.PNG",
+  "/speakers/t/3.PNG",
+  "/speakers/t/4.PNG",
+  "/speakers/t/5.PNG",
+  "/speakers/t/6.PNG",
+  "/speakers/t/7.PNG",
+];
 
 type HeroProps = {
   date: string;
@@ -9,15 +19,13 @@ type HeroProps = {
   mapUrl: string;
 };
 
-const TOTAL_IMAGES = 7;
-
 export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % TOTAL_IMAGES);
-    }, 2550); // Change image every 1.75 seconds
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2550); // Change image every 2.55 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -25,28 +33,28 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
   return (
     <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[820px] md:h-lvh">
       <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:border-b md:border-b-gray-800 md:flex md:flex-col">
-        <AnimatePresence mode="wait">
+        {/* Multiple Image Components */}
+        {images.map((src, index) => (
           <motion.div
-            key={currentImageIndex}
+            key={index}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.875 }} // Half of the interval for smooth transition
-            className="absolute bottom-0 w-full z-0 h-[500px] md:h-auto left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]"
+            animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
+            transition={{ duration: 0.875 }}
+            className={`absolute bottom-0 w-full z-0 h-[500px] md:h-auto left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]`}
+            style={{ display: currentImageIndex === index ? "block" : "none" }}
           >
             <Image
-              src={`/speakers/t/${currentImageIndex + 1}.PNG`}
-              alt={`Speaker ${currentImageIndex + 1}`}
+              src={src}
+              alt={`Speaker ${index + 1}`}
               width={2000}
               height={2000}
               quality={100}
               className="object-contain object-center"
-              priority={currentImageIndex === 0}
+              priority={index === 0} // Priority for the first image
             />
           </motion.div>
-        </AnimatePresence>
+        ))}
 
-        {/* Rest of the component remains the same */}
         <motion.div
           className="flex font-asteriks flex-col gap-2 relative z-10 md:gap-0 md:mb-16"
           initial={{ opacity: 0, y: -20 }}
