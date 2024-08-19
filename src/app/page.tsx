@@ -22,7 +22,7 @@ const speakers = {
   },
   ragoza: {
     name: "Ангеліна Рагоза",
-    image: "/speakers/ragoza.png",
+    image: "/speakers/ragoza.jpg",
     description: "Як продавати через Лайв",
   },
   zozylia: {

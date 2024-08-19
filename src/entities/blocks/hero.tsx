@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2550); // Change image every 2.55 seconds
+    }, 1800);
 
     return () => clearInterval(interval);
   }, []);
