@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { SectionTitle } from "@/shared/ui/section-title";
 import { cn } from "@/shared/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
-import { SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "@/shared/ui/link";
 
 type FAQItem = {
@@ -10,7 +9,7 @@ type FAQItem = {
   content: React.ReactNode;
 };
 
-const directLink = "https://instagram.com/direct/t/17845724366996507";
+const directLink = "https://www.instagram.com/nail_moment_pl";
 
 const FAQItem: React.FC<
   FAQItem & { index: number; isActive: boolean; onClick: () => void }
