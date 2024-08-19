@@ -17,7 +17,7 @@ const FAQItem: React.FC<
   <div
     className={cn(
       "border-t-[1px] border-t-[#4C4C4C] py-5 cursor-pointer select-none",
-      index === 0 && "border-t-0"
+      index === 0 && "border-t-0",
     )}
     onClick={onClick}
   >
@@ -57,7 +57,7 @@ export const FAQ: React.FC = () => {
 
   const toggleQuestion = (index: number) => {
     setActiveIndices((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
@@ -130,8 +130,8 @@ export const FAQ: React.FC = () => {
       content: (
         <>
           <p className="py-2">
-            Ви можете повернути квиток. Для цього потрібно оформити заявку на
-            повернення через{" "}
+            Ви можете повернути квиток протягом 14 днів від моменту оплати. Для
+            цього потрібно оформити заявку на повернення через{" "}
             <Link href={directLink}>повідомлення в Інстаграм</Link>. Сума
             повернення визначається за тим, коли покупець заповнив заявку на
             повернення:
