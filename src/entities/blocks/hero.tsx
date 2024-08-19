@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
               height={2000}
               quality={100}
               className="object-contain object-center"
-              priority={index === 0} // Priority for the first image
+              priority
             />
           </motion.div>
         ))}
