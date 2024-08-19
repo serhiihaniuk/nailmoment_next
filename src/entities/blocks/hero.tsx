@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { TicketButton } from "@/shared/ui/ticket-button";
 
 type HeroProps = {
@@ -9,25 +9,44 @@ type HeroProps = {
   mapUrl: string;
 };
 
+const TOTAL_IMAGES = 7;
+
 export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % TOTAL_IMAGES);
+    }, 2550); // Change image every 1.75 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[620px] md:h-lvh">
+    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[820px] md:h-lvh">
       <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:border-b md:border-b-gray-800 md:flex md:flex-col">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <Image
-            src="/assets/hero.png"
-            aria-hidden="true"
-            alt="Background"
-            width={2000}
-            height={2000}
-            quality={100}
-            className="absolute bottom-0 z-0 object-contain object-center left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]"
-          />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.875 }} // Half of the interval for smooth transition
+            className="absolute bottom-0 w-full z-0 h-[500px] md:h-auto left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]"
+          >
+            <Image
+              src={`/speakers/t/${currentImageIndex + 1}.PNG`}
+              alt={`Speaker ${currentImageIndex + 1}`}
+              width={2000}
+              height={2000}
+              quality={100}
+              className="object-contain object-center"
+              priority={currentImageIndex === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Rest of the component remains the same */}
         <motion.div
           className="flex font-asteriks flex-col gap-2 relative z-10 md:gap-0 md:mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -44,6 +63,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
             {location}
           </a>
         </motion.div>
+
         <motion.h1
           className="w-[282px] flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10 md:w-[600px] md:my-auto"
           initial={{ opacity: 0, x: -30 }}
@@ -79,6 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
             <br /> OF THE DAY
           </motion.span>
         </motion.h1>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

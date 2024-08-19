@@ -1,6 +1,7 @@
 import React from "react";
 import { SectionTitle } from "@/shared/ui/section-title";
 import Link from "next/link";
+import { Mail } from "lucide-react";
 
 type FooterProps = {
   companyInfo: {
@@ -43,14 +44,9 @@ export const Footer: React.FC<FooterProps> = ({
             <SectionTitle className="w-full px-4 mb-2 md:text-start md:p-0">
               Контактна точка
             </SectionTitle>
-            <p className="font-normal text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
-              Nail Moment <br />
-              {contactInfo.phone} <br />
-              <br />
-              <a href={`mailto:${contactInfo.email}`}>
-                {contactInfo.email}
-              </a>{" "}
-              <br />
+            <p className="font-normal flex items-center justify-start gap-2 text-base text-primary-foreground opacity-80 text-center mb-7 md:text-start">
+              <Mail size={12} />{" "}
+              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>{" "}
             </p>
           </div>
           <div className="w-full flex flex-col">
@@ -60,14 +56,7 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="font-normal text-base text-primary-foreground opacity-80 text-center mb-2 md:text-start">
               Якщо виникли питання, пишіть на:
             </p>
-            <a
-              href={`tel:${contactInfo.phone}`}
-              className="font-bold text-base text-primary-foreground text-center mb-7 md:text-start"
-            >
-              {contactInfo.phone}
-            </a>
-
-            <div className="justify-start gap-4 mx-auto flex">
+            <div className="justify-center md:justify-start gap-4 flex">
               <a
                 href={socialLinks.instagram}
                 className="opacity-50 transition-all hover:opacity-100"

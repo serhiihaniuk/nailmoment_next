@@ -17,7 +17,7 @@ import { Adress } from "@/entities/blocks/adress";
 const speakers = {
   belmas: {
     name: "Юлія Бельмас",
-    image: "/speakers/speaker.png",
+    image: "/speakers/belmas.jpg",
     description: "Факапи викладача та власника салону в Польщі",
   },
   ragoza: {
@@ -159,7 +159,7 @@ export default function Home() {
           regon: "529210914",
         }}
         contactInfo={{
-          email: "Nail.moment.wroclaw@gmail.com",
+          email: "nail.moment.wroclaw@gmail.com",
           phone: "662 412 456",
         }}
         socialLinks={{
