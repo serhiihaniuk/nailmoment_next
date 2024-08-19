@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
   }, []);
 
   return (
-    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[820px] md:h-lvh">
+    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[720px] md:h-lvh">
       <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:border-b md:border-b-gray-800 md:flex md:flex-col">
         {/* Multiple Image Components */}
         {images.map((src, index) => (
