@@ -41,14 +41,13 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
             animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
             transition={{ duration: 0.875 }}
             className={`absolute bottom-0 w-full z-0 h-[500px] md:h-auto left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]`}
-            style={{ display: currentImageIndex === index ? "block" : "none" }}
           >
             <Image
               src={src}
               alt={`Speaker ${index + 1}`}
-              width={2000}
-              height={2000}
-              quality={100}
+              width={1000}
+              height={1000}
+              quality={80}
               className="object-contain object-center"
               priority
             />
