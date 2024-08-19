@@ -9,8 +9,8 @@ export const Speaker = ({
   description: string;
 }) => {
   return (
-    <div className="flex flex-col gap-1 text-center justify-start items-center lg:w-full">
-      <div className="rounded-full relative overflow-hidden w-[140px] h-[140px] lg:w-[260px] lg:h-[260px]">
+    <div className="flex flex-col gap-1 text-center justify-start items-center lg:w-full lg:gap-4">
+      <div className="rounded-full relative overflow-hidden w-[140px] h-[140px] lg:w-[200px] lg:h-[200px]">
         <Image
           src={image}
           width={140}
