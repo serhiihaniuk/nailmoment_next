@@ -18,7 +18,7 @@ type ScheduleProps = {
 export const Schedule: React.FC<ScheduleProps> = ({ scheduleItems }) => {
   return (
     <section className="px-4 py-14 max-w-[500px]">
-      <SectionTitle className="mb-5 md:mb-14">Программа</SectionTitle>
+      <SectionTitle className="mb-5 md:mb-14">Програма</SectionTitle>
       <div className="relative w-full h-full gap-4 flex flex-col md:max-w-[1120px] md:m-auto">
         {scheduleItems.map((item, index) =>
           item.type === "simple" ? (

@@ -56,7 +56,7 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({
 export const Competitions: React.FC = () => {
   return (
     <section className="px-4 py-14">
-      <SectionTitle className="mb-5 md:mb-14">Программа</SectionTitle>
+      <SectionTitle className="mb-5 md:mb-14">Конкурси</SectionTitle>
       <div className="relative w-full h-full gap-4 flex flex-col justify-start md:max-w-[1120px] md:m-auto md:flex-row md:gap-8">
         <CompetitionCard
           title="Найрівніший френч"
