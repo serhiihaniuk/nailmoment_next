@@ -10,6 +10,7 @@ type TicketOption = {
 type Ticket = {
   plan: string;
   price: string;
+  oldPrice: string;
   options: TicketOption[];
   paymentUrl: string;
 };
@@ -18,6 +19,7 @@ const tickets: Ticket[] = [
   {
     plan: "КВИТОК FAN",
     price: "359",
+    oldPrice: "429",
     options: [
       { value: "Місце в залі в категорії ФАН", type: "default" },
       { value: "Виступ спікерів", type: "default" },
@@ -29,6 +31,7 @@ const tickets: Ticket[] = [
   {
     plan: "КВИТОК VIP",
     price: "459",
+    oldPrice: "529",
     options: [
       { value: "Місце в залі в категорії ВІП", type: "default" },
       { value: "Виступ спікерів", type: "default" },
@@ -41,6 +44,7 @@ const tickets: Ticket[] = [
   {
     plan: "КВИТОК PREMIUM",
     price: "839",
+    oldPrice: "999",
     options: [
       { value: "Місце в залі в категорії ПРЕМІУМ", type: "default" },
       { value: "Виступ спікерів", type: "default" },
@@ -71,6 +75,7 @@ export const Tickets: React.FC = () => {
               key={index}
               plan={ticket.plan}
               price={ticket.price}
+              oldPrice={ticket.oldPrice}
               options={ticket.options}
               paymentUrl={ticket.paymentUrl}
             />
