@@ -29,7 +29,7 @@ export const TicketCard = ({
       <h3 className="text-accent-green text-3xl font-bold lg:text-4xl">
         {price} ZŁ
       </h3>
-      <div>Найнижча за останні 30 днів {price} ZŁ</div>
+      <div className="text-sm">Найнижча за останні 30 днів {price} ZŁ</div>
       <div className="relative mt-5 mb-6">
         <svg
           className="w-full h-full"
