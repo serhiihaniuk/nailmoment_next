@@ -49,7 +49,8 @@ const speakers = {
   zemlyanika: {
     name: "Ніка Землянікіна",
     image: "/speakers/zemlyanika.jpg",
-    description: "Алергії та хімія матеріалів",
+    description:
+      "Якість матеріалів, документація та безпечна робота з хімікатами.",
   },
 };
 
