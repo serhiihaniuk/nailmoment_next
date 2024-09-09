@@ -44,7 +44,7 @@ const speakers = {
   sulima: {
     name: "Юлі Суліма",
     image: "/speakers/sulima.jpg",
-    description: "Запуски онлайн курсів",
+    description: "Запуски онлайн продуктів: бізнес чи інфоциганство?",
   },
   zemlyanika: {
     name: "Ніка Землянікіна",
