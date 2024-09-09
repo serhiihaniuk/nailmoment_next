@@ -4,14 +4,12 @@ export const TicketCard = ({
   className,
   plan,
   price,
-  oldPrice,
   options,
   paymentUrl,
 }: {
   className?: string;
   plan: string;
   price: string;
-  oldPrice: string;
   options: { value: string; type: string }[];
   paymentUrl?: string;
 }) => {
@@ -25,11 +23,9 @@ export const TicketCard = ({
       <h3 className="text-primary-foreground text-2xl font-semibold lg:text-3xl">
         {plan}
       </h3>
-      <div className="line-through font-bold font-travels">{oldPrice} ZŁ</div>
       <h3 className="text-accent-green text-3xl font-bold lg:text-4xl">
         {price} ZŁ
       </h3>
-      <div className="text-sm">Найнижча за останні 30 днів {price} ZŁ</div>
       <div className="relative mt-5 mb-6">
         <svg
           className="w-full h-full"
