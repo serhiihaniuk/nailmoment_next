@@ -26,7 +26,7 @@ const tickets: Ticket[] = [
       { value: "Нетворкінг з учасниками", type: "default" },
       { value: "Закритий телеграм канал з учасниками", type: "default" },
     ],
-    paymentUrl: "https://buy.stripe.com/5kA5mk0z51wlaOY5l2",
+    paymentUrl: "https://buy.stripe.com/6oE8yw1D9b6Ve1a9Bv",
   },
   {
     plan: "КВИТОК VIP",
@@ -39,7 +39,7 @@ const tickets: Ticket[] = [
       { value: "Закритий телеграм канал з учасниками", type: "default" },
       { value: "Презентації від спікерів", type: "premium" },
     ],
-    paymentUrl: "https://buy.stripe.com/fZe1640z55MB7CM28R",
+    paymentUrl: "https://buy.stripe.com/cN27us6Xtfnb0akaFy",
   },
   {
     plan: "КВИТОК PREMIUM",
@@ -55,7 +55,7 @@ const tickets: Ticket[] = [
       { value: "Нетворкінг зі спікерами", type: "premium" },
       { value: "Окрема стійка реєстрації", type: "premium" },
     ],
-    paymentUrl: "https://buy.stripe.com/9AQcOM81x0sh1eo3cW",
+    paymentUrl: "https://buy.stripe.com/00gdSQ2Hd2Ap5uEbJB",
   },
 ];
 
