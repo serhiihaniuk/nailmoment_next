@@ -46,7 +46,7 @@ const ConferenceInfo = () => {
           </p>
         </div>
         <div className="text-center">
-          <p className="mb-4">До зустрічі на Nail Moment 2023!</p>
+          <p className="mb-4">До зустрічі на Nail Moment 2024!</p>
           <p className="text-sm text-gray-400">З повагою,</p>
           <p className="text-sm text-gray-400">Організатори конференції.</p>
         </div>
