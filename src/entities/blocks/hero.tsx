@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TicketButton } from "@/shared/ui/ticket-button";
+import { Link } from "@/shared/ui/link";
 
 const images = [
   "/speakers/t/1.PNG",
@@ -31,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
   }, []);
 
   return (
-    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[720px] md:h-lvh">
+    <section className="px-4 pt-6 lines-1 relative bg-contain bg-center bg-no-repeat h-[780px] md:h-lvh">
       <div className="relative w-full h-full md:max-w-[1120px] md:m-auto md:border-b md:border-b-gray-800 md:flex md:flex-col">
         {/* Multiple Image Components */}
         {images.map((src, index) => (
@@ -53,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
                 priority
               />
               {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-black via-black to-transparent" />
+              <div className="absolute bottom-0 left-0 w-full h-[20%] bg-gradient-to-t from-black to-transparent" />
             </div>
           </motion.div>
         ))}
@@ -72,6 +73,13 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
             className="text-primary-foreground-muted text-xs md:text-lg"
           >
             {location}
+          </a>
+          <a
+            className="block bg-accent-green text-black w-max font-travels uppercase px-4 py-2 rounded-md font-bold place-items-center leading-none text-sm mt-2"
+            target="_blank"
+            href="https://buy.stripe.com/3cseWU3Lh3Et0akdRC"
+          >
+            Зарезервувати місце
           </a>
         </motion.div>
 
