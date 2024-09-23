@@ -81,6 +81,14 @@ export const Tickets: React.FC = () => {
           ))}
         </div>
       </div>
+
+      <a
+        className="block mx-auto bg-accent-pink text-white w-max font-travels uppercase px-4 py-2 rounded-md font-bold place-items-center leading-none text-sm mt-2"
+        target="_blank"
+        href="https://buy.stripe.com/3cseWU3Lh3Et0akdRC"
+      >
+        Зарезервувати місце
+      </a>
     </section>
   );
 };
