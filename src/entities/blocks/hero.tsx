@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TicketButton } from "@/shared/ui/ticket-button";
-import { Link } from "@/shared/ui/link";
 
 const images = [
   "/speakers/t/1.PNG",
@@ -43,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
             transition={{ duration: 0.875 }}
             className={`absolute bottom-0 w-full z-0 h-[500px] md:h-auto left-1/2 -translate-x-1/2 border-b border-b-gray-800 md:border-0 md:left-auto md:right-[40px] md:w-[600px] md:-translate-x-[0]`}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full pl-8">
               <Image
                 src={src}
                 alt={`Speaker ${index + 1}`}
@@ -54,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
                 priority
               />
               {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-[20%] bg-gradient-to-t from-black to-transparent" />
+              <div className="absolute bottom-0 z-10 left-0 w-full h-[20%] bg-gradient-to-t from-black via-black to-transparent" />
             </div>
           </motion.div>
         ))}
@@ -74,62 +73,49 @@ export const Hero: React.FC<HeroProps> = ({ date, location, mapUrl }) => {
           >
             {location}
           </a>
-          <a
-            className="block bg-accent-green text-black w-max font-travels uppercase px-4 py-2 rounded-md font-bold place-items-center leading-none text-sm mt-2"
-            target="_blank"
-            href="https://buy.stripe.com/3cseWU3Lh3Et0akdRC"
-          >
-            Зарезервувати місце
-          </a>
         </motion.div>
 
         <motion.h1
-          className="w-[282px] flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10 md:w-[600px] md:my-auto"
+          className="w-full flex flex-col gap-2 text-primary-foreground mt-6 text-start relative z-10 md:w-[600px] md:my-auto"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
+          <span className="font-travels uppercase font-bold leading-6 text-white text-2xl md:text-3xl">
+            <span className="text-base"> Встигни стати учасницею </span>{" "}
+            наймасштабнішого{" "}
+            <span className="text-base">фестивалю для майстрів манікюру </span>
+          </span>
           <motion.span
-            className="text-3xl w-min leading-10 font-travels font-bold md:text-7xl"
+            className="text-md  leading-10 font-travels font-bold md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            NAIL MOMENT
+            NAIL MOMENT <span className="text-accent-pink">&</span> NAILS OF THE
+            DAY
           </motion.span>
-          <motion.span
-            className="text-center inline-flex text-accent-pink gap-3 items-center md:items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <span className="text-3xl font-travels md:text-7xl ">&</span>
-            <span className="text-base font-asteriks text-nowrap">
-              Перший фестиваль-коллаборація
-            </span>
-          </motion.span>
-          <motion.span
-            className="text-3xl w-64 leading-10 font-bold font-travels md:text-7xl md:w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
-            NAILS
-            <br /> OF THE DAY
-          </motion.span>
+          <span className="text-accent-pink font-travels text-base text-nowrap">
+            Перший фестиваль-коллаборація
+          </span>
         </motion.h1>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
+          className="flex justify-center items-center gap-2 absolute bottom-12  left-1/2 -translate-x-1/2 md:right-[80px] md:left-auto flex-col w-72"
         >
-          <TicketButton
-            href="#tickets"
-            className="mx-auto absolute bottom-12 -rotate-[13deg] left-1/2 -translate-x-1/2 md:right-[80px] md:left-auto"
-          >
+          <TicketButton href="#tickets" className="mx-auto ">
             Придбати
           </TicketButton>
+          <a
+            className="block bg-accent-pink text-white w-max font-travels uppercase px-4 py-2 rounded-md font-bold place-items-center leading-none text-sm mt-2"
+            target="_blank"
+            href="https://buy.stripe.com/3cseWU3Lh3Et0akdRC"
+          >
+            Зарезервувати місце
+          </a>
         </motion.div>
       </div>
     </section>

@@ -71,6 +71,27 @@ export const Partners: React.FC = () => {
       height: 100,
       url: "https://partner2-website.com",
     },
+    {
+      image: "/assets/partners-3.png",
+      alt: "Partner 3",
+      width: 80,
+      height: 100,
+      url: "https://partner3-website.com",
+    },
+    {
+      image: "/assets/partners-4.png",
+      alt: "Partner 4",
+      width: 80,
+      height: 100,
+      url: "https://partner4-website.com",
+    },
+    {
+      image: "/assets/partners-5.png",
+      alt: "Partner 5",
+      width: 80,
+      height: 100,
+      url: "https://partner5-website.com",
+    },
   ];
 
   const onSubmit = async (data: FormValues) => {
@@ -104,7 +125,7 @@ export const Partners: React.FC = () => {
     <section className="px-4 py-14">
       <SectionTitle className="w-full px-4 md:mb-6">Партнери</SectionTitle>
       <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
-        <div className="flex gap-2.5 md:justify-center md:gap-8">
+        <div className="grid grid-cols-2 gap-2.5 md:justify-center md:gap-8">
           {partners.map((partner, index) => (
             <Link
               key={index}

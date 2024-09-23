@@ -51,7 +51,7 @@ export const TicketButton = ({
       >
         <path
           d="M0 20C5.52285 20 10 15.5228 10 10C10 4.47715 5.52285 0 0 0V20Z"
-          fill={colorsBackground[color]}
+          fill="black"
         />
       </svg>
       <svg
@@ -64,7 +64,7 @@ export const TicketButton = ({
       >
         <path
           d="M10 0C4.47715 -4.82823e-07 1.35705e-06 4.47715 8.74228e-07 10C3.91405e-07 15.5228 4.47715 20 10 20L10 0Z"
-          fill={colorsBackground[color]}
+          fill="black"
         />
       </svg>
       <span
