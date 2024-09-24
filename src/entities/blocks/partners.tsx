@@ -79,14 +79,14 @@ export const Partners: React.FC = () => {
       url: "https://partner3-website.com",
     },
     {
-      image: "/assets/partners-4.png",
+      image: "/assets/partners-7.png",
       alt: "Partner 4",
       width: 80,
       height: 100,
       url: "https://partner4-website.com",
     },
     {
-      image: "/assets/partners-5.png",
+      image: "/assets/partners-6.png",
       alt: "Partner 5",
       width: 80,
       height: 100,
