@@ -124,7 +124,7 @@ export const Partners: React.FC = () => {
   return (
     <section className="px-4 py-14">
       <SectionTitle className="w-full px-4 md:mb-6">Партнери</SectionTitle>
-      <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-[1120px] md:m-auto">
+      <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-96 md:m-auto">
         <div className="grid grid-cols-2 gap-2.5 md:justify-center md:gap-8">
           {partners.map((partner, index) => (
             <Link
