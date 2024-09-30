@@ -9,7 +9,7 @@ const ConferenceInfo = () => {
           <p className="mb-4">
             Переходь в телеграм канал ⬇️ Там буде вся актуальна інформація
             <a
-              href="https://t.me/+NXNyzuGV84AxYzdk"
+              href="https://t.me/+eY5HI12CdhphZjg0"
               className="ml-2 inline-block text-blue-500 hover:text-blue-300"
             >
               Telegram Channel
