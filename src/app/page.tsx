@@ -42,7 +42,7 @@ const speakers = {
     description: "Я знімаю відео. А що далі?",
   },
   sulima: {
-    name: "Юлі Суліма",
+    name: "Юлі Сулима",
     image: "/speakers/sulima.jpg",
     description: "Запуски онлайн продуктів: бізнес чи інфоциганство?",
   },
