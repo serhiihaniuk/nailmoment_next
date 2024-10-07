@@ -172,27 +172,27 @@ export const Partners: React.FC = () => {
     <section className="px-4 py-14">
       <SectionTitle className="w-full px-4 md:mb-6">Партнери</SectionTitle>
       <div className="relative w-full h-full flex flex-col gap-4 justify-start md:max-w-96 md:m-auto">
-        <div className="grid grid-cols-2 gap-2.5 md:justify-center md:gap-8">
+        <div className="grid grid-cols-2 gap-5 md:justify-center md:gap-8">
           {partners.map((partner, index) => (
-            <Link
+            <div
               key={index}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
               className={cn(
-                "w-full px-2 h-[100px]a relative flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80",
+                "w-full p-2 h-[100px] relative flex items-center overflow-hidden justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80",
                 {
-                  "bg-gray-300": partner.lightBg,
+                  "bg-slate-400": partner.lightBg,
                 }
               )}
             >
-              <Image
-                src={partner.image}
-                alt={partner.alt}
-                width={partner.width}
-                height={partner.height}
-              />
-            </Link>
+              <div className="relative w-full h-full">
+                <Image
+                  src={partner.image}
+                  alt={partner.alt}
+                  width={partner.width}
+                  height={partner.height}
+                  className="absolute inset-0 h-full w-full object-contain"
+                />
+              </div>
+            </div>
           ))}
         </div>
         <Dialog>
