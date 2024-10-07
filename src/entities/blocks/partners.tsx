@@ -23,6 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { LoaderIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type Partner = {
   image: string;
@@ -30,6 +31,7 @@ type Partner = {
   width: number;
   height: number;
   url: string;
+  lightBg?: boolean;
 };
 
 const formSchema = z.object({
@@ -60,37 +62,82 @@ export const Partners: React.FC = () => {
     {
       image: "/assets/partners-1.png",
       alt: "Partner 1",
-      width: 74,
-      height: 100,
+      width: 200,
+      height: 200,
       url: "https://partner1-website.com",
     },
     {
       image: "/assets/partners-2.png",
       alt: "Partner 2",
-      width: 80,
-      height: 100,
+      width: 200,
+      height: 200,
       url: "https://partner2-website.com",
     },
     {
       image: "/assets/partners-3.png",
       alt: "Partner 3",
-      width: 80,
-      height: 100,
+      width: 200,
+      height: 200,
       url: "https://partner3-website.com",
     },
     {
       image: "/assets/partners-7.png",
       alt: "Partner 4",
-      width: 80,
-      height: 100,
+      width: 200,
+      height: 200,
       url: "https://partner4-website.com",
     },
     {
       image: "/assets/partners-6.png",
       alt: "Partner 5",
-      width: 80,
-      height: 100,
+      width: 200,
+      height: 200,
       url: "https://partner5-website.com",
+    },
+    {
+      image: "/assets/11.png",
+      alt: "Partner 4",
+      width: 200,
+      height: 200,
+      url: "https://partner4-website.com",
+      lightBg: true,
+    },
+    {
+      image: "/assets/12.png",
+      alt: "Partner 5",
+      width: 200,
+      height: 200,
+      url: "https://partner5-website.com",
+      lightBg: true,
+    },
+    {
+      image: "/assets/13.png",
+      alt: "Partner 6",
+      width: 200,
+      height: 200,
+      url: "https://partner6-website.com",
+      lightBg: true,
+    },
+    {
+      image: "/assets/14.png",
+      alt: "Partner 7",
+      width: 200,
+      height: 200,
+      url: "https://partner7-website.com",
+    },
+    {
+      image: "/assets/15.png",
+      alt: "Partner 7",
+      width: 200,
+      height: 200,
+      url: "https://partner7-website.com",
+    },
+    {
+      image: "/assets/16.png",
+      alt: "Partner 7",
+      width: 200,
+      height: 200,
+      url: "https://partner7-website.com",
     },
   ];
 
@@ -132,14 +179,18 @@ export const Partners: React.FC = () => {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full h-[100px] flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80"
+              className={cn(
+                "w-full px-2 h-[100px]a relative flex items-center justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80",
+                {
+                  "bg-gray-300": partner.lightBg,
+                }
+              )}
             >
               <Image
                 src={partner.image}
                 alt={partner.alt}
                 width={partner.width}
                 height={partner.height}
-                className="w-auto"
               />
             </Link>
           ))}
