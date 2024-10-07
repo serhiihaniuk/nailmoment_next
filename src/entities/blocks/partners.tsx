@@ -179,7 +179,7 @@ export const Partners: React.FC = () => {
               className={cn(
                 "w-full p-2 h-[100px] relative flex items-center overflow-hidden justify-center rounded-[20px] bg-primary md:max-w-[160px] md:h-[160px] transition-opacity hover:opacity-80",
                 {
-                  "bg-slate-400": partner.lightBg,
+                  "bg-[#969697]": partner.lightBg,
                 }
               )}
             >
