@@ -6,12 +6,14 @@ export const TicketCard = ({
   price,
   options,
   paymentUrl,
+  soldOut,
 }: {
   className?: string;
   plan: string;
   price: string;
   options: { value: string; type: string }[];
   paymentUrl?: string;
+  soldOut?: boolean;
 }) => {
   return (
     <div
@@ -92,9 +94,15 @@ export const TicketCard = ({
           </div>
         ))}
       </div>
-      <TicketButton href={paymentUrl} className="mx-auto mt-auto">
-        ПРИДБАТИ
-      </TicketButton>
+      {soldOut ? (
+        <div className="text-center text-primary-foreground text-lg font-bold mx-auto mt-auto">
+          SOLD OUT
+        </div>
+      ) : (
+        <TicketButton href={paymentUrl} className="mx-auto mt-auto">
+          ПРИДБАТИ
+        </TicketButton>
+      )}
     </div>
   );
 };

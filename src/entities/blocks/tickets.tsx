@@ -13,6 +13,7 @@ type Ticket = {
   oldPrice: string;
   options: TicketOption[];
   paymentUrl: string;
+  soldOut?: boolean;
 };
 
 const tickets: Ticket[] = [
@@ -39,6 +40,7 @@ const tickets: Ticket[] = [
       { value: "Закритий телеграм канал з учасниками", type: "default" },
       { value: "Презентації від спікерів", type: "premium" },
     ],
+    soldOut: true,
     paymentUrl: "https://buy.stripe.com/cN27us6Xtfnb0akaFy",
   },
   {
@@ -77,6 +79,7 @@ export const Tickets: React.FC = () => {
               price={ticket.price}
               options={ticket.options}
               paymentUrl={ticket.paymentUrl}
+              soldOut={ticket.soldOut}
             />
           ))}
         </div>
