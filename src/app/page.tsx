@@ -136,7 +136,7 @@ export default function Home() {
       <Speakers speakers={speakers} />
       <Schedule scheduleItems={scheduleItems} />
       <Competitions />
-      <Tickets />
+      {/*<Tickets />*/}
       <Gallery />
       <Testimonials />
       <Partners />
